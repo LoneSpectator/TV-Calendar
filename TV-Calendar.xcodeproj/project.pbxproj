@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C4F7D2E1B01F8CA00A65E1E /* EpisodeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */; };
+		5C4F7D2F1B01F8CA00A65E1E /* EpisodeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */; };
+		5C815CC41AEE839D00B0E9BA /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */; };
+		5C815CC51AEE839D00B0E9BA /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB81AEE839D00B0E9BA /* DailyCalendarView.m */; };
+		5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBA1AEE839D00B0E9BA /* DayTitleLabel.m */; };
+		5C815CC71AEE839D00B0E9BA /* NSDate+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBD1AEE839D00B0E9BA /* NSDate+CL.m */; };
+		5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBF1AEE839D00B0E9BA /* NSDictionary+CL.m */; };
+		5C815CC91AEE839D00B0E9BA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */; };
+		5C815CCA1AEE839D00B0E9BA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */; };
+		5C9BADE11AEB6A9900E9CE7C /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE01AEB6A9900E9CE7C /* Episode.m */; };
+		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
+		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
+		5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE91AEBD36F00E9CE7C /* User.m */; };
+		5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */; };
+		5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */; };
+		5CBBCEE71ADA6B3500A1F8EA /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */; };
+		5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */; };
+		5CBE29011ADA4F1000FB763E /* DailyEpisodesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */; };
+		5CBE54431AD5535800BF565B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54411AD5535800BF565B /* Main.storyboard */; };
+		5CBE54451AD5535800BF565B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54441AD5535800BF565B /* Images.xcassets */; };
+		5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54461AD5535800BF565B /* LaunchScreen.xib */; };
+		5CBE54541AD5535800BF565B /* TV_CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE54531AD5535800BF565B /* TV_CalendarTests.swift */; };
+		5CBE54C51AD556BA00BF565B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE54C41AD556BA00BF565B /* AppDelegate.m */; };
+		5CBE54C71AD5578A00BF565B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE54C61AD5578A00BF565B /* main.m */; };
+		5CBE67911AFDEC4F006383BE /* DailyEpisodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */; };
+		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CBE544E1AD5535800BF565B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CBE54301AD5535800BF565B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CBE54371AD5535800BF565B;
+			remoteInfo = "TV-Calendar";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeDetailVC.h; sourceTree = "<group>"; };
+		5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeDetailVC.m; sourceTree = "<group>"; };
+		5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeDetailVC.xib; sourceTree = "<group>"; };
+		5C815CB51AEE839D00B0E9BA /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
+		5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
+		5C815CB71AEE839D00B0E9BA /* DailyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
+		5C815CB81AEE839D00B0E9BA /* DailyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCalendarView.m; sourceTree = "<group>"; };
+		5C815CB91AEE839D00B0E9BA /* DayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTitleLabel.h; sourceTree = "<group>"; };
+		5C815CBA1AEE839D00B0E9BA /* DayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTitleLabel.m; sourceTree = "<group>"; };
+		5C815CBC1AEE839D00B0E9BA /* NSDate+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CL.h"; sourceTree = "<group>"; };
+		5C815CBD1AEE839D00B0E9BA /* NSDate+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CL.m"; sourceTree = "<group>"; };
+		5C815CBE1AEE839D00B0E9BA /* NSDictionary+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CL.h"; sourceTree = "<group>"; };
+		5C815CBF1AEE839D00B0E9BA /* NSDictionary+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CL.m"; sourceTree = "<group>"; };
+		5C815CC01AEE839D00B0E9BA /* UIColor+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CL.h"; sourceTree = "<group>"; };
+		5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
+		5C815CC21AEE839D00B0E9BA /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
+		5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
+		5C9BADDF1AEB6A9900E9CE7C /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
+		5C9BADE01AEB6A9900E9CE7C /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
+		5C9BADE21AEB708900E9CE7C /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
+		5C9BADE31AEB708900E9CE7C /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
+		5C9BADE51AEBCCD200E9CE7C /* Season.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Season.h; sourceTree = "<group>"; };
+		5C9BADE61AEBCCD200E9CE7C /* Season.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Season.m; sourceTree = "<group>"; };
+		5C9BADE81AEBD36F00E9CE7C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5C9BADE91AEBD36F00E9CE7C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5CB7C1A71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
+		5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
+		5CB7C1AA1AF0F2E7005CFFB6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		5CBBCEE41ADA6B3500A1F8EA /* EpisodesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpisodesTVC.h; path = "TV-Calendar/Controller/EpisodesTVC.h"; sourceTree = SOURCE_ROOT; };
+		5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EpisodesTVC.m; path = "TV-Calendar/Controller/EpisodesTVC.m"; sourceTree = SOURCE_ROOT; };
+		5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EpisodesTVC.xib; path = "TV-Calendar/Controller/EpisodesTVC.xib"; sourceTree = SOURCE_ROOT; };
+		5CBE28FF1ADA4F1000FB763E /* DailyEpisodesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyEpisodesListVC.h; sourceTree = "<group>"; };
+		5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyEpisodesListVC.m; sourceTree = "<group>"; };
+		5CBE54381AD5535800BF565B /* TV-Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV-Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CBE543C1AD5535800BF565B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CBE54421AD5535800BF565B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5CBE54441AD5535800BF565B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5CBE54471AD5535800BF565B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5CBE544D1AD5535800BF565B /* TV-CalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TV-CalendarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CBE54521AD5535800BF565B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CBE54531AD5535800BF565B /* TV_CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV_CalendarTests.swift; sourceTree = "<group>"; };
+		5CBE54C31AD556BA00BF565B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5CBE54C41AD556BA00BF565B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5CBE54C61AD5578A00BF565B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5CBE54D01AD5623A00BF565B /* TV-Calendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TV-Calendar-Bridging-Header.h"; path = "TV-Calendar/TV-Calendar-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CBE54D11AD5623A00BF565B /* TV-Calendar-Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "TV-Calendar-Prefix.h"; path = "TV-Calendar/TV-Calendar-Prefix.h"; sourceTree = "<group>"; };
+		5CBE678F1AFDEC4F006383BE /* DailyEpisodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyEpisodes.h; sourceTree = "<group>"; };
+		5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyEpisodes.m; sourceTree = "<group>"; };
+		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CBE54351AD5535800BF565B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBE544A1AD5535800BF565B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C815CB41AEE839D00B0E9BA /* CLWeeklyCalendarViewSourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				5C815CB51AEE839D00B0E9BA /* CLWeeklyCalendarView.h */,
+				5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */,
+				5C815CB71AEE839D00B0E9BA /* DailyCalendarView.h */,
+				5C815CB81AEE839D00B0E9BA /* DailyCalendarView.m */,
+				5C815CB91AEE839D00B0E9BA /* DayTitleLabel.h */,
+				5C815CBA1AEE839D00B0E9BA /* DayTitleLabel.m */,
+				5C815CBB1AEE839D00B0E9BA /* Misc */,
+			);
+			name = CLWeeklyCalendarViewSourceCode;
+			path = CLWeeklyCalendarView/CLWeeklyCalendarView/CLWeeklyCalendarViewSourceCode;
+			sourceTree = "<group>";
+		};
+		5C815CBB1AEE839D00B0E9BA /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				5C815CBC1AEE839D00B0E9BA /* NSDate+CL.h */,
+				5C815CBD1AEE839D00B0E9BA /* NSDate+CL.m */,
+				5C815CBE1AEE839D00B0E9BA /* NSDictionary+CL.h */,
+				5C815CBF1AEE839D00B0E9BA /* NSDictionary+CL.m */,
+				5C815CC01AEE839D00B0E9BA /* UIColor+CL.h */,
+				5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */,
+				5C815CC21AEE839D00B0E9BA /* UIImage+CL.h */,
+				5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		5CB7C1A21AF0F2E7005CFFB6 /* UIImage-BlurredFrame */ = {
+			isa = PBXGroup;
+			children = (
+				5CB7C1A71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.h */,
+				5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */,
+				5CB7C1AA1AF0F2E7005CFFB6 /* UIImage+ImageEffects.h */,
+				5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */,
+			);
+			path = "UIImage-BlurredFrame";
+			sourceTree = "<group>";
+		};
+		5CBE542F1AD5535800BF565B = {
+			isa = PBXGroup;
+			children = (
+				5CBE543A1AD5535800BF565B /* TV-Calendar */,
+				5CBE54D01AD5623A00BF565B /* TV-Calendar-Bridging-Header.h */,
+				5CBE54D11AD5623A00BF565B /* TV-Calendar-Prefix.h */,
+				5CF300C01B5B3FBB00F3E65E /* Frameworks */,
+				5CBE54501AD5535800BF565B /* TV-CalendarTests */,
+				5CBE54391AD5535800BF565B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CBE54391AD5535800BF565B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CBE54381AD5535800BF565B /* TV-Calendar.app */,
+				5CBE544D1AD5535800BF565B /* TV-CalendarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CBE543A1AD5535800BF565B /* TV-Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5CBE54C61AD5578A00BF565B /* main.m */,
+				5CBE54C31AD556BA00BF565B /* AppDelegate.h */,
+				5CBE54C41AD556BA00BF565B /* AppDelegate.m */,
+				5CBE54411AD5535800BF565B /* Main.storyboard */,
+				5CEF95761AD902E1000051B3 /* Model */,
+				5CEF95771AD902E1000051B3 /* View */,
+				5CEF95751AD902E1000051B3 /* Controller */,
+				5CBE54441AD5535800BF565B /* Images.xcassets */,
+				5CBE54461AD5535800BF565B /* LaunchScreen.xib */,
+				5CBE545D1AD553EB00BF565B /* External */,
+				5CBE543B1AD5535800BF565B /* Supporting Files */,
+			);
+			path = "TV-Calendar";
+			sourceTree = "<group>";
+		};
+		5CBE543B1AD5535800BF565B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CBE543C1AD5535800BF565B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CBE54501AD5535800BF565B /* TV-CalendarTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CBE54531AD5535800BF565B /* TV_CalendarTests.swift */,
+				5CBE54511AD5535800BF565B /* Supporting Files */,
+			);
+			path = "TV-CalendarTests";
+			sourceTree = "<group>";
+		};
+		5CBE54511AD5535800BF565B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CBE54521AD5535800BF565B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CBE545D1AD553EB00BF565B /* External */ = {
+			isa = PBXGroup;
+			children = (
+				5CB7C1A21AF0F2E7005CFFB6 /* UIImage-BlurredFrame */,
+				5C815CB41AEE839D00B0E9BA /* CLWeeklyCalendarViewSourceCode */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		5CEF95751AD902E1000051B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5CEF1D451AD92E8F001A3BEE /* MainVC.h */,
+				5CEF1D461AD92E90001A3BEE /* MainVC.m */,
+				5CBE28FF1ADA4F1000FB763E /* DailyEpisodesListVC.h */,
+				5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */,
+				5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */,
+				5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */,
+				5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5CEF95761AD902E1000051B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C9BADE81AEBD36F00E9CE7C /* User.h */,
+				5C9BADE91AEBD36F00E9CE7C /* User.m */,
+				5C9BADDF1AEB6A9900E9CE7C /* Episode.h */,
+				5C9BADE01AEB6A9900E9CE7C /* Episode.m */,
+				5C9BADE51AEBCCD200E9CE7C /* Season.h */,
+				5C9BADE61AEBCCD200E9CE7C /* Season.m */,
+				5C9BADE21AEB708900E9CE7C /* Show.h */,
+				5C9BADE31AEB708900E9CE7C /* Show.m */,
+				5CBE678F1AFDEC4F006383BE /* DailyEpisodes.h */,
+				5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5CEF95771AD902E1000051B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5CBBCEE41ADA6B3500A1F8EA /* EpisodesTVC.h */,
+				5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */,
+				5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5CF300C01B5B3FBB00F3E65E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CBE54371AD5535800BF565B /* TV-Calendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CBE54571AD5535800BF565B /* Build configuration list for PBXNativeTarget "TV-Calendar" */;
+			buildPhases = (
+				5CBE54341AD5535800BF565B /* Sources */,
+				5CBE54351AD5535800BF565B /* Frameworks */,
+				5CBE54361AD5535800BF565B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TV-Calendar";
+			productName = "TV-Calendar";
+			productReference = 5CBE54381AD5535800BF565B /* TV-Calendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CBE544C1AD5535800BF565B /* TV-CalendarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CBE545A1AD5535800BF565B /* Build configuration list for PBXNativeTarget "TV-CalendarTests" */;
+			buildPhases = (
+				5CBE54491AD5535800BF565B /* Sources */,
+				5CBE544A1AD5535800BF565B /* Frameworks */,
+				5CBE544B1AD5535800BF565B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CBE544F1AD5535800BF565B /* PBXTargetDependency */,
+			);
+			name = "TV-CalendarTests";
+			productName = "TV-CalendarTests";
+			productReference = 5CBE544D1AD5535800BF565B /* TV-CalendarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CBE54301AD5535800BF565B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = ifLab;
+				TargetAttributes = {
+					5CBE54371AD5535800BF565B = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = SUWZE5CNF2;
+					};
+					5CBE544C1AD5535800BF565B = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 5CBE54371AD5535800BF565B;
+					};
+				};
+			};
+			buildConfigurationList = 5CBE54331AD5535800BF565B /* Build configuration list for PBXProject "TV-Calendar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CBE542F1AD5535800BF565B;
+			productRefGroup = 5CBE54391AD5535800BF565B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CBE54371AD5535800BF565B /* TV-Calendar */,
+				5CBE544C1AD5535800BF565B /* TV-CalendarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CBE54361AD5535800BF565B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C4F7D2F1B01F8CA00A65E1E /* EpisodeDetailVC.xib in Resources */,
+				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
+				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
+				5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */,
+				5CBE54451AD5535800BF565B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBE544B1AD5535800BF565B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CBE54341AD5535800BF565B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */,
+				5C815CC91AEE839D00B0E9BA /* UIColor+CL.m in Sources */,
+				5C815CC51AEE839D00B0E9BA /* DailyCalendarView.m in Sources */,
+				5CBE54C71AD5578A00BF565B /* main.m in Sources */,
+				5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */,
+				5CBBCEE71ADA6B3500A1F8EA /* EpisodesTVC.m in Sources */,
+				5C815CC41AEE839D00B0E9BA /* CLWeeklyCalendarView.m in Sources */,
+				5C4F7D2E1B01F8CA00A65E1E /* EpisodeDetailVC.m in Sources */,
+				5C9BADE41AEB708900E9CE7C /* Show.m in Sources */,
+				5CBE67911AFDEC4F006383BE /* DailyEpisodes.m in Sources */,
+				5C815CCA1AEE839D00B0E9BA /* UIImage+CL.m in Sources */,
+				5CBE29011ADA4F1000FB763E /* DailyEpisodesListVC.m in Sources */,
+				5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */,
+				5C9BADE11AEB6A9900E9CE7C /* Episode.m in Sources */,
+				5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */,
+				5CBE54C51AD556BA00BF565B /* AppDelegate.m in Sources */,
+				5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */,
+				5C815CC71AEE839D00B0E9BA /* NSDate+CL.m in Sources */,
+				5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */,
+				5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CBE54491AD5535800BF565B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CBE54541AD5535800BF565B /* TV_CalendarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CBE544F1AD5535800BF565B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CBE54371AD5535800BF565B /* TV-Calendar */;
+			targetProxy = 5CBE544E1AD5535800BF565B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5CBE54411AD5535800BF565B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CBE54421AD5535800BF565B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5CBE54461AD5535800BF565B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CBE54471AD5535800BF565B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5CBE54551AD5535800BF565B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CBE54561AD5535800BF565B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CBE54581AD5535800BF565B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
+				INFOPLIST_FILE = "TV-Calendar/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TV-Calendar/TV-Calendar-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		5CBE54591AD5535800BF565B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
+				INFOPLIST_FILE = "TV-Calendar/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TV-Calendar/TV-Calendar-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		5CBE545B1AD5535800BF565B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TV-CalendarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TV-Calendar.app/TV-Calendar";
+			};
+			name = Debug;
+		};
+		5CBE545C1AD5535800BF565B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TV-CalendarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TV-Calendar.app/TV-Calendar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CBE54331AD5535800BF565B /* Build configuration list for PBXProject "TV-Calendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBE54551AD5535800BF565B /* Debug */,
+				5CBE54561AD5535800BF565B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CBE54571AD5535800BF565B /* Build configuration list for PBXNativeTarget "TV-Calendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBE54581AD5535800BF565B /* Debug */,
+				5CBE54591AD5535800BF565B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CBE545A1AD5535800BF565B /* Build configuration list for PBXNativeTarget "TV-CalendarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CBE545B1AD5535800BF565B /* Debug */,
+				5CBE545C1AD5535800BF565B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CBE54301AD5535800BF565B /* Project object */;
+}

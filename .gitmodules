@@ -1,0 +1,6 @@
+[submodule "TV-Calendar/External/CLWeeklyCalendarView"]
+	path = TV-Calendar/External/CLWeeklyCalendarView
+	url = https://github.com/Everyb0dyLies/CLWeeklyCalendarView.git
+[submodule "TV-Calendar/External/UIImage-BlurredFrame"]
+	path = TV-Calendar/External/UIImage-BlurredFrame
+	url = https://github.com/Adrian2112/UIImage-BlurredFrame.git
