@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C4F7D2E1B01F8CA00A65E1E /* EpisodeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */; };
-		5C4F7D2F1B01F8CA00A65E1E /* EpisodeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */; };
 		5C815CC41AEE839D00B0E9BA /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */; };
 		5C815CC51AEE839D00B0E9BA /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB81AEE839D00B0E9BA /* DailyCalendarView.m */; };
 		5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBA1AEE839D00B0E9BA /* DayTitleLabel.m */; };
@@ -20,6 +19,7 @@
 		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
 		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
 		5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE91AEBD36F00E9CE7C /* User.m */; };
+		5CAA17411B60ED5700A229B9 /* EpisodeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */; };
 		5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */; };
 		5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */; };
 		5CBBCEE71ADA6B3500A1F8EA /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */; };
@@ -48,7 +48,6 @@
 /* Begin PBXFileReference section */
 		5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeDetailVC.h; sourceTree = "<group>"; };
 		5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeDetailVC.m; sourceTree = "<group>"; };
-		5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeDetailVC.xib; sourceTree = "<group>"; };
 		5C815CB51AEE839D00B0E9BA /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
 		5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
 		5C815CB71AEE839D00B0E9BA /* DailyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		5C9BADE61AEBCCD200E9CE7C /* Season.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Season.m; sourceTree = "<group>"; };
 		5C9BADE81AEBD36F00E9CE7C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5C9BADE91AEBD36F00E9CE7C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeDetailVC.xib; sourceTree = "<group>"; };
 		5CB7C1A71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
 		5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
 		5CB7C1AA1AF0F2E7005CFFB6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 				5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */,
 				5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */,
 				5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */,
-				5C4F7D2D1B01F8CA00A65E1E /* EpisodeDetailVC.xib */,
+				5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C4F7D2F1B01F8CA00A65E1E /* EpisodeDetailVC.xib in Resources */,
+				5CAA17411B60ED5700A229B9 /* EpisodeDetailVC.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
 				5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */,

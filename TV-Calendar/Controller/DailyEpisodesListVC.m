@@ -33,6 +33,7 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1.f];
     _tableView.sectionHeaderHeight = 0.f;
+    _tableView.allowsSelection = NO;
     return _tableView;
 }
 
@@ -58,7 +59,8 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor blackColor];
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
@@ -91,6 +93,10 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -100,6 +106,14 @@
     
     [self.tableView reloadData];
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+- (void)showEpisodeDetailVC {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController showViewController:[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
+                                                                                owner:nil
+                                                                              options:nil].firstObject
+                                           sender:self];
 }
 
 #pragma mark - Table view data source
@@ -116,17 +130,14 @@
     EpisodesTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [EpisodesTVC cellWithEpisode:self.dailyEpisodes.list[indexPath.row]];
+        cell.backgroundImageView.userInteractionEnabled = YES;
+        [cell.backgroundImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showEpisodeDetailVC)]];
     }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 96;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - CLWeeklyCalendarViewDelegate

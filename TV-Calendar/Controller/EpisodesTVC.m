@@ -36,6 +36,7 @@
     [cell.view.layer setCornerRadius:cell.view.frame.size.height/2];
     
     cell.overlayView.hidden = !episode.isWatched;
+    cell.overlayView.userInteractionEnabled = NO;
     return cell;
 }
 
