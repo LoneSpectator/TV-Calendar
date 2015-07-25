@@ -11,8 +11,9 @@
 #import "EpisodesTVC.h"
 #import "DailyEpisodes.h"
 #import "EpisodeDetailVC.h"
+#import "Episode.h"
 
-@interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate>
+@interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate, EpisodesTVCDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLWeeklyCalendarView* calendarView;
@@ -105,15 +106,27 @@
     self.dailyEpisodes = [DailyEpisodes dailyEpisodesWithDate:self.calendarView.selectedDate];
     
     [self.tableView reloadData];
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
-- (void)showEpisodeDetailVC {
+#pragma mark - EpisodesTVCDelegate
+
+- (void)showEpisodeDetailVCWithEpisode:(Episode *)episode {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController showViewController:[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
-                                                                                owner:nil
-                                                                              options:nil].firstObject
+    [self.navigationController showViewController:(EpisodeDetailVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
+                                                                                                   owner:nil
+                                                                                                 options:nil].firstObject
                                            sender:self];
+}
+
+- (void)checkEpisode:(Episode *)episode sender:(EpisodesTVC *)cell {
+    episode.isWatched = YES;
+    [cell changeToChecked];
+}
+
+- (void)uncheckEpisode:(Episode *)episode sender:(EpisodesTVC *)cell {
+    episode.isWatched = NO;
+    [cell changeToUnchecked];
 }
 
 #pragma mark - Table view data source
@@ -130,8 +143,7 @@
     EpisodesTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [EpisodesTVC cellWithEpisode:self.dailyEpisodes.list[indexPath.row]];
-        cell.backgroundImageView.userInteractionEnabled = YES;
-        [cell.backgroundImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showEpisodeDetailVC)]];
+        cell.delegate = self;
     }
     return cell;
 }
@@ -141,6 +153,7 @@
 }
 
 #pragma mark - CLWeeklyCalendarViewDelegate
+
 - (NSDictionary *)CLCalendarBehaviorAttributes {
     return @{CLCalendarWeekStartDay : @7, //Start Day of the week, from 1-7 Mon-Sun -- default 1
 //             CLCalendarDayTitleTextColor : [UIColor colorWithRed:255.f/255.f green:128.f/255.f blue:29.f/255.f alpha:1.f],

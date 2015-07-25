@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class Episode;
+@class EpisodesTVC;
+
+@protocol EpisodesTVCDelegate <NSObject>
+
+- (void)reloadData;
+- (void)showEpisodeDetailVCWithEpisode:(Episode *)episode;
+- (void)checkEpisode:(Episode *)episode sender:(EpisodesTVC *)cell;
+- (void)uncheckEpisode:(Episode *)episode sender:(EpisodesTVC *)cell;
+
+@end
 
 @interface EpisodesTVC : UITableViewCell
 
@@ -16,9 +26,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *episodeNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *SElabel;
-@property (strong, nonatomic) IBOutlet UIView *view;
+@property (weak, nonatomic) IBOutlet UIImageView *checkView;
 @property (strong, nonatomic) IBOutlet UIView *overlayView;
+@property (weak, nonatomic) id <EpisodesTVCDelegate> delegate;
+@property Episode *episode;
 
 + (EpisodesTVC *)cellWithEpisode:(Episode *)episode;
+- (void)changeToChecked;
+- (void)changeToUnchecked;
 
 @end

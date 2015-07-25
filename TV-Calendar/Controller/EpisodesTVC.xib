@@ -49,32 +49,31 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lg-vK-So4">
-                        <rect key="frame" x="307" y="30" width="45" height="45.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-9S-CY6">
+                        <rect key="frame" x="310" y="30" width="45" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="45" id="Iat-oN-2Uo"/>
-                            <constraint firstAttribute="height" constant="45" id="OZo-GX-9bN"/>
+                            <constraint firstAttribute="width" secondItem="qgs-9S-CY6" secondAttribute="height" multiplier="1:1" id="BBL-dn-GMD"/>
+                            <constraint firstAttribute="width" constant="45" id="lEf-EP-FvA"/>
                         </constraints>
-                    </view>
+                    </imageView>
                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsM-Yk-iFB">
-                        <rect key="frame" x="-57.5" y="5" width="490" height="90.5"/>
+                        <rect key="frame" x="-58" y="5" width="490" height="90.5"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="3Lg-vK-So4" secondAttribute="trailing" constant="23" id="52y-vW-Ctj"/>
                     <constraint firstAttribute="trailing" secondItem="HQ3-tf-osC" secondAttribute="trailing" constant="90" id="795-Gm-vL3"/>
                     <constraint firstItem="dec-bo-BDQ" firstAttribute="top" secondItem="BDv-NG-xdS" secondAttribute="bottom" id="799-DG-YUn"/>
                     <constraint firstAttribute="centerX" secondItem="CsM-Yk-iFB" secondAttribute="centerX" id="AaZ-fk-g7D"/>
                     <constraint firstItem="ToR-Lr-GNe" firstAttribute="height" secondItem="CsM-Yk-iFB" secondAttribute="height" id="CVB-c5-cQS"/>
                     <constraint firstAttribute="centerX" secondItem="ToR-Lr-GNe" secondAttribute="centerX" id="FAA-pW-ma9"/>
+                    <constraint firstAttribute="trailing" secondItem="qgs-9S-CY6" secondAttribute="trailing" constant="20" id="HbD-P3-O24"/>
                     <constraint firstItem="BDv-NG-xdS" firstAttribute="width" secondItem="HQ3-tf-osC" secondAttribute="width" id="R6d-v9-JbF"/>
                     <constraint firstItem="ToR-Lr-GNe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="SwU-10-Gde"/>
                     <constraint firstItem="HQ3-tf-osC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dG7-xm-fOa"/>
-                    <constraint firstAttribute="centerY" secondItem="3Lg-vK-So4" secondAttribute="centerY" constant="-5" id="fWI-SJ-iGi"/>
                     <constraint firstItem="ToR-Lr-GNe" firstAttribute="width" secondItem="CsM-Yk-iFB" secondAttribute="width" id="h5g-ra-uCk"/>
                     <constraint firstItem="HQ3-tf-osC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="jq3-7b-DJd"/>
+                    <constraint firstAttribute="centerY" secondItem="qgs-9S-CY6" secondAttribute="centerY" constant="-5" id="kfW-g5-GdY"/>
                     <constraint firstItem="dec-bo-BDQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="phY-mu-E5u"/>
                     <constraint firstItem="BDv-NG-xdS" firstAttribute="top" secondItem="HQ3-tf-osC" secondAttribute="bottom" id="rT4-F9-XxP"/>
                     <constraint firstItem="CsM-Yk-iFB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="sA8-oo-OFs"/>
@@ -85,10 +84,10 @@
             <connections>
                 <outlet property="SElabel" destination="dec-bo-BDQ" id="ITV-wV-lxz"/>
                 <outlet property="backgroundImageView" destination="ToR-Lr-GNe" id="0pN-Gn-DVv"/>
+                <outlet property="checkView" destination="qgs-9S-CY6" id="HN5-HG-2ue"/>
                 <outlet property="episodeNameLabel" destination="BDv-NG-xdS" id="xHP-9a-nm5"/>
                 <outlet property="overlayView" destination="CsM-Yk-iFB" id="FFA-tZ-3qa"/>
                 <outlet property="showNameLabel" destination="HQ3-tf-osC" id="rFC-9J-3lm"/>
-                <outlet property="view" destination="3Lg-vK-So4" id="cOa-rR-yJc"/>
             </connections>
             <point key="canvasLocation" x="420.5" y="373"/>
         </tableViewCell>
