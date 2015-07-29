@@ -30,7 +30,7 @@
                                                                    options:nil].firstObject;
     cell.episode = episode;
     cell.backgroundImageView.image = [UIImage imageNamed:cell.episode.showWideImage];
-    cell.backgroundImageView.image = [cell.backgroundImageView.image applyLightEffectAtFrame:CGRectMake(0, 0, cell.backgroundImageView.image.size.width, cell.backgroundImageView.image.size.height)];
+//    cell.backgroundImageView.image = [cell.backgroundImageView.image applyDarkEffectAtFrame:CGRectMake(0, 0, cell.backgroundImageView.frame.size.width, cell.backgroundImageView.frame.size.height)];
     cell.showNameLabel.text = cell.episode.showName;
     cell.episodeNameLabel.text = cell.episode.episodeName;
     cell.SElabel.text = [NSString stringWithFormat:@"S:%ld E:%ld", (long)cell.episode.numOfSeason, (long)cell.episode.numOfEpisode];
