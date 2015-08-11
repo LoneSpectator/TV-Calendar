@@ -7,8 +7,19 @@
 //
 
 #import "EpisodeDetailVC.h"
+#import "Episode.h"
+#import "Show.h"
+#import "UIImage+BlurredFrame.h"
 
 @interface EpisodeDetailVC ()
+
+@property (nonatomic) Episode *episode;
+@property (nonatomic) Show *show;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *showNameScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *showNameLable;
+
 
 @end
 
@@ -16,9 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.layer.masksToBounds = YES;
     
-    self.navigationController.navigationBar.hidden = NO;
     self.title = @"freqwq";
+    self.backgroundImageView.image = [UIImage imageNamed:@"The-Simpsons-1"];
+    
+    [self reloadData];
+}
+
+- (void)reloadData {
+    self.backgroundImageView.image = [self.backgroundImageView.image applyDarkEffectAtFrame:CGRectMake(0, 0, self.backgroundImageView.image.size.width, self.backgroundImageView.image.size.height)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +44,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Hells-Kitchen-US"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:123.0/255.0 green:209.0/255.0 blue:255.0/255.0 alpha:1.0]];
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:20],
+//                                                                      NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
-*/
 
 @end

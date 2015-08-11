@@ -10,7 +10,7 @@
 
 @interface Show : NSObject
 
-@property NSInteger ID;
+@property NSInteger showID;
 @property (copy) NSString *name;
 @property NSInteger constOfSeason; // 有几季
 @property (copy) NSString *status; // 当前状态

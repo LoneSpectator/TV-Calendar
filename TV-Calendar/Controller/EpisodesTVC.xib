@@ -49,6 +49,10 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsM-Yk-iFB">
+                        <rect key="frame" x="-58" y="5" width="490" height="90.5"/>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgs-9S-CY6">
                         <rect key="frame" x="310" y="30" width="45" height="45"/>
                         <constraints>
@@ -56,10 +60,6 @@
                             <constraint firstAttribute="width" constant="45" id="lEf-EP-FvA"/>
                         </constraints>
                     </imageView>
-                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsM-Yk-iFB">
-                        <rect key="frame" x="-58" y="5" width="490" height="90.5"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HQ3-tf-osC" secondAttribute="trailing" constant="90" id="795-Gm-vL3"/>

@@ -60,7 +60,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor blackColor];
-//    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -83,7 +83,6 @@
                                                                     metrics:nil
                                                                       views:vs]];
     [self.view addConstraints:cs];
-//    [self.view addSubview:]
     
 //    [self reloadData];
 }
@@ -95,7 +94,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,14 +104,14 @@
 - (void)reloadData {
     self.dailyEpisodes = [DailyEpisodes dailyEpisodesWithDate:self.calendarView.selectedDate];
     
-    [self.tableView reloadData];
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.tableView reloadData];
 }
 
 #pragma mark - EpisodesTVCDelegate
 
 - (void)showEpisodeDetailVCWithEpisode:(Episode *)episode {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController showViewController:(EpisodeDetailVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
                                                                                                    owner:nil
                                                                                                  options:nil].firstObject

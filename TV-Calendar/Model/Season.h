@@ -10,7 +10,7 @@
 
 @interface Season : NSObject
 
-@property NSInteger ID;
+@property NSInteger seasonID;
 @property NSInteger showID;
 @property (copy) NSString *name;
 @property NSInteger numOfSeason;          // 第几季
