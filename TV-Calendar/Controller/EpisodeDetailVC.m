@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *showNameScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLable;
+@property (weak, nonatomic) IBOutlet UIScrollView *episodeNameScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *episodeNameLabel;
 
 
 @end
