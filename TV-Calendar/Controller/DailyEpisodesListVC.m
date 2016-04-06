@@ -12,11 +12,13 @@
 #import "DailyEpisodes.h"
 #import "EpisodeDetailVC.h"
 #import "Episode.h"
+#import "NSDate+CL.h"
 
 @interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate, EpisodesTVCDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLWeeklyCalendarView* calendarView;
+@property (strong, nonatomic) UILabel *titleLabel;
 
 @property (nonatomic) DailyEpisodes *dailyEpisodes;
 
@@ -27,21 +29,21 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.translatesAutoresizingMaskIntoConstraints = false;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = [UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1.f];
+        _tableView.sectionHeaderHeight = 0.f;
+        _tableView.allowsSelection = NO;
     }
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.translatesAutoresizingMaskIntoConstraints = false;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.backgroundColor = [UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1.f];
-    _tableView.sectionHeaderHeight = 0.f;
-    _tableView.allowsSelection = NO;
     return _tableView;
 }
 
 - (CLWeeklyCalendarView *)calendarView
 {
     if (!_calendarView){
-        _calendarView = [[CLWeeklyCalendarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 120.f)];
+        _calendarView = [[CLWeeklyCalendarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 70.f)];
         _calendarView.delegate = self;
         _calendarView.translatesAutoresizingMaskIntoConstraints = false;
     }
@@ -55,15 +57,31 @@
     return _dailyEpisodes;
 }
 
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = [UIColor colorWithRed:21.0/255.0 green:126.0/255.0 blue:251.0/255.0 alpha:1.0];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.userInteractionEnabled = YES;
+        [_titleLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(titleLabelDidClick)]];
+    }
+    return _titleLabel;
+}
+
 - (void)loadView {
     [super loadView];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor blackColor];
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    
+    self.navigationItem.titleView = self.titleLabel;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.calendarView];
     NSMutableArray *cs = [NSMutableArray array];
@@ -78,7 +96,7 @@
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[calendarView(==120)][tableView]|"
+    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[calendarView(==70)][tableView]|"
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
@@ -102,10 +120,22 @@
 }
 
 - (void)reloadData {
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    [dayFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *strDate = [dayFormatter stringFromDate:self.calendarView.selectedDate];
+//    if([self.calendarView.selectedDate isDateToday]){
+//        strDate = [NSString stringWithFormat:@"Today, %@", strDate];
+//    }
+    self.titleLabel.text = strDate;
+    
     self.dailyEpisodes = [DailyEpisodes dailyEpisodesWithDate:self.calendarView.selectedDate];
     
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     [self.tableView reloadData];
+}
+
+- (void)titleLabelDidClick {
+    [self.calendarView redrawToDate:[NSDate new]];
 }
 
 #pragma mark - EpisodesTVCDelegate
@@ -155,11 +185,11 @@
 
 - (NSDictionary *)CLCalendarBehaviorAttributes {
     return @{CLCalendarWeekStartDay : @7, //Start Day of the week, from 1-7 Mon-Sun -- default 1
-//             CLCalendarDayTitleTextColor : [UIColor colorWithRed:255.f/255.f green:128.f/255.f blue:29.f/255.f alpha:1.f],
+             CLCalendarDayTitleTextColor : [UIColor colorWithRed:39.f/255.f green:165.f/255.f blue:232.f/255.f alpha:1.f],
              CLCalendarSelectedDatePrintFormat : @"yyyy MMM d, EEE", //Selected Date print format,  - Default: @"EEE, d MMM yyyy"
 //             CLCalendarSelectedDatePrintColor : [UIColor colorWithRed:255.f/255.f green:128.f/255.f blue:29.f/255.f alpha:1.f], //Selected Date print text color -Default: [UIColor whiteColor]
              CLCalendarSelectedDatePrintFontSize : @16.f, //Selected Date print font size - Default : 13.f
-             CLCalendarBackgroundImageColor : [UIColor colorWithPatternImage:[UIImage imageNamed:@"CLCalendarBackgroundImage"]]
+             CLCalendarBackgroundImageColor : [UIColor whiteColor]
         };
 }
 

@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1C3DF1698150B356913CB53513A1911D0E42CE7C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "811EA88B6C8E3D34C0C836C86E149C21A4180D14" : 0,
+    "CB84636D9E11E640A6A95229CC19A4B357C7F4CB" : 0,
+    "1C3DF1698150B356913CB53513A1911D0E42CE7C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "44ACB324-E384-4423-AFFA-C35E6D74E8DC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "811EA88B6C8E3D34C0C836C86E149C21A4180D14" : "TV-CalendarTV-Calendar\/External\/CLWeeklyCalendarView",
+    "CB84636D9E11E640A6A95229CC19A4B357C7F4CB" : "TV-CalendarTV-Calendar\/External\/UIImage-BlurredFrame",
+    "1C3DF1698150B356913CB53513A1911D0E42CE7C" : "TV-Calendar"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TV-Calendar",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TV-Calendar.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Everyb0dyLies\/TV-Calendar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C3DF1698150B356913CB53513A1911D0E42CE7C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Everyb0dyLies\/CLWeeklyCalendarView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "811EA88B6C8E3D34C0C836C86E149C21A4180D14"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Adrian2112\/UIImage-BlurredFrame.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CB84636D9E11E640A6A95229CC19A4B357C7F4CB"
+    }
+  ]
+}
