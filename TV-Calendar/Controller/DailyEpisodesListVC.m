@@ -13,6 +13,7 @@
 #import "EpisodeDetailVC.h"
 #import "Episode.h"
 #import "NSDate+CL.h"
+#import "MJRefresh.h"
 
 @interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate, EpisodesTVCDelegate>
 
@@ -33,7 +34,7 @@
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = false;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor colorWithRed:53.f/255.f green:53.f/255.f blue:53.f/255.f alpha:1.f];
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.sectionHeaderHeight = 0.f;
         _tableView.allowsSelection = NO;
     }
