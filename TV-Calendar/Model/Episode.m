@@ -20,6 +20,8 @@
         _showName = @"";
         _showWideImage = @"";
         _showSquareImage = @"";
+        _seasonID = 0;
+        _seasonName = @"";
         _numOfSeason = 0;
         _numOfEpisode = 0;
         _airingDate = nil;

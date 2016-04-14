@@ -8,6 +8,7 @@
 
 #import "DailyEpisodes.h"
 #import "Episode.h"
+#import "NetworkManager.h"
 
 @implementation DailyEpisodes
 
@@ -18,49 +19,41 @@
     return _list;
 }
 
-+ (DailyEpisodes *)dailyEpisodesWithDate:(NSDate *)date {
-    DailyEpisodes *dailyEpisodes = [[DailyEpisodes alloc] init];
-    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    Episode *ep;
-    for (int i = 0; i < [greCalendar component:NSCalendarUnitDay fromDate:date]; i++) {
-        ep = [[Episode alloc] init];
-        if (i%3==0) {
-            ep.episodeID = i%3;
-            ep.showID = i%3;
-            ep.episodeName = @"Clown in the Dumps";
-            ep.showName = @"The Simpsons";
-            ep.showWideImage = @"The-Simpsons";
-            ep.numOfSeason = 26;
-            ep.numOfEpisode = i;
-            ep.airingDate = date;
-            ep.isReleased = YES;
-            ep.isWatched = i%2;
-        } else if (i%3==1) {
-            ep.episodeID = i%3;
-            ep.showID = i%3;
-            ep.episodeName = @"Late Afternoon in the Garden of Bob and ";
-            ep.showName = @"Bob's Burgers";
-            ep.showWideImage = @"Bobs-Burgers";
-            ep.numOfSeason = 5;
-            ep.numOfEpisode = i;
-            ep.airingDate = date;
-            ep.isReleased = YES;
-            ep.isWatched = i%2;
-        } else {
-            ep.episodeID = i%3;
-            ep.showID = i%3;
-            ep.episodeName = @"15 Chefs Compete";
-            ep.showName = @"Hell's Kitchen (US)";
-            ep.showWideImage = @"Hells-Kitchen-US";
-            ep.numOfSeason = 14;
-            ep.numOfEpisode = i;
-            ep.airingDate = date;
-            ep.isReleased = YES;
-            ep.isWatched = i%2;
-        }
-        [dailyEpisodes.list addObject:ep];
-    }
-    return dailyEpisodes;
++ (void)fetchDailyEpisodesWithDate:(NSDate *)date
+                           success:(void (^)(DailyEpisodes *))success
+                           failure:(void (^)(NSError *))failure {
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    [dayFormatter setDateFormat:@"yyyy-MM-dd"];
+    [[NetworkManager defaultManager] GET:@"SelectOneDateEp"
+                              parameters:@{@"data": [dayFormatter stringFromDate:date]}
+                                 success:^(NSArray *data) {
+                                     DailyEpisodes *dailyEpisodes = [[DailyEpisodes alloc] init];
+                                     for (NSDictionary *epData in data) {
+                                         Episode *ep = [[Episode alloc] init];
+                                         ep.episodeID = [epData[@"e_id"] integerValue];
+                                         ep.showID = [epData[@"s_id"] integerValue];
+                                         ep.seasonID = [epData[@"se_id"] integerValue];
+                                         ep.episodeName = epData[@"e_name"];
+                                         ep.showName = epData[@"s_name"];
+                                         ep.numOfEpisode = [epData[@"e_num"] integerValue];
+                                         ep.numOfSeason = [epData[@"se_id"] integerValue];
+                                         NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+                                         [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                                         ep.airingDate = [dateFormat dateFromString:epData[@"e_time"]];
+                                         NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
+                                         ep.isReleased = secondsInterval <= 0 ? YES : NO;
+                                         ep.showWideImage = epData[@"s_sibox_image"];
+                                         [dailyEpisodes.list addObject:ep];
+                                     }
+                                     if (success) {
+                                         success(dailyEpisodes);
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
 }
 
 @end

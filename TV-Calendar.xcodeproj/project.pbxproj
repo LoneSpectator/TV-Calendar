@@ -67,7 +67,9 @@
 		5CC5FA2F1CB5F68B00E39CB7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA271CB5F68B00E39CB7 /* AFURLRequestSerialization.m */; };
 		5CC5FA301CB5F68B00E39CB7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA291CB5F68B00E39CB7 /* AFURLResponseSerialization.m */; };
 		5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */; };
+		5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA391CB6017100E39CB7 /* NetworkManager.m */; };
 		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
+		5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF57C11CB91BE5000C5C8A /* Configuration.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,8 +204,11 @@
 		5CC5FA291CB5F68B00E39CB7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		5CC5FA2A1CB5F68B00E39CB7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		5CC5FA381CB6017100E39CB7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		5CC5FA391CB6017100E39CB7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		5CEF57C11CB91BE5000C5C8A /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				5CBE543C1AD5535800BF565B /* Info.plist */,
+				5CEF57C11CB91BE5000C5C8A /* Configuration.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -485,6 +491,32 @@
 			path = "AFNetworking-3.1.0/AFNetworking";
 			sourceTree = "<group>";
 		};
+		5CC5FA361CB6012500E39CB7 /* DataObject */ = {
+			isa = PBXGroup;
+			children = (
+				5C9BADE81AEBD36F00E9CE7C /* User.h */,
+				5C9BADE91AEBD36F00E9CE7C /* User.m */,
+				5C9BADDF1AEB6A9900E9CE7C /* Episode.h */,
+				5C9BADE01AEB6A9900E9CE7C /* Episode.m */,
+				5C9BADE51AEBCCD200E9CE7C /* Season.h */,
+				5C9BADE61AEBCCD200E9CE7C /* Season.m */,
+				5C9BADE21AEB708900E9CE7C /* Show.h */,
+				5C9BADE31AEB708900E9CE7C /* Show.m */,
+				5CBE678F1AFDEC4F006383BE /* DailyEpisodes.h */,
+				5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */,
+			);
+			name = DataObject;
+			sourceTree = "<group>";
+		};
+		5CC5FA371CB6014000E39CB7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5CC5FA381CB6017100E39CB7 /* NetworkManager.h */,
+				5CC5FA391CB6017100E39CB7 /* NetworkManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		5CEF95751AD902E1000051B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,16 +534,8 @@
 		5CEF95761AD902E1000051B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C9BADE81AEBD36F00E9CE7C /* User.h */,
-				5C9BADE91AEBD36F00E9CE7C /* User.m */,
-				5C9BADDF1AEB6A9900E9CE7C /* Episode.h */,
-				5C9BADE01AEB6A9900E9CE7C /* Episode.m */,
-				5C9BADE51AEBCCD200E9CE7C /* Season.h */,
-				5C9BADE61AEBCCD200E9CE7C /* Season.m */,
-				5C9BADE21AEB708900E9CE7C /* Show.h */,
-				5C9BADE31AEB708900E9CE7C /* Show.m */,
-				5CBE678F1AFDEC4F006383BE /* DailyEpisodes.h */,
-				5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */,
+				5CC5FA361CB6012500E39CB7 /* DataObject */,
+				5CC5FA371CB6014000E39CB7 /* Manager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +641,7 @@
 			files = (
 				5CAA17411B60ED5700A229B9 /* EpisodeDetailVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
+				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
 				5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */,
@@ -641,6 +666,7 @@
 				5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */,
 				5CC5F8A31CB55C7A00E39CB7 /* MJRefreshNormalHeader.m in Sources */,
 				5CC5F8651CB55C6A00E39CB7 /* NSObject+MJClass.m in Sources */,
+				5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */,
 				5CC5F8A11CB55C7A00E39CB7 /* MJRefreshBackStateFooter.m in Sources */,
 				5CC5F8611CB55C6A00E39CB7 /* MJFoundation.m in Sources */,
 				5C815CC91AEE839D00B0E9BA /* UIColor+CL.m in Sources */,

@@ -12,6 +12,8 @@
 
 @property (nonatomic, copy) NSMutableArray *list;
 
-+ (DailyEpisodes *)dailyEpisodesWithDate:(NSDate *)date;
++ (void)fetchDailyEpisodesWithDate:(NSDate *)date
+                           success:(void (^)(DailyEpisodes *))success
+                           failure:(void (^)(NSError *))failure;
 
 @end

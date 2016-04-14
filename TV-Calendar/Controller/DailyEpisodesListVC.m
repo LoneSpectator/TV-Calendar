@@ -129,10 +129,16 @@
 //    }
     self.titleLabel.text = strDate;
     
-    self.dailyEpisodes = [DailyEpisodes dailyEpisodesWithDate:self.calendarView.selectedDate];
-    
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    [self.tableView reloadData];
+    DailyEpisodesListVC __weak *weakSelf = self;
+    [DailyEpisodes fetchDailyEpisodesWithDate:self.calendarView.selectedDate
+                                      success:^(DailyEpisodes *dailyEpisodes) {
+                                          weakSelf.dailyEpisodes = dailyEpisodes;
+                                          [weakSelf.tableView reloadData];
+                                          [weakSelf.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+                                      }
+                                      failure:^(NSError *error) {
+                                          NSLog(@"%@", error);
+                                      }];
 }
 
 - (void)titleLabelDidClick {

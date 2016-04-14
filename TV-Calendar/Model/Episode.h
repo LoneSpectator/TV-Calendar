@@ -11,9 +11,11 @@
 @interface Episode : NSObject
 
 @property NSInteger episodeID;
-@property (copy) NSString *episodeName;
 @property NSInteger showID;
+@property NSInteger seasonID;
+@property (copy) NSString *episodeName;
 @property (copy) NSString *showName;
+@property (copy) NSString *seasonName;
 @property (copy) NSString *showWideImage;
 @property (copy) NSString *showSquareImage;
 @property NSInteger numOfSeason;     // 第几季

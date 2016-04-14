@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Website</key>
+	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
+	<key>Paths</key>
+	<dict>
+		<key>New item</key>
+		<string></string>
+		<key>SelectOneDateEp</key>
+		<string>SelectOneDateEp/</string>
+	</dict>
+	<key>Success Code</key>
+	<integer>1</integer>
+	<key>Error Code</key>
+	<integer>2</integer>
+</dict>
+</plist>
