@@ -34,8 +34,7 @@
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = false;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.sectionHeaderHeight = 0.f;
+        _tableView.backgroundColor = [UIColor clearColor];
 //        _tableView.allowsSelection = NO;
     }
     return _tableView;
@@ -75,20 +74,19 @@
     [super loadView];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 //    self.navigationController.navigationBar.hidden = YES;
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
-    
     self.navigationItem.titleView = self.titleLabel;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.calendarView];
     NSMutableArray *cs = [NSMutableArray array];
-    NSDictionary *vs = @{@"tableView": self.tableView,
-                         @"calendarView": self.calendarView,
-                         @"tlg": self.topLayoutGuide};
+    NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
+                         @"tableView": self.tableView,
+                         @"calendarView": self.calendarView};
     [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[calendarView]|"
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
@@ -97,7 +95,7 @@
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[calendarView(==70)][tableView]|"
+    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[tlg][calendarView(==70)][tableView]|"
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
@@ -109,7 +107,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

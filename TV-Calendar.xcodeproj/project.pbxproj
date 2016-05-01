@@ -25,6 +25,11 @@
 		5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBF1AEE839D00B0E9BA /* NSDictionary+CL.m */; };
 		5C815CC91AEE839D00B0E9BA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */; };
 		5C815CCA1AEE839D00B0E9BA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */; };
+		5C8F6D3D1CD636D800C521F5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */; };
+		5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */; };
+		5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */; };
+		5C8F6D481CD645E900C521F5 /* UserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D471CD645E900C521F5 /* UserTVC.m */; };
+		5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8F6D491CD645FD00C521F5 /* UserTVC.xib */; };
 		5C9BADE11AEB6A9900E9CE7C /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE01AEB6A9900E9CE7C /* Episode.m */; };
 		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
 		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
@@ -32,8 +37,6 @@
 		5CAA17411B60ED5700A229B9 /* EpisodeDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */; };
 		5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */; };
 		5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */; };
-		5CBBCEE71ADA6B3500A1F8EA /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */; };
-		5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */; };
 		5CBE29011ADA4F1000FB763E /* DailyEpisodesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */; };
 		5CBE54431AD5535800BF565B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54411AD5535800BF565B /* Main.storyboard */; };
 		5CBE54451AD5535800BF565B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54441AD5535800BF565B /* Images.xcassets */; };
@@ -131,6 +134,14 @@
 		5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
 		5C815CC21AEE839D00B0E9BA /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
+		5C8F6D3B1CD636D800C521F5 /* PersonalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalVC.h; sourceTree = "<group>"; };
+		5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalVC.m; sourceTree = "<group>"; };
+		5C8F6D3E1CD6386400C521F5 /* EpisodesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesTVC.h; sourceTree = "<group>"; };
+		5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesTVC.m; sourceTree = "<group>"; };
+		5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesTVC.xib; sourceTree = "<group>"; };
+		5C8F6D461CD645E900C521F5 /* UserTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTVC.h; sourceTree = "<group>"; };
+		5C8F6D471CD645E900C521F5 /* UserTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTVC.m; sourceTree = "<group>"; };
+		5C8F6D491CD645FD00C521F5 /* UserTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTVC.xib; sourceTree = "<group>"; };
 		5C9BADDF1AEB6A9900E9CE7C /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		5C9BADE01AEB6A9900E9CE7C /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		5C9BADE21AEB708900E9CE7C /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
@@ -144,9 +155,6 @@
 		5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
 		5CB7C1AA1AF0F2E7005CFFB6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		5CBBCEE41ADA6B3500A1F8EA /* EpisodesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpisodesTVC.h; path = "TV-Calendar/Controller/EpisodesTVC.h"; sourceTree = SOURCE_ROOT; };
-		5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EpisodesTVC.m; path = "TV-Calendar/Controller/EpisodesTVC.m"; sourceTree = SOURCE_ROOT; };
-		5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EpisodesTVC.xib; path = "TV-Calendar/Controller/EpisodesTVC.xib"; sourceTree = SOURCE_ROOT; };
 		5CBE28FF1ADA4F1000FB763E /* DailyEpisodesListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyEpisodesListVC.h; sourceTree = "<group>"; };
 		5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyEpisodesListVC.m; sourceTree = "<group>"; };
 		5CBE54381AD5535800BF565B /* TV-Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV-Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -590,6 +598,8 @@
 				5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */,
 				5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */,
 				5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */,
+				5C8F6D3B1CD636D800C521F5 /* PersonalVC.h */,
+				5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -606,9 +616,12 @@
 		5CEF95771AD902E1000051B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5CBBCEE41ADA6B3500A1F8EA /* EpisodesTVC.h */,
-				5CBBCEE51ADA6B3500A1F8EA /* EpisodesTVC.m */,
-				5CBBCEE61ADA6B3500A1F8EA /* EpisodesTVC.xib */,
+				5C8F6D3E1CD6386400C521F5 /* EpisodesTVC.h */,
+				5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */,
+				5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */,
+				5C8F6D461CD645E900C521F5 /* UserTVC.h */,
+				5C8F6D471CD645E900C521F5 /* UserTVC.m */,
+				5C8F6D491CD645FD00C521F5 /* UserTVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -702,12 +715,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */,
+				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CAA17411B60ED5700A229B9 /* EpisodeDetailVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
-				5CBBCEE81ADA6B3500A1F8EA /* EpisodesTVC.xib in Resources */,
 				5CBE54451AD5535800BF565B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */,
+				5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */,
 				5CC5F8A31CB55C7A00E39CB7 /* MJRefreshNormalHeader.m in Sources */,
 				5CC5F8651CB55C6A00E39CB7 /* NSObject+MJClass.m in Sources */,
 				5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */,
@@ -742,11 +757,11 @@
 				5C687DB81CC4CB22005BD4FC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5CC5F89A1CB55C7A00E39CB7 /* MJRefreshFooter.m in Sources */,
 				5CC5FA2D1CB5F68B00E39CB7 /* AFNetworkReachabilityManager.m in Sources */,
+				5C8F6D3D1CD636D800C521F5 /* PersonalVC.m in Sources */,
 				5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */,
 				5CC5F8691CB55C6A00E39CB7 /* NSString+MJExtension.m in Sources */,
 				5CC5F89B1CB55C7A00E39CB7 /* MJRefreshHeader.m in Sources */,
 				5CC5F8A61CB55C7A00E39CB7 /* MJRefreshConst.m in Sources */,
-				5CBBCEE71ADA6B3500A1F8EA /* EpisodesTVC.m in Sources */,
 				5CC5F8631CB55C6A00E39CB7 /* MJPropertyKey.m in Sources */,
 				5C7DA8551CC609F7008F3662 /* SettingsManager.m in Sources */,
 				5CC5FA2F1CB5F68B00E39CB7 /* AFURLRequestSerialization.m in Sources */,
@@ -782,6 +797,7 @@
 				5CC5F8661CB55C6A00E39CB7 /* NSObject+MJCoding.m in Sources */,
 				5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */,
 				5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */,
+				5C8F6D481CD645E900C521F5 /* UserTVC.m in Sources */,
 				5CC5FA2E1CB5F68B00E39CB7 /* AFSecurityPolicy.m in Sources */,
 				5CC5F8A81CB55C7A00E39CB7 /* UIScrollView+MJRefresh.m in Sources */,
 				5C687DB71CC4CB22005BD4FC /* AFImageDownloader.m in Sources */,
