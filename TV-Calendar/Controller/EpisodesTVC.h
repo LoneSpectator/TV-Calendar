@@ -14,7 +14,6 @@
 @protocol EpisodesTVCDelegate <NSObject>
 
 - (void)reloadData;
-- (void)showEpisodeDetailVCWithEpisode:(Episode *)episode;
 - (void)checkEpisode:(Episode *)episode sender:(EpisodesTVC *)cell;
 - (void)uncheckEpisode:(Episode *)episode sender:(EpisodesTVC *)cell;
 
@@ -22,16 +21,18 @@
 
 @interface EpisodesTVC : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *showImageView;
 @property (strong, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *episodeNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *SElabel;
+@property (strong, nonatomic) IBOutlet UILabel *Slabel;
+@property (strong, nonatomic) IBOutlet UILabel *Elabel;
 @property (weak, nonatomic) IBOutlet UIImageView *checkView;
 @property (strong, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) id <EpisodesTVCDelegate> delegate;
-@property Episode *episode;
+@property (nonatomic) Episode *episode;
 
-+ (EpisodesTVC *)cellWithEpisode:(Episode *)episode;
++ (EpisodesTVC *)cell;
+- (void)updateWithEpisode:(Episode *)episode;
 - (void)changeToChecked;
 - (void)changeToUnchecked;
 

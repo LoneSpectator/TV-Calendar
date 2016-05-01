@@ -24,8 +24,8 @@
                       success:(void (^)(id responseObject))success
                       failure:(void (^)(NSError *error))failure;
 - (NSURLSessionDataTask *)POST:(NSString *)key
-                      parameters:(NSDictionary *)parameters
-                         success:(void (^)(id responseObject))success
-                         failure:(void (^)(NSError *error))failure;
+                    parameters:(NSDictionary *)parameters
+                       success:(void (^)(id responseObject))success
+                       failure:(void (^)(NSError *error))failure;
 
 @end

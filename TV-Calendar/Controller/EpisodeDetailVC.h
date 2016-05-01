@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Episode;
+
 @interface EpisodeDetailVC : UIViewController
+
++ (EpisodeDetailVC *)viewController;
+
+- (void)updateWithEpisode:(Episode *)episode;
 
 @end

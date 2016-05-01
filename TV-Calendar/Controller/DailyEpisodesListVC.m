@@ -36,7 +36,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.sectionHeaderHeight = 0.f;
-        _tableView.allowsSelection = NO;
+//        _tableView.allowsSelection = NO;
     }
     return _tableView;
 }
@@ -147,14 +147,6 @@
 
 #pragma mark - EpisodesTVCDelegate
 
-- (void)showEpisodeDetailVCWithEpisode:(Episode *)episode {
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController showViewController:(EpisodeDetailVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
-                                                                                                   owner:nil
-                                                                                                 options:nil].firstObject
-                                           sender:self];
-}
-
 - (void)checkEpisode:(Episode *)episode sender:(EpisodesTVC *)cell {
     episode.isWatched = YES;
     [cell changeToChecked];
@@ -165,27 +157,49 @@
     [cell changeToUnchecked];
 }
 
-#pragma mark - Table view data source
+#pragma mark - TableView data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dailyEpisodes.list.count;
+    if (section == 0) {
+        return self.dailyEpisodes.list.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EpisodesTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [EpisodesTVC cellWithEpisode:self.dailyEpisodes.list[indexPath.row]];
-        cell.delegate = self;
+    if (indexPath.section == 0) {
+        EpisodesTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell) {
+            cell = [EpisodesTVC cell];
+            [cell updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
+            cell.delegate = self;
+        }
+        return cell;
     }
-    return cell;
+    return [[UITableViewCell alloc] init];
+}
+
+#pragma mark - TableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        EpisodeDetailVC *vc = [EpisodeDetailVC viewController];
+        [vc updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
+        [self.navigationController showViewController:vc
+                                               sender:self];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 96;
+    if (indexPath.section == 0) {
+        return 105;
+    }
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - CLWeeklyCalendarViewDelegate

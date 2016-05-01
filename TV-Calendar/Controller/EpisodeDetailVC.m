@@ -13,8 +13,8 @@
 
 @interface EpisodeDetailVC ()
 
-@property (nonatomic) Episode *episode;
 @property (nonatomic) Show *show;
+@property (nonatomic) Episode *episode;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *showNameScrollView;
@@ -27,6 +27,13 @@
 
 @implementation EpisodeDetailVC
 
++ (EpisodeDetailVC *)viewController {
+    EpisodeDetailVC *vc = (EpisodeDetailVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodeDetailVC"
+                                                                           owner:nil
+                                                                         options:nil].firstObject;
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.layer.masksToBounds = YES;
@@ -35,6 +42,11 @@
     self.backgroundImageView.image = [UIImage imageNamed:@"The-Simpsons-1"];
     
     [self reloadData];
+}
+
+- (void)updateWithEpisode:(Episode *)episode {
+    self.episode = episode;
+    self.showNameLable.text = episode.showName;
 }
 
 - (void)reloadData {

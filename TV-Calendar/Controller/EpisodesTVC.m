@@ -8,13 +8,12 @@
 
 #import "EpisodesTVC.h"
 #import "Episode.h"
+#import "UIKit+AFNetworking.h"
 
 @implementation EpisodesTVC
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,33 +22,32 @@
     // Configure the view for the selected state
 }
 
-+ (EpisodesTVC *)cellWithEpisode:(Episode *)episode {
++ (EpisodesTVC *)cell {
     EpisodesTVC *cell = (EpisodesTVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodesTVC"
                                                                      owner:nil
                                                                    options:nil].firstObject;
-    cell.episode = episode;
-    cell.backgroundImageView.image = [UIImage imageNamed:cell.episode.showWideImage];
-    cell.showNameLabel.text = cell.episode.showName;
-    cell.episodeNameLabel.text = cell.episode.episodeName;
-    cell.SElabel.text = [NSString stringWithFormat:@"S:%ld E:%ld", (long)cell.episode.numOfSeason, (long)cell.episode.numOfEpisode];
-    
-    cell.overlayView.userInteractionEnabled = NO;
-    cell.checkView.userInteractionEnabled = YES;
-    cell.backgroundImageView.userInteractionEnabled = YES;
-    [cell.backgroundImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:cell
-                                                                                           action:@selector(showEpisodeDetailVC)]];
-    if (cell.episode.isWatched) {
-        [cell changeToChecked];
-    } else {
-        [cell changeToUnchecked];
-    }
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
-- (void)showEpisodeDetailVC {
-    [self.delegate showEpisodeDetailVCWithEpisode:self.episode];
+- (void)updateWithEpisode:(Episode *)episode {
+    self.episode = episode;
+    [self.showImageView setImageWithURL:[NSURL URLWithString:self.episode.showSquareImageURL]
+                       placeholderImage:nil];
+    self.showNameLabel.text = self.episode.showName;
+    self.episodeNameLabel.text = self.episode.episodeName;
+    self.Slabel.text = [NSString stringWithFormat:@"%ld", (long)self.episode.numOfSeason];
+    self.Elabel.text = [NSString stringWithFormat:@"%ld", (long)self.episode.numOfEpisode];
+    
+    self.checkView.userInteractionEnabled = YES;
+    self.showImageView.userInteractionEnabled = YES;
+    
+    if (self.episode.isWatched) {
+        [self changeToChecked];
+    } else {
+        [self changeToUnchecked];
+    }
 }
-
 - (void)checkEpisode {
     [self.delegate checkEpisode:self.episode
                          sender:self];
@@ -61,14 +59,14 @@
 }
 
 - (void)changeToChecked {
-    self.checkView.image = nil;
+    self.checkView.image = [UIImage imageNamed:@"iTunes"];
     self.overlayView.hidden = YES;
     [self.checkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(uncheckEpisode)]];
 }
 
 - (void)changeToUnchecked {
-    self.checkView.image = [UIImage imageNamed:@"iTunes"];
+    self.checkView.image = nil;
     self.overlayView.hidden = NO;
     [self.checkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(checkEpisode)]];
