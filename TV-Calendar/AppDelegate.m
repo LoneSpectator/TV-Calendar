@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // 全局设置
+    [User loginWithCache];
+    
     return YES;
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
+		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C4F7D2E1B01F8CA00A65E1E /* EpisodeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */; };
 		5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DA31CC4CB22005BD4FC /* AFAutoPurgingImageCache.m */; };
 		5C687DB71CC4CB22005BD4FC /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DA51CC4CB22005BD4FC /* AFImageDownloader.m */; };
@@ -25,7 +27,7 @@
 		5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CBF1AEE839D00B0E9BA /* NSDictionary+CL.m */; };
 		5C815CC91AEE839D00B0E9BA /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */; };
 		5C815CCA1AEE839D00B0E9BA /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */; };
-		5C8F6D3D1CD636D800C521F5 /* PersonalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */; };
+		5C8F6D3D1CD636D800C521F5 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */; };
 		5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */; };
 		5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */; };
 		5C8F6D481CD645E900C521F5 /* UserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D471CD645E900C521F5 /* UserTVC.m */; };
@@ -81,6 +83,7 @@
 		5CC5FA301CB5F68B00E39CB7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA291CB5F68B00E39CB7 /* AFURLResponseSerialization.m */; };
 		5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */; };
 		5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA391CB6017100E39CB7 /* NetworkManager.m */; };
+		5CE705F31CE1BB60002E12B4 /* WatchedShowTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */; };
 		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
 		5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF57C11CB91BE5000C5C8A /* Configuration.plist */; };
 /* End PBXBuildFile section */
@@ -96,6 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C1B83181CDC22C0001D6D8D /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeDetailVC.h; sourceTree = "<group>"; };
 		5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeDetailVC.m; sourceTree = "<group>"; };
 		5C687DA21CC4CB22005BD4FC /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
@@ -134,8 +140,8 @@
 		5C815CC11AEE839D00B0E9BA /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
 		5C815CC21AEE839D00B0E9BA /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		5C815CC31AEE839D00B0E9BA /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
-		5C8F6D3B1CD636D800C521F5 /* PersonalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalVC.h; sourceTree = "<group>"; };
-		5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalVC.m; sourceTree = "<group>"; };
+		5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		5C8F6D3E1CD6386400C521F5 /* EpisodesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesTVC.h; sourceTree = "<group>"; };
 		5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesTVC.m; sourceTree = "<group>"; };
 		5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesTVC.xib; sourceTree = "<group>"; };
@@ -246,6 +252,8 @@
 		5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		5CC5FA381CB6017100E39CB7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		5CC5FA391CB6017100E39CB7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		5CE705F11CE1BB60002E12B4 /* WatchedShowTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchedShowTVC.h; sourceTree = "<group>"; };
+		5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchedShowTVC.m; sourceTree = "<group>"; };
 		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		5CEF57C11CB91BE5000C5C8A /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -598,8 +606,13 @@
 				5C4F7D2B1B01F8CA00A65E1E /* EpisodeDetailVC.h */,
 				5C4F7D2C1B01F8CA00A65E1E /* EpisodeDetailVC.m */,
 				5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */,
-				5C8F6D3B1CD636D800C521F5 /* PersonalVC.h */,
-				5C8F6D3C1CD636D800C521F5 /* PersonalVC.m */,
+				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
+				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
+				5CE705F11CE1BB60002E12B4 /* WatchedShowTVC.h */,
+				5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */,
+				5C1B83181CDC22C0001D6D8D /* LoginVC.h */,
+				5C1B83191CDC22C0001D6D8D /* LoginVC.m */,
+				5C1B831B1CDC231C001D6D8D /* LoginVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -721,6 +734,7 @@
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
+				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
 				5CBE54451AD5535800BF565B /* Images.xcassets in Resources */,
 			);
@@ -757,11 +771,12 @@
 				5C687DB81CC4CB22005BD4FC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5CC5F89A1CB55C7A00E39CB7 /* MJRefreshFooter.m in Sources */,
 				5CC5FA2D1CB5F68B00E39CB7 /* AFNetworkReachabilityManager.m in Sources */,
-				5C8F6D3D1CD636D800C521F5 /* PersonalVC.m in Sources */,
+				5C8F6D3D1CD636D800C521F5 /* SettingsVC.m in Sources */,
 				5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */,
 				5CC5F8691CB55C6A00E39CB7 /* NSString+MJExtension.m in Sources */,
 				5CC5F89B1CB55C7A00E39CB7 /* MJRefreshHeader.m in Sources */,
 				5CC5F8A61CB55C7A00E39CB7 /* MJRefreshConst.m in Sources */,
+				5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */,
 				5CC5F8631CB55C6A00E39CB7 /* MJPropertyKey.m in Sources */,
 				5C7DA8551CC609F7008F3662 /* SettingsManager.m in Sources */,
 				5CC5FA2F1CB5F68B00E39CB7 /* AFURLRequestSerialization.m in Sources */,
@@ -789,6 +804,7 @@
 				5CBE54C51AD556BA00BF565B /* AppDelegate.m in Sources */,
 				5CC5F8981CB55C7A00E39CB7 /* MJRefreshBackFooter.m in Sources */,
 				5CC5F8A41CB55C7A00E39CB7 /* MJRefreshStateHeader.m in Sources */,
+				5CE705F31CE1BB60002E12B4 /* WatchedShowTVC.m in Sources */,
 				5CC5F8621CB55C6A00E39CB7 /* MJProperty.m in Sources */,
 				5CC5F8601CB55C6A00E39CB7 /* MJExtensionConst.m in Sources */,
 				5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */,

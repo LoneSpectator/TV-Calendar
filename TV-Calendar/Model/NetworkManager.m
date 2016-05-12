@@ -111,6 +111,7 @@ constructingBodyWithBlock:nil
         }
         return nil;
     }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NetworkManager __weak *weakSelf = self;
 //    if (POSTparameters.count > 0) {
         return [self.manager POST:URLString
@@ -118,9 +119,14 @@ constructingBodyWithBlock:nil
         constructingBodyWithBlock:block
                          progress:nil
                           success:^(NSURLSessionDataTask *task, NSData *data) {
-                              [weakSelf handleSuccess:task data:data success:success failure:failure];
+                              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                              [weakSelf handleSuccess:task
+                                                 data:data
+                                              success:success
+                                              failure:failure];
                           }
                           failure:^(NSURLSessionDataTask *task, NSError *error) {
+                              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                               if (failure) {
                                   failure(error);
                               }
@@ -145,7 +151,9 @@ constructingBodyWithBlock:nil
               success:(void (^)(id))success
               failure:(void (^)(NSError *))failure {
     NSError *error = nil;
-    id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    id object = [NSJSONSerialization JSONObjectWithData:data
+                                                options:0
+                                                          error:&error];
     if (error != nil || object == nil || !([object isKindOfClass:[NSDictionary class]])) {
         NSMutableDictionary *userInfo = [@{NSLocalizedDescriptionKey: @"Failed to parse JSON.",
                                            NSLocalizedFailureReasonErrorKey: @"The data returned from the server does not meet the JSON syntax.",
@@ -162,6 +170,7 @@ constructingBodyWithBlock:nil
         }
         return;
     }
+    
     NSDictionary *objectData = object;
     if (objectData[@"errno"] == self.successCode) {
         id data = objectData[@"rsm"];
@@ -171,7 +180,9 @@ constructingBodyWithBlock:nil
     } else {
         NSMutableDictionary *userInfo = [@{NSLocalizedDescriptionKey: objectData[@"err"],
                                            NSURLErrorKey: task.response.URL} mutableCopy];
-        NSError *error = [[NSError alloc] initWithDomain:self.webSite code:[objectData[@"errno"] integerValue] userInfo:userInfo];
+        NSError *error = [[NSError alloc] initWithDomain:self.webSite
+                                                    code:[objectData[@"errno"] integerValue]
+                                                userInfo:userInfo];
         if (failure) {
             failure(error);
         }

@@ -1,5 +1,5 @@
 //
-//  PersonalVC.h
+//  SettingsVC.h
 //  TV-Calendar
 //
 //  Created by GaoMing on 16/5/1.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SettingsVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

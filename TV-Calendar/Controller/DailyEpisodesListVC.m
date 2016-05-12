@@ -15,7 +15,7 @@
 #import "NSDate+CL.h"
 #import "MJRefresh.h"
 
-@interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate, EpisodesTVCDelegate>
+@interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLWeeklyCalendarView* calendarView;
@@ -118,6 +118,10 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)fetchData {
+    
+}
+
 - (void)reloadData {
     NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
     [dayFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -143,19 +147,7 @@
     [self.calendarView redrawToDate:[NSDate new]];
 }
 
-#pragma mark - EpisodesTVCDelegate
-
-- (void)checkEpisode:(Episode *)episode sender:(EpisodesTVC *)cell {
-    episode.isWatched = YES;
-    [cell changeToChecked];
-}
-
-- (void)uncheckEpisode:(Episode *)episode sender:(EpisodesTVC *)cell {
-    episode.isWatched = NO;
-    [cell changeToUnchecked];
-}
-
-#pragma mark - TableView data source
+#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -174,14 +166,14 @@
         if (!cell) {
             cell = [EpisodesTVC cell];
             [cell updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
-            cell.delegate = self;
+//            cell.delegate = self;
         }
         return cell;
     }
     return [[UITableViewCell alloc] init];
 }
 
-#pragma mark - TableView delegate
+#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {

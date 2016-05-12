@@ -19,6 +19,7 @@
 @property (readonly, strong, nonatomic) AFHTTPSessionManager *manager;
 
 + (instancetype)defaultManager;
+- (NSString *)webSite;
 - (NSURLSessionDataTask *)GET:(NSString *)key
                    parameters:(NSDictionary *)parameters
                       success:(void (^)(id responseObject))success
