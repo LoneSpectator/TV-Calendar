@@ -144,7 +144,7 @@
                                                                 cancelButtonTitle:@"好的"
                                                                 otherButtonTitles:nil];
                          [alertV show];
-                         NSLog(@"%@", error);
+                         NSLog(@"[LoginVC]%@", error);
                      }
                  }];
 }

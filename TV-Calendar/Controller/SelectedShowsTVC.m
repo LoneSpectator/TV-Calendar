@@ -1,29 +1,29 @@
 //
-//  WatchedShowTVC.m
+//  SelectedShowsTVC.m
 //  TV-Calendar
 //
 //  Created by GaoMing on 16/5/10.
 //  Copyright © 2016年 ifLab. All rights reserved.
 //
 
-#import "WatchedShowTVC.h"
+#import "SelectedShowsTVC.h"
 #import "LoginVC.h"
 #import "User.h"
 
-@interface WatchedShowTVC ()
+@interface SelectedShowsTVC ()
 
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation WatchedShowTVC
+@implementation SelectedShowsTVC
 
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.translatesAutoresizingMaskIntoConstraints = false;
+        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.sectionHeaderHeight = CGFLOAT_MIN;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;

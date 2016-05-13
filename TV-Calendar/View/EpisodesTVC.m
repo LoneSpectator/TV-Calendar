@@ -15,6 +15,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.checkButtonAIView.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -47,22 +48,88 @@
     self.Slabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfSeason];
     self.Elabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfEpisode];
     
-    
     if (self.episode.isWatched) {
-        [self changeToChecked];
+        self.infoView.alpha = 0.3;
     } else {
-        [self changeToUnchecked];
+        self.infoView.alpha = 1;
     }
+    [self reloadData];
 }
 
-- (void)changeToChecked {
-    self.checkButtonImageView.image = [UIImage imageNamed:@"iTunes"];
-    self.overlayView.hidden = YES;
+- (void)markAsWatched {
+    self.checkButton.hidden = YES;
+    self.checkButtonImageView.hidden = YES;
+    self.checkButtonAIView.hidden = NO;
+    [self.checkButtonAIView startAnimating];
+    
+    EpisodesTVC __weak *weakSelf = self;
+    [self.episode markAsWatchedWithSuccess:^(){
+        weakSelf.checkButton.hidden = NO;
+        weakSelf.checkButtonImageView.hidden = NO;
+        weakSelf.checkButtonAIView.hidden = YES;
+        [weakSelf.checkButtonAIView stopAnimating];
+        [weakSelf reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"[EpisodesTVC]%@", error);
+        weakSelf.checkButton.hidden = NO;
+        weakSelf.checkButtonImageView.hidden = NO;
+        weakSelf.checkButtonAIView.hidden = YES;
+        [weakSelf.checkButtonAIView stopAnimating];
+        [weakSelf reloadData];
+    }];
 }
 
-- (void)changeToUnchecked {
-    self.checkButtonImageView.image = nil;
-    self.overlayView.hidden = NO;
+- (void)unMarkAsWatched {
+    self.checkButton.hidden = YES;
+    self.checkButtonImageView.hidden = YES;
+    self.checkButtonAIView.hidden = NO;
+    [self.checkButtonAIView startAnimating];
+    
+    EpisodesTVC __weak *weakSelf = self;
+    [self.episode unMarkAsWatchedWithSuccess:^(){
+        weakSelf.checkButton.hidden = NO;
+        weakSelf.checkButtonImageView.hidden = NO;
+        weakSelf.checkButtonAIView.hidden = YES;
+        [weakSelf.checkButtonAIView stopAnimating];
+        [weakSelf reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"[EpisodesTVC]%@", error);
+        weakSelf.checkButton.hidden = NO;
+        weakSelf.checkButtonImageView.hidden = NO;
+        weakSelf.checkButtonAIView.hidden = YES;
+        [weakSelf.checkButtonAIView stopAnimating];
+        [weakSelf reloadData];
+    }];
+}
+
+- (void)reloadData {
+    EpisodesTVC __weak *weakSelf = self;
+    [UIView animateWithDuration:0.5
+                     animations:^{
+# warning 集行需要两个图标：看过和未看
+                         if (weakSelf.episode.isWatched) {
+                             weakSelf.checkButtonImageView.image = [UIImage imageNamed:@""];
+                             self.infoView.alpha = 0.3;
+                         } else {
+                             weakSelf.checkButtonImageView.image = [UIImage imageNamed:@""];
+                             self.infoView.alpha = 1;
+                         }
+                     }];
+    if (self.episode.isWatched) {
+        [self.checkButton removeTarget:self
+                                action:@selector(markAsWatched)
+                      forControlEvents:UIControlEventTouchUpInside];
+        [self.checkButton addTarget:self
+                             action:@selector(unMarkAsWatched)
+                   forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [self.checkButton removeTarget:self
+                                action:@selector(unMarkAsWatched)
+                      forControlEvents:UIControlEventTouchUpInside];
+        [self.checkButton addTarget:self
+                             action:@selector(markAsWatched)
+                   forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 @end

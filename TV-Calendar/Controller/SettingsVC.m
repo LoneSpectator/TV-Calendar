@@ -21,7 +21,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.translatesAutoresizingMaskIntoConstraints = false;
+        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.sectionHeaderHeight = CGFLOAT_MIN;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;

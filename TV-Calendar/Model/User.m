@@ -42,10 +42,10 @@ User *currentUser = nil;
                                           if ([fm createFileAtPath:[User plistPath] contents:nil attributes:nil]) {
                                               [userData writeToFile:[User plistPath] atomically:YES];
                                           } else {
-                                              NSLog(@"用户信息文件创建失败");
+                                              NSLog(@"[User]用户信息文件创建失败");
                                           }
                                       } else {
-                                          NSLog(@"用户信息文件存在");
+                                          NSLog(@"[User]用户信息文件存在");
                                       }
                                       if (success) {
                                           success();
@@ -70,9 +70,9 @@ User *currentUser = nil;
         user.status = [userData[@"u_status"] integerValue];
         currentUser = user;
     } else {
-        return false;
+        return NO;
     }
-    return false;
+    return NO;
 }
 
 + (void)logout {
@@ -82,7 +82,7 @@ User *currentUser = nil;
         NSError *err;
         [fm removeItemAtPath:[User plistPath] error:&err];
         if (err) {
-            NSLog(@"%@", err);
+            NSLog(@"[User]%@", err);
         }
     }
 }

@@ -153,7 +153,7 @@ constructingBodyWithBlock:nil
     NSError *error = nil;
     id object = [NSJSONSerialization JSONObjectWithData:data
                                                 options:0
-                                                          error:&error];
+                                                  error:&error];
     if (error != nil || object == nil || !([object isKindOfClass:[NSDictionary class]])) {
         NSMutableDictionary *userInfo = [@{NSLocalizedDescriptionKey: @"Failed to parse JSON.",
                                            NSLocalizedFailureReasonErrorKey: @"The data returned from the server does not meet the JSON syntax.",
@@ -164,7 +164,7 @@ constructingBodyWithBlock:nil
         error = [[NSError alloc] initWithDomain:self.webSite
                                            code:[self.errorCode integerValue]
                                        userInfo:userInfo];
-        NSLog(@"%@\n%@\n%@\n", task.response.URL, error, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"[NetworkManager]%@\n%@\n%@\n", task.response.URL, error, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         if (failure) {
             failure(error);
         }

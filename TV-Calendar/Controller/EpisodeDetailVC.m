@@ -41,7 +41,7 @@
     self.title = @"freqwq";
     self.backgroundImageView.image = [UIImage imageNamed:@"The-Simpsons-1"];
     
-    [self reloadData];
+    [self loadNewData];
 }
 
 - (void)updateWithEpisode:(Episode *)episode {
@@ -49,7 +49,7 @@
     self.showNameLable.text = episode.showName;
 }
 
-- (void)reloadData {
+- (void)loadNewData {
     self.backgroundImageView.image = [self.backgroundImageView.image applyDarkEffectAtFrame:CGRectMake(0, 0, self.backgroundImageView.image.size.width, self.backgroundImageView.image.size.height)];
 }
 

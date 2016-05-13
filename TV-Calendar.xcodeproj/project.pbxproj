@@ -83,7 +83,7 @@
 		5CC5FA301CB5F68B00E39CB7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA291CB5F68B00E39CB7 /* AFURLResponseSerialization.m */; };
 		5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */; };
 		5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA391CB6017100E39CB7 /* NetworkManager.m */; };
-		5CE705F31CE1BB60002E12B4 /* WatchedShowTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */; };
+		5CE705F31CE1BB60002E12B4 /* SelectedShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE705F21CE1BB60002E12B4 /* SelectedShowsTVC.m */; };
 		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
 		5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF57C11CB91BE5000C5C8A /* Configuration.plist */; };
 /* End PBXBuildFile section */
@@ -252,8 +252,8 @@
 		5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		5CC5FA381CB6017100E39CB7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		5CC5FA391CB6017100E39CB7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		5CE705F11CE1BB60002E12B4 /* WatchedShowTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchedShowTVC.h; sourceTree = "<group>"; };
-		5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchedShowTVC.m; sourceTree = "<group>"; };
+		5CE705F11CE1BB60002E12B4 /* SelectedShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedShowsTVC.h; sourceTree = "<group>"; };
+		5CE705F21CE1BB60002E12B4 /* SelectedShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedShowsTVC.m; sourceTree = "<group>"; };
 		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		5CEF57C11CB91BE5000C5C8A /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -608,8 +608,8 @@
 				5CAA17401B60ED5700A229B9 /* EpisodeDetailVC.xib */,
 				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
 				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
-				5CE705F11CE1BB60002E12B4 /* WatchedShowTVC.h */,
-				5CE705F21CE1BB60002E12B4 /* WatchedShowTVC.m */,
+				5CE705F11CE1BB60002E12B4 /* SelectedShowsTVC.h */,
+				5CE705F21CE1BB60002E12B4 /* SelectedShowsTVC.m */,
 				5C1B83181CDC22C0001D6D8D /* LoginVC.h */,
 				5C1B83191CDC22C0001D6D8D /* LoginVC.m */,
 				5C1B831B1CDC231C001D6D8D /* LoginVC.xib */,
@@ -804,7 +804,7 @@
 				5CBE54C51AD556BA00BF565B /* AppDelegate.m in Sources */,
 				5CC5F8981CB55C7A00E39CB7 /* MJRefreshBackFooter.m in Sources */,
 				5CC5F8A41CB55C7A00E39CB7 /* MJRefreshStateHeader.m in Sources */,
-				5CE705F31CE1BB60002E12B4 /* WatchedShowTVC.m in Sources */,
+				5CE705F31CE1BB60002E12B4 /* SelectedShowsTVC.m in Sources */,
 				5CC5F8621CB55C6A00E39CB7 /* MJProperty.m in Sources */,
 				5CC5F8601CB55C6A00E39CB7 /* MJExtensionConst.m in Sources */,
 				5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */,

@@ -6,6 +6,10 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
+		<key>UnMarkEpAsWatched</key>
+		<string>unsynchron/</string>
+		<key>MarkEpAsWatched</key>
+		<string>synchron/</string>
 		<key>LoginByPassword</key>
 		<string>loginByPassword/</string>
 		<key>SelectOneDateEp</key>

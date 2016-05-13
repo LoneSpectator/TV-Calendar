@@ -32,10 +32,12 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.translatesAutoresizingMaskIntoConstraints = false;
+        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
 //        _tableView.allowsSelection = NO;
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
+                                                                refreshingAction:@selector(fetchData)];
     }
     return _tableView;
 }
@@ -45,7 +47,7 @@
     if (!_calendarView){
         _calendarView = [[CLWeeklyCalendarView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 70.f)];
         _calendarView.delegate = self;
-        _calendarView.translatesAutoresizingMaskIntoConstraints = false;
+        _calendarView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _calendarView;
 }
@@ -101,7 +103,7 @@
                                                                       views:vs]];
     [self.view addConstraints:cs];
     
-//    [self reloadData];
+//    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewDidLoad {
@@ -118,33 +120,21 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)fetchData {
-    
+- (void)titleLabelDidClick {
+    [self.calendarView redrawToDate:[NSDate new]];
 }
 
-- (void)reloadData {
-    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
-    [dayFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *strDate = [dayFormatter stringFromDate:self.calendarView.selectedDate];
-//    if([self.calendarView.selectedDate isDateToday]){
-//        strDate = [NSString stringWithFormat:@"Today, %@", strDate];
-//    }
-    self.titleLabel.text = strDate;
-    
+- (void)fetchData {
     DailyEpisodesListVC __weak *weakSelf = self;
     [DailyEpisodes fetchDailyEpisodesWithDate:self.calendarView.selectedDate
                                       success:^(DailyEpisodes *dailyEpisodes) {
                                           weakSelf.dailyEpisodes = dailyEpisodes;
                                           [weakSelf.tableView reloadData];
-                                          [weakSelf.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+                                          [weakSelf.tableView.mj_header endRefreshing];
                                       }
                                       failure:^(NSError *error) {
-                                          NSLog(@"%@", error);
+                                          NSLog(@"[DailyEpisodesListVC]%@", error);
                                       }];
-}
-
-- (void)titleLabelDidClick {
-    [self.calendarView redrawToDate:[NSDate new]];
 }
 
 #pragma mark - Table view data source
@@ -166,7 +156,6 @@
         if (!cell) {
             cell = [EpisodesTVC cell];
             [cell updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
-//            cell.delegate = self;
         }
         return cell;
     }
@@ -205,7 +194,14 @@
 }
 
 - (void)dailyCalendarViewDidSelect:(NSDate *)date {
-    [self reloadData];
+    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
+    [dayFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *strDate = [dayFormatter stringFromDate:self.calendarView.selectedDate];
+//    if([self.calendarView.selectedDate isDateToday]){
+//        strDate = [NSString stringWithFormat:@"Today, %@", strDate];
+//    }
+    self.titleLabel.text = strDate;
+    [self.tableView.mj_header beginRefreshing];
 }
 
 @end

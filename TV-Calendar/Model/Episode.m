@@ -7,6 +7,8 @@
 //
 
 #import "Episode.h"
+#import "NetworkManager.h"
+#import "User.h"
 
 @implementation Episode
 
@@ -28,5 +30,46 @@
     }
     return self;
 }
+
+- (void)markAsWatchedWithSuccess:(void (^)())success
+                         failure:(void (^)(NSError *))failure {
+    Episode __weak *weakSelf = self;
+    [[NetworkManager defaultManager] GET:@"MarkEpAsWatched"
+                              parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)self.episodeID]}
+                                 success:^(NSDictionary *msg) {
+//                                     NSLog(@"[Episode]%@", msg[@"OK"]);
+                                     weakSelf.isWatched = YES;
+                                     if (success) {
+                                         success();
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
+}
+
+- (void)unMarkAsWatchedWithSuccess:(void (^)())success
+                           failure:(void (^)(NSError *))failure {
+    Episode __weak *weakSelf = self;
+    [[NetworkManager defaultManager] GET:@"UnMarkEpAsWatched"
+                              parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)self.episodeID]}
+                                 success:^(NSDictionary *msg) {
+//                                     NSLog(@"[Episode]%@", msg[@"OK"]);
+                                     weakSelf.isWatched = NO;
+                                     if (success) {
+                                         success();
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
+}
+
 
 @end

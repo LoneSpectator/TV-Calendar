@@ -1,5 +1,5 @@
 //
-//  WatchedShowTVC.h
+//  SelectedShowsTVC.h
 //  TV-Calendar
 //
 //  Created by GaoMing on 16/5/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WatchedShowTVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SelectedShowsTVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

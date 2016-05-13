@@ -22,4 +22,9 @@
 @property (copy) NSString *showWideImageURL;
 @property (copy) NSString *showSquareImageURL;
 
+- (void)markAsWatchedWithSuccess:(void (^)())success
+                         failure:(void (^)(NSError *))failure;
+- (void)unMarkAsWatchedWithSuccess:(void (^)())success
+                           failure:(void (^)(NSError *))failure;
+
 @end
