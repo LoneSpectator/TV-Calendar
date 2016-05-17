@@ -138,12 +138,12 @@
                              errorMsg = error.userInfo[NSLocalizedDescriptionKey];
                          }
                          weakSelf.errorMesssgeLabel.text = errorMsg;
-                         UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"登陆失败，请重新登陆！"
-                                                                          message:errorMsg
-                                                                         delegate:nil
-                                                                cancelButtonTitle:@"好的"
-                                                                otherButtonTitles:nil];
-                         [alertV show];
+                         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"登陆失败，请重新登陆！"
+                                                                                     message:errorMsg
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+                         [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:nil]];
                          NSLog(@"[LoginVC]%@", error);
                      }
                  }];

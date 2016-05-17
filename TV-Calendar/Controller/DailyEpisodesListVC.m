@@ -10,10 +10,11 @@
 #import "CLWeeklyCalendarView.h"
 #import "EpisodesTVC.h"
 #import "DailyEpisodes.h"
-#import "EpisodeDetailVC.h"
 #import "Episode.h"
 #import "NSDate+CL.h"
 #import "MJRefresh.h"
+#import "User.h"
+#import "ShowDetailsVC.h"
 
 @interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate>
 
@@ -77,8 +78,6 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.hidden = YES;
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
@@ -113,7 +112,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -166,8 +165,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        EpisodeDetailVC *vc = [EpisodeDetailVC viewController];
-        [vc updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
+        ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Episode *)self.dailyEpisodes.list[indexPath.row]).showID];
         [self.navigationController showViewController:vc
                                                sender:self];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -194,9 +192,9 @@
 }
 
 - (void)dailyCalendarViewDidSelect:(NSDate *)date {
-    NSDateFormatter *dayFormatter = [[NSDateFormatter alloc] init];
-    [dayFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *strDate = [dayFormatter stringFromDate:self.calendarView.selectedDate];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *strDate = [dateFormatter stringFromDate:self.calendarView.selectedDate];
 //    if([self.calendarView.selectedDate isDateToday]){
 //        strDate = [NSString stringWithFormat:@"Today, %@", strDate];
 //    }

@@ -20,8 +20,6 @@ User *currentUser = nil;
 
 @implementation User
 
-
-
 + (void)loginWithPhone:(NSString *)phone
               password:(NSString *)password
                success:(void (^)())success

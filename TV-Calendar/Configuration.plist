@@ -6,14 +6,18 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
-		<key>UnMarkEpAsWatched</key>
-		<string>unsynchron/</string>
-		<key>MarkEpAsWatched</key>
-		<string>synchron/</string>
 		<key>LoginByPassword</key>
 		<string>loginByPassword/</string>
-		<key>SelectOneDateEp</key>
+		<key>DailyEpisodes</key>
 		<string>SelectOneDateEp/</string>
+		<key>MyDailyEpisodes</key>
+		<string>selectOneDateEpWithUid/</string>
+		<key>MarkEpAsWatched</key>
+		<string>synchron/</string>
+		<key>UnMarkEpAsWatched</key>
+		<string>unsynchron/</string>
+		<key>ShowDetail</key>
+		<string>searchByShowId/</string>
 	</dict>
 	<key>Success Code</key>
 	<integer>1</integer>

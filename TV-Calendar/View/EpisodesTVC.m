@@ -38,7 +38,7 @@
 
 - (void)updateWithEpisode:(Episode *)episode {
     self.episode = episode;
-    [self.showImageView setImageWithURL:[NSURL URLWithString:episode.showSquareImageURL]
+    [self.showImageView setImageWithURL:[NSURL URLWithString:episode.showVerticalImageURL]
                        placeholderImage:nil];
     self.showNameLabel.text = episode.showName;
     self.episodeNameLabel.text = episode.episodeName;
@@ -63,20 +63,23 @@
     [self.checkButtonAIView startAnimating];
     
     EpisodesTVC __weak *weakSelf = self;
-    [self.episode markAsWatchedWithSuccess:^(){
-        weakSelf.checkButton.hidden = NO;
-        weakSelf.checkButtonImageView.hidden = NO;
-        weakSelf.checkButtonAIView.hidden = YES;
-        [weakSelf.checkButtonAIView stopAnimating];
-        [weakSelf reloadData];
-    } failure:^(NSError *error) {
-        NSLog(@"[EpisodesTVC]%@", error);
-        weakSelf.checkButton.hidden = NO;
-        weakSelf.checkButtonImageView.hidden = NO;
-        weakSelf.checkButtonAIView.hidden = YES;
-        [weakSelf.checkButtonAIView stopAnimating];
-        [weakSelf reloadData];
-    }];
+    [Episode markAsWatchedWithID:self.episode.episodeID
+                         Success:^(){
+                             weakSelf.episode.isWatched = YES;
+                             weakSelf.checkButton.hidden = NO;
+                             weakSelf.checkButtonImageView.hidden = NO;
+                             weakSelf.checkButtonAIView.hidden = YES;
+                             [weakSelf.checkButtonAIView stopAnimating];
+                             [weakSelf reloadData];
+                         }
+                         failure:^(NSError *error) {
+                             NSLog(@"[EpisodesTVC]%@", error);
+                             weakSelf.checkButton.hidden = NO;
+                             weakSelf.checkButtonImageView.hidden = NO;
+                             weakSelf.checkButtonAIView.hidden = YES;
+                             [weakSelf.checkButtonAIView stopAnimating];
+                             [weakSelf reloadData];
+                         }];
 }
 
 - (void)unMarkAsWatched {
@@ -86,27 +89,30 @@
     [self.checkButtonAIView startAnimating];
     
     EpisodesTVC __weak *weakSelf = self;
-    [self.episode unMarkAsWatchedWithSuccess:^(){
-        weakSelf.checkButton.hidden = NO;
-        weakSelf.checkButtonImageView.hidden = NO;
-        weakSelf.checkButtonAIView.hidden = YES;
-        [weakSelf.checkButtonAIView stopAnimating];
-        [weakSelf reloadData];
-    } failure:^(NSError *error) {
-        NSLog(@"[EpisodesTVC]%@", error);
-        weakSelf.checkButton.hidden = NO;
-        weakSelf.checkButtonImageView.hidden = NO;
-        weakSelf.checkButtonAIView.hidden = YES;
-        [weakSelf.checkButtonAIView stopAnimating];
-        [weakSelf reloadData];
-    }];
+    [Episode unMarkAsWatchedWithID:self.episode.episodeID
+                           Success:^(){
+                               weakSelf.episode.isWatched = NO;
+                               weakSelf.checkButton.hidden = NO;
+                               weakSelf.checkButtonImageView.hidden = NO;
+                               weakSelf.checkButtonAIView.hidden = YES;
+                               [weakSelf.checkButtonAIView stopAnimating];
+                               [weakSelf reloadData];
+                           }
+                           failure:^(NSError *error) {
+                               NSLog(@"[EpisodesTVC]%@", error);
+                               weakSelf.checkButton.hidden = NO;
+                               weakSelf.checkButtonImageView.hidden = NO;
+                               weakSelf.checkButtonAIView.hidden = YES;
+                               [weakSelf.checkButtonAIView stopAnimating];
+                               [weakSelf reloadData];
+                           }];
 }
 
 - (void)reloadData {
     EpisodesTVC __weak *weakSelf = self;
     [UIView animateWithDuration:0.5
                      animations:^{
-# warning 集行需要两个图标：看过和未看
+#warning 集行需要两个图标：看过和未看
                          if (weakSelf.episode.isWatched) {
                              weakSelf.checkButtonImageView.image = [UIImage imageNamed:@""];
                              self.infoView.alpha = 0.3;

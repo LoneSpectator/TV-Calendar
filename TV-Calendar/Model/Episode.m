@@ -25,21 +25,20 @@
         _airingDate = nil;
         _isReleased = NO;
         _isWatched = NO;
+        _showVerticalImageURL = @"";
         _showWideImageURL = @"";
-        _showSquareImageURL = @"";
     }
     return self;
 }
 
-- (void)markAsWatchedWithSuccess:(void (^)())success
-                         failure:(void (^)(NSError *))failure {
-    Episode __weak *weakSelf = self;
++ (void)markAsWatchedWithID:(NSInteger)episodeID
+                    Success:(void (^)())success
+                    failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"MarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
-                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)self.episodeID]}
+                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)episodeID]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Episode]%@", msg[@"OK"]);
-                                     weakSelf.isWatched = YES;
                                      if (success) {
                                          success();
                                      }
@@ -51,15 +50,14 @@
                                  }];
 }
 
-- (void)unMarkAsWatchedWithSuccess:(void (^)())success
-                           failure:(void (^)(NSError *))failure {
-    Episode __weak *weakSelf = self;
++ (void)unMarkAsWatchedWithID:(NSInteger)episodeID
+                      Success:(void (^)())success
+                      failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"UnMarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
-                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)self.episodeID]}
+                                           @"e_id": [NSString stringWithFormat:@"%ld", (long)episodeID]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Episode]%@", msg[@"OK"]);
-                                     weakSelf.isWatched = NO;
                                      if (success) {
                                          success();
                                      }

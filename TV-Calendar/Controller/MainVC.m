@@ -8,7 +8,7 @@
 
 #import "MainVC.h"
 #import "DailyEpisodesListVC.h"
-#import "SelectedShowsTVC.h"
+#import "SelectedShowsVC.h"
 
 @interface MainVC ()
 
@@ -24,10 +24,10 @@
         
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
         UIViewController *showsVC = [[UIViewController alloc] init];
-        SelectedShowsTVC *selectedShowsTVC = [[SelectedShowsTVC alloc] init];
+        SelectedShowsVC *selectedShowsVC = [[SelectedShowsVC alloc] init];
         UINavigationController *firstContentViewController = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
         UINavigationController *secondContentViewController = [[UINavigationController alloc] initWithRootViewController:showsVC];
-        UINavigationController *thirdContentViewController = [[UINavigationController alloc] initWithRootViewController:selectedShowsTVC];
+        UINavigationController *thirdContentViewController = [[UINavigationController alloc] initWithRootViewController:selectedShowsVC];
         
         _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentViewController, secondContentViewController, thirdContentViewController, nil];
     }

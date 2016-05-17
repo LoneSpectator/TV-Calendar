@@ -1,22 +1,22 @@
 //
-//  SelectedShowsTVC.m
+//  SelectedShowsVC.m
 //  TV-Calendar
 //
 //  Created by GaoMing on 16/5/10.
 //  Copyright © 2016年 ifLab. All rights reserved.
 //
 
-#import "SelectedShowsTVC.h"
+#import "SelectedShowsVC.h"
 #import "LoginVC.h"
 #import "User.h"
 
-@interface SelectedShowsTVC ()
+@interface SelectedShowsVC ()
 
 @property (strong, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation SelectedShowsTVC
+@implementation SelectedShowsVC
 
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -39,14 +39,6 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
-    if (!currentUser) {
-        UIBarButtonItem *loginItem = [[UIBarButtonItem alloc] initWithTitle:@"登陆"
-                                                                      style:UIBarButtonItemStylePlain
-                                                                     target:self
-                                                                     action:@selector(showLoginViewController)];
-        self.navigationItem.rightBarButtonItem = loginItem;
-    }
-    
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
     NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
@@ -60,10 +52,17 @@
                                                                     metrics:nil
                                                                       views:vs]];
     [self.view addConstraints:cs];
+    
+    [self loadNewData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadNewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,8 +70,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadNewData {
+    UIBarButtonItem *loginItem;
+    if (!currentUser) {
+        loginItem = [[UIBarButtonItem alloc] initWithTitle:@"登陆"
+                                                     style:UIBarButtonItemStylePlain
+                                                    target:self
+                                                    action:@selector(showLoginViewController)];
+    } else {
+        loginItem = [[UIBarButtonItem alloc] initWithTitle:@"注销"
+                                                     style:UIBarButtonItemStylePlain
+                                                    target:self
+                                                    action:@selector(logout)];
+    }
+    self.navigationItem.rightBarButtonItem = loginItem;
+}
+
 - (void)showLoginViewController {
     [self showDetailViewController:[LoginVC viewController] sender:self];
+}
+
+- (void)logout {
+    [User logout];
+    [self loadNewData];
 }
 
 #pragma mark - Table view data source
