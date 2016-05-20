@@ -86,6 +86,7 @@
 		5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */; };
 		5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA391CB6017100E39CB7 /* NetworkManager.m */; };
 		5CE705F31CE1BB60002E12B4 /* SelectedShowsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE705F21CE1BB60002E12B4 /* SelectedShowsVC.m */; };
+		5CEBB9701CEF22BF00F6561F /* EpisodeSimpleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */; };
 		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
 		5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF57C11CB91BE5000C5C8A /* Configuration.plist */; };
 /* End PBXBuildFile section */
@@ -260,6 +261,8 @@
 		5CC5FA391CB6017100E39CB7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		5CE705F11CE1BB60002E12B4 /* SelectedShowsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedShowsVC.h; sourceTree = "<group>"; };
 		5CE705F21CE1BB60002E12B4 /* SelectedShowsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedShowsVC.m; sourceTree = "<group>"; };
+		5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeSimpleTVC.h; sourceTree = "<group>"; };
+		5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeSimpleTVC.m; sourceTree = "<group>"; };
 		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		5CEF57C11CB91BE5000C5C8A /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -645,6 +648,8 @@
 				5CC223FA1CEB122800003823 /* ShowDetailTVC.h */,
 				5CC223FB1CEB122800003823 /* ShowDetailTVC.m */,
 				5CC223FD1CEB123C00003823 /* ShowDetailTVC.xib */,
+				5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */,
+				5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -833,6 +838,7 @@
 				5CC5F89E1CB55C7A00E39CB7 /* MJRefreshAutoStateFooter.m in Sources */,
 				5CC223FC1CEB122800003823 /* ShowDetailTVC.m in Sources */,
 				5CC5F8971CB55C7A00E39CB7 /* MJRefreshAutoFooter.m in Sources */,
+				5CEBB9701CEF22BF00F6561F /* EpisodeSimpleTVC.m in Sources */,
 				5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */,
 				5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */,
 			);
@@ -968,7 +974,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
 				INFOPLIST_FILE = "TV-Calendar/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -991,7 +997,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
 				INFOPLIST_FILE = "TV-Calendar/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

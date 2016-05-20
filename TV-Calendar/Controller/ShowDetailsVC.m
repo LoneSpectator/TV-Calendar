@@ -39,6 +39,7 @@
         _tableView.allowsSelection = NO;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
+        _tableView.estimatedRowHeight = 350;
     }
     return _tableView;
 }

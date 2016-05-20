@@ -10,6 +10,8 @@
 
 @interface ShowDetailTVC : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *introductionLable;
+
 + (ShowDetailTVC *)cell;
 
 @end

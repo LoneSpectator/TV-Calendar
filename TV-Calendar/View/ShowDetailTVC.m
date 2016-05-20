@@ -25,7 +25,9 @@
     ShowDetailTVC *cell = (ShowDetailTVC *)[[NSBundle mainBundle] loadNibNamed:@"ShowDetailTVC"
                                                                          owner:nil
                                                                        options:nil].firstObject;
-    cell.backgroundColor = [UIColor redColor];
+    
+    cell.introductionLable.text = @"";
+    
     return cell;
 }
 

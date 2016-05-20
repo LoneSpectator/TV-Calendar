@@ -154,8 +154,8 @@
         EpisodesTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (!cell) {
             cell = [EpisodesTVC cell];
-            [cell updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
         }
+        [cell updateWithEpisode:self.dailyEpisodes.list[indexPath.row]];
         return cell;
     }
     return [[UITableViewCell alloc] init];

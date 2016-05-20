@@ -36,6 +36,7 @@
                     failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"MarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"u_token": currentUser.token,
                                            @"e_id": [NSString stringWithFormat:@"%ld", (long)episodeID]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Episode]%@", msg[@"OK"]);
@@ -55,6 +56,7 @@
                       failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"UnMarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"u_token": currentUser.token,
                                            @"e_id": [NSString stringWithFormat:@"%ld", (long)episodeID]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Episode]%@", msg[@"OK"]);
