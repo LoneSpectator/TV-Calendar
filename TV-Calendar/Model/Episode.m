@@ -32,7 +32,7 @@
 }
 
 + (void)markAsWatchedWithID:(NSInteger)episodeID
-                    Success:(void (^)())success
+                    success:(void (^)())success
                     failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"MarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
@@ -52,7 +52,7 @@
 }
 
 + (void)unMarkAsWatchedWithID:(NSInteger)episodeID
-                      Success:(void (^)())success
+                      success:(void (^)())success
                       failure:(void (^)(NSError *))failure {
     [[NetworkManager defaultManager] GET:@"UnMarkEpAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],

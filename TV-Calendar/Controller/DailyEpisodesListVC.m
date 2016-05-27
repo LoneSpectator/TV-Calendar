@@ -16,7 +16,7 @@
 #import "User.h"
 #import "ShowDetailsVC.h"
 
-@interface DailyEpisodesListVC () <CLWeeklyCalendarViewDelegate>
+@interface DailyEpisodesListVC () <UITableViewDelegate, UITableViewDataSource, CLWeeklyCalendarViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLWeeklyCalendarView* calendarView;
@@ -37,6 +37,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
 //        _tableView.allowsSelection = NO;
+        _tableView.estimatedRowHeight = 100;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
     }
@@ -133,6 +134,7 @@
                                       }
                                       failure:^(NSError *error) {
                                           NSLog(@"[DailyEpisodesListVC]%@", error);
+                                          [weakSelf.tableView.mj_header endRefreshing];
                                       }];
 }
 

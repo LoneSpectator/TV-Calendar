@@ -39,7 +39,7 @@
             ep.airingDate = [dateFormat dateFromString:epData[@"e_time"]];
             NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
             ep.isReleased = secondsInterval <= 0 ? YES : NO;
-            ep.showVerticalImageURL = [NSString stringWithFormat:@"http://www.pogdesign.co.uk%@", epData[@"s_vertical_image"]];
+            ep.showVerticalImageURL = [NSString stringWithFormat:@"http:%@", epData[@"s_vertical_image"]];
             [dailyEpisodes.list addObject:ep];
         }
         if (success) {

@@ -18,6 +18,8 @@
 		5C687DBC1CC4CB22005BD4FC /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DB11CC4CB22005BD4FC /* UIProgressView+AFNetworking.m */; };
 		5C687DBD1CC4CB22005BD4FC /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DB31CC4CB22005BD4FC /* UIRefreshControl+AFNetworking.m */; };
 		5C687DBE1CC4CB22005BD4FC /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DB51CC4CB22005BD4FC /* UIWebView+AFNetworking.m */; };
+		5C7CBE641CF42FA8004CA36F /* ShowListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CBE631CF42FA8004CA36F /* ShowListVC.m */; };
+		5C7CBE671CF45C2D004CA36F /* ShowList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CBE661CF45C2D004CA36F /* ShowList.m */; };
 		5C7DA8551CC609F7008F3662 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DA8541CC609F7008F3662 /* SettingsManager.m */; };
 		5C815CC41AEE839D00B0E9BA /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB61AEE839D00B0E9BA /* CLWeeklyCalendarView.m */; };
 		5C815CC51AEE839D00B0E9BA /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C815CB81AEE839D00B0E9BA /* DailyCalendarView.m */; };
@@ -47,8 +49,8 @@
 		5CBE67911AFDEC4F006383BE /* DailyEpisodes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */; };
 		5CC223ED1CE6470D00003823 /* ShowDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */; };
 		5CC223F41CE9F95D00003823 /* ShowTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223F31CE9F95D00003823 /* ShowTVC.m */; };
-		5CC223FC1CEB122800003823 /* ShowDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223FB1CEB122800003823 /* ShowDetailTVC.m */; };
-		5CC223FE1CEB123C00003823 /* ShowDetailTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC223FD1CEB123C00003823 /* ShowDetailTVC.xib */; };
+		5CC223FC1CEB122800003823 /* ShowDetailsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */; };
+		5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */; };
 		5CC5F8601CB55C6A00E39CB7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F84D1CB55C6A00E39CB7 /* MJExtensionConst.m */; };
 		5CC5F8611CB55C6A00E39CB7 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F84F1CB55C6A00E39CB7 /* MJFoundation.m */; };
 		5CC5F8621CB55C6A00E39CB7 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F8511CB55C6A00E39CB7 /* MJProperty.m */; };
@@ -125,6 +127,10 @@
 		5C687DB31CC4CB22005BD4FC /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		5C687DB41CC4CB22005BD4FC /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5C687DB51CC4CB22005BD4FC /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		5C7CBE621CF42FA8004CA36F /* ShowListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowListVC.h; sourceTree = "<group>"; };
+		5C7CBE631CF42FA8004CA36F /* ShowListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowListVC.m; sourceTree = "<group>"; };
+		5C7CBE651CF45C2D004CA36F /* ShowList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowList.h; sourceTree = "<group>"; };
+		5C7CBE661CF45C2D004CA36F /* ShowList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowList.m; sourceTree = "<group>"; };
 		5C7DA8531CC609F7008F3662 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		5C7DA8541CC609F7008F3662 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		5C815CB51AEE839D00B0E9BA /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
@@ -182,9 +188,9 @@
 		5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsVC.m; sourceTree = "<group>"; };
 		5CC223F21CE9F95D00003823 /* ShowTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTVC.h; sourceTree = "<group>"; };
 		5CC223F31CE9F95D00003823 /* ShowTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTVC.m; sourceTree = "<group>"; };
-		5CC223FA1CEB122800003823 /* ShowDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailTVC.h; sourceTree = "<group>"; };
-		5CC223FB1CEB122800003823 /* ShowDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailTVC.m; sourceTree = "<group>"; };
-		5CC223FD1CEB123C00003823 /* ShowDetailTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailTVC.xib; sourceTree = "<group>"; };
+		5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsTVC.h; sourceTree = "<group>"; };
+		5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsTVC.m; sourceTree = "<group>"; };
+		5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
 		5CC5F84B1CB55C6A00E39CB7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		5CC5F84C1CB55C6A00E39CB7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		5CC5F84D1CB55C6A00E39CB7 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -588,6 +594,8 @@
 				5C9BADE61AEBCCD200E9CE7C /* Season.m */,
 				5C9BADE21AEB708900E9CE7C /* Show.h */,
 				5C9BADE31AEB708900E9CE7C /* Show.m */,
+				5C7CBE651CF45C2D004CA36F /* ShowList.h */,
+				5C7CBE661CF45C2D004CA36F /* ShowList.m */,
 				5CBE678F1AFDEC4F006383BE /* DailyEpisodes.h */,
 				5CBE67901AFDEC4F006383BE /* DailyEpisodes.m */,
 			);
@@ -614,6 +622,8 @@
 				5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */,
 				5CC223EB1CE6470D00003823 /* ShowDetailsVC.h */,
 				5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */,
+				5C7CBE621CF42FA8004CA36F /* ShowListVC.h */,
+				5C7CBE631CF42FA8004CA36F /* ShowListVC.m */,
 				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
 				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
 				5CE705F11CE1BB60002E12B4 /* SelectedShowsVC.h */,
@@ -645,9 +655,9 @@
 				5C8F6D491CD645FD00C521F5 /* UserTVC.xib */,
 				5CC223F21CE9F95D00003823 /* ShowTVC.h */,
 				5CC223F31CE9F95D00003823 /* ShowTVC.m */,
-				5CC223FA1CEB122800003823 /* ShowDetailTVC.h */,
-				5CC223FB1CEB122800003823 /* ShowDetailTVC.m */,
-				5CC223FD1CEB123C00003823 /* ShowDetailTVC.xib */,
+				5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */,
+				5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */,
+				5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */,
 				5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */,
 				5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */,
 			);
@@ -748,7 +758,7 @@
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
-				5CC223FE1CEB123C00003823 /* ShowDetailTVC.xib in Resources */,
+				5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
 				5CBE54451AD5535800BF565B /* Images.xcassets in Resources */,
@@ -799,6 +809,7 @@
 				5C815CC41AEE839D00B0E9BA /* CLWeeklyCalendarView.m in Sources */,
 				5CC5F89D1CB55C7A00E39CB7 /* MJRefreshAutoNormalFooter.m in Sources */,
 				5CC5FA301CB5F68B00E39CB7 /* AFURLResponseSerialization.m in Sources */,
+				5C7CBE641CF42FA8004CA36F /* ShowListVC.m in Sources */,
 				5C687DBA1CC4CB22005BD4FC /* UIButton+AFNetworking.m in Sources */,
 				5C9BADE41AEB708900E9CE7C /* Show.m in Sources */,
 				5CBE67911AFDEC4F006383BE /* DailyEpisodes.m in Sources */,
@@ -836,10 +847,11 @@
 				5CC5F8671CB55C6A00E39CB7 /* NSObject+MJKeyValue.m in Sources */,
 				5C815CC71AEE839D00B0E9BA /* NSDate+CL.m in Sources */,
 				5CC5F89E1CB55C7A00E39CB7 /* MJRefreshAutoStateFooter.m in Sources */,
-				5CC223FC1CEB122800003823 /* ShowDetailTVC.m in Sources */,
+				5CC223FC1CEB122800003823 /* ShowDetailsTVC.m in Sources */,
 				5CC5F8971CB55C7A00E39CB7 /* MJRefreshAutoFooter.m in Sources */,
 				5CEBB9701CEF22BF00F6561F /* EpisodeSimpleTVC.m in Sources */,
 				5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */,
+				5C7CBE671CF45C2D004CA36F /* ShowList.m in Sources */,
 				5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

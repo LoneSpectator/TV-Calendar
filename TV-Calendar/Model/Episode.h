@@ -14,19 +14,20 @@
 @property NSInteger showID;
 @property (copy) NSString *showName;
 @property (copy) NSString *episodeName;
-@property (nonatomic) NSInteger numOfSeason;     // 第几季
+@property NSInteger numOfSeason;     // 第几季
 @property NSInteger numOfEpisode;    // 第几集
 @property NSDate *airingDate;        // 播出日期
-@property bool isReleased;           // 是否播出
-@property bool isWatched;            // 是否已看
+@property BOOL isReleased;           // 是否播出
+@property BOOL isWatched;            // 是否已看
 @property (copy) NSString *showVerticalImageURL;
 @property (copy) NSString *showWideImageURL;
 
+- (instancetype)init;
 + (void)markAsWatchedWithID:(NSInteger)episodeID
-                    Success:(void (^)())success
+                    success:(void (^)())success
                     failure:(void (^)(NSError *))failure;
 + (void)unMarkAsWatchedWithID:(NSInteger)episodeID
-                      Success:(void (^)())success
+                      success:(void (^)())success
                       failure:(void (^)(NSError *))failure;
 
 @end

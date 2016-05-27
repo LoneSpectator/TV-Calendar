@@ -6,6 +6,8 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
+		<key>AllShow</key>
+		<string>showFilter/</string>
 		<key>LoginByPassword</key>
 		<string>loginByPassword/</string>
 		<key>DailyEpisodes</key>
@@ -16,6 +18,10 @@
 		<string>synchron/</string>
 		<key>UnMarkEpAsWatched</key>
 		<string>unsynchron/</string>
+		<key>AddShowToFavourites</key>
+		<string>subscribe/</string>
+		<key>RemoveShowFromFavourites</key>
+		<string>unsubscribe/</string>
 		<key>ShowDetail</key>
 		<string>searchByShowId/</string>
 	</dict>

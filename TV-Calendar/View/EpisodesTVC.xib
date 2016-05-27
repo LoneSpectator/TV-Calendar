@@ -168,15 +168,15 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="Elabel" destination="Q4J-m8-k2L" id="rC8-GS-VQp"/>
-                <outlet property="Slabel" destination="soq-xt-UZ2" id="ufu-xg-RpY"/>
                 <outlet property="airingTimeLabel" destination="BDv-NG-xdS" id="gHP-sa-E2h"/>
                 <outlet property="checkButton" destination="cEO-WQ-IUS" id="Qx5-6X-SfM"/>
                 <outlet property="checkButtonAIView" destination="CgL-cq-gJ3" id="Jpx-HA-r7z"/>
                 <outlet property="checkButtonImageView" destination="qgs-9S-CY6" id="M4U-hf-hAm"/>
+                <outlet property="eLabel" destination="Q4J-m8-k2L" id="11f-CS-Gg0"/>
                 <outlet property="episodeNameLabel" destination="1dx-13-Ubj" id="Y5q-Jr-cKb"/>
                 <outlet property="infoView" destination="nWu-X8-P1m" id="Ue0-nZ-99v"/>
                 <outlet property="overlayView" destination="uu2-5w-uG4" id="T2e-Aw-09G"/>
+                <outlet property="sLabel" destination="soq-xt-UZ2" id="V4K-kU-OOW"/>
                 <outlet property="showImageView" destination="JJv-KQ-Mia" id="lxm-ML-P5c"/>
                 <outlet property="showNameLabel" destination="HQ3-tf-osC" id="rFC-9J-3lm"/>
             </connections>

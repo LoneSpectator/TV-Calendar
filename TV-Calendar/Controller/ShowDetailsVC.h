@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowDetailsVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ShowDetailsVC : UIViewController
 
 + (ShowDetailsVC *)viewControllerWithShowID:(NSInteger)showID;
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DailyEpisodesListVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DailyEpisodesListVC : UIViewController
 
 @end

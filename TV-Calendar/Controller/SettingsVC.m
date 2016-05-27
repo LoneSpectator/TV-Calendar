@@ -8,7 +8,7 @@
 
 #import "SettingsVC.h"
 
-@interface SettingsVC ()
+@interface SettingsVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 

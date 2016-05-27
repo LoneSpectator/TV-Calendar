@@ -10,9 +10,9 @@
 #import "Show.h"
 #import "Episode.h"
 #import "MJRefresh.h"
-#import "ShowDetailTVC.h"
+#import "ShowDetailsTVC.h"
 
-@interface ShowDetailsVC ()
+@interface ShowDetailsVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 
@@ -26,6 +26,13 @@
     ShowDetailsVC *vc = [[ShowDetailsVC alloc] init];
     vc.show.showID = showID;
     return vc;
+}
+
+- (Show *)show {
+    if (!_show) {
+        _show = [[Show alloc] init];
+    }
+    return _show;
 }
 
 - (UITableView *)tableView {
@@ -66,6 +73,8 @@
                                                                     metrics:nil
                                                                       views:vs]];
     [self.view addConstraints:cs];
+    
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,7 +92,17 @@
 }
 
 - (void)fetchData {
-    
+    ShowDetailsVC __weak *weakSelf = self;
+    [Show fetchShowDetailWithID:self.show.showID
+                        success:^(Show *show) {
+                            weakSelf.show = show;
+                            [weakSelf.tableView reloadData];
+                            [weakSelf.tableView.mj_header endRefreshing];
+                        }
+                        failure:^(NSError *error) {
+                            NSLog(@"[ShowDetailsVC]%@", error);
+                            [weakSelf.tableView.mj_header endRefreshing];
+                        }];
 }
 
 #pragma mark - Table view data source
@@ -101,10 +120,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        ShowDetailTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"ShowDetailTVC"];
+        ShowDetailsTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"ShowDetailsTVC"];
         if (!cell) {
-            cell = [ShowDetailTVC cell];
+            cell = [ShowDetailsTVC cell];
         }
+        [cell updateWithShow:self.show];
         return cell;
     }
     return [[UITableViewCell alloc] init];
@@ -117,8 +137,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-    }
     return UITableViewAutomaticDimension;
 }
 

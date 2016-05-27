@@ -45,8 +45,8 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     self.airingTimeLabel.text = [NSString stringWithFormat:@"播出时间：%@", [dateFormatter stringFromDate:episode.airingDate]];
-    self.Slabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfSeason];
-    self.Elabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfEpisode];
+    self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfSeason];
+    self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfEpisode];
     
     if (self.episode.isWatched) {
         self.infoView.alpha = 0.3;
@@ -64,13 +64,13 @@
     
     EpisodesTVC __weak *weakSelf = self;
     [Episode markAsWatchedWithID:self.episode.episodeID
-                         Success:^(){
+                         success:^(){
                              weakSelf.episode.isWatched = YES;
+                             [weakSelf reloadData];
                              weakSelf.checkButton.hidden = NO;
                              weakSelf.checkButtonImageView.hidden = NO;
                              weakSelf.checkButtonAIView.hidden = YES;
                              [weakSelf.checkButtonAIView stopAnimating];
-                             [weakSelf reloadData];
                          }
                          failure:^(NSError *error) {
                              NSLog(@"[EpisodesTVC]%@", error);
@@ -78,7 +78,6 @@
                              weakSelf.checkButtonImageView.hidden = NO;
                              weakSelf.checkButtonAIView.hidden = YES;
                              [weakSelf.checkButtonAIView stopAnimating];
-                             [weakSelf reloadData];
                          }];
 }
 
@@ -90,13 +89,13 @@
     
     EpisodesTVC __weak *weakSelf = self;
     [Episode unMarkAsWatchedWithID:self.episode.episodeID
-                           Success:^(){
+                           success:^(){
                                weakSelf.episode.isWatched = NO;
+                               [weakSelf reloadData];
                                weakSelf.checkButton.hidden = NO;
                                weakSelf.checkButtonImageView.hidden = NO;
                                weakSelf.checkButtonAIView.hidden = YES;
                                [weakSelf.checkButtonAIView stopAnimating];
-                               [weakSelf reloadData];
                            }
                            failure:^(NSError *error) {
                                NSLog(@"[EpisodesTVC]%@", error);
@@ -104,7 +103,6 @@
                                weakSelf.checkButtonImageView.hidden = NO;
                                weakSelf.checkButtonAIView.hidden = YES;
                                [weakSelf.checkButtonAIView stopAnimating];
-                               [weakSelf reloadData];
                            }];
 }
 
@@ -112,13 +110,13 @@
     EpisodesTVC __weak *weakSelf = self;
     [UIView animateWithDuration:0.5
                      animations:^{
-#warning 集行需要两个图标：看过和未看
+#warning 少图片
                          if (weakSelf.episode.isWatched) {
-                             weakSelf.checkButtonImageView.image = [UIImage imageNamed:@""];
-                             self.infoView.alpha = 0.3;
+                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
+                             weakSelf.infoView.alpha = 0.3;
                          } else {
-                             weakSelf.checkButtonImageView.image = [UIImage imageNamed:@""];
-                             self.infoView.alpha = 1;
+                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
+                             weakSelf.infoView.alpha = 1;
                          }
                      }];
     if (self.episode.isWatched) {

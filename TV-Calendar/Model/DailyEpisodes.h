@@ -10,7 +10,7 @@
 
 @interface DailyEpisodes : NSObject
 
-@property (nonatomic, copy) NSMutableArray *list;
+@property (copy, nonatomic) NSMutableArray *list;
 
 + (void)fetchDailyEpisodesWithDate:(NSDate *)date
                            success:(void (^)(DailyEpisodes *))success

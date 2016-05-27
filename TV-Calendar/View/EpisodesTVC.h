@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *episodeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *airingTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *Slabel;
-@property (weak, nonatomic) IBOutlet UILabel *Elabel;
+@property (weak, nonatomic) IBOutlet UILabel *sLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *checkButtonAIView;
 @property (weak, nonatomic) IBOutlet UIImageView *checkButtonImageView;
