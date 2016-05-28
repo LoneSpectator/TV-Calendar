@@ -102,6 +102,12 @@
                         failure:^(NSError *error) {
                             NSLog(@"[ShowDetailsVC]%@", error);
                             [weakSelf.tableView.mj_header endRefreshing];
+                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
+                                                                                        message:@"请下拉刷新"
+                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+                            [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:nil]];
                         }];
 }
 

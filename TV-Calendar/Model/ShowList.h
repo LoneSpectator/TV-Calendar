@@ -10,7 +10,7 @@
 
 @interface ShowList : NSObject
 
-@property (copy) NSMutableArray *list;
+@property NSMutableArray *list;
 @property NSInteger page;
 @property NSInteger countOfPage;
 @property NSInteger countOfShow;

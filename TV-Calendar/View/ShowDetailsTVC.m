@@ -59,8 +59,10 @@
     if (self.show.isFavorite) {
 #warning 少图片
         [self.favouriteButtonImageView setImage:[UIImage imageNamed:@""]];
+        [self.favouriteButton setTitle:@"已订阅" forState:UIControlStateNormal];
     } else {
         [self.favouriteButtonImageView setImage:[UIImage imageNamed:@""]];
+        [self.favouriteButton setTitle:@"订阅" forState:UIControlStateNormal];
     }
 }
 

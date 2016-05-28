@@ -8,9 +8,10 @@
 
 #import "MainVC.h"
 #import "DailyEpisodesListVC.h"
+#import "ShowListVC.h"
 #import "SelectedShowsVC.h"
 
-@interface MainVC ()
+@interface MainVC () <UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UITabBarController *contentTabBarController;
 
@@ -21,15 +22,16 @@
 - (UITabBarController *)contentTabBarController {
     if (!_contentTabBarController) {
         _contentTabBarController = [[UITabBarController alloc] init];
+        _contentTabBarController.delegate = self;
         
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
-        UIViewController *showsVC = [[UIViewController alloc] init];
+        ShowListVC *showListVC = [[ShowListVC alloc] init];
         SelectedShowsVC *selectedShowsVC = [[SelectedShowsVC alloc] init];
-        UINavigationController *firstContentViewController = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
-        UINavigationController *secondContentViewController = [[UINavigationController alloc] initWithRootViewController:showsVC];
-        UINavigationController *thirdContentViewController = [[UINavigationController alloc] initWithRootViewController:selectedShowsVC];
+        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
+        UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
+        UINavigationController *thirdContentVC = [[UINavigationController alloc] initWithRootViewController:selectedShowsVC];
         
-        _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentViewController, secondContentViewController, thirdContentViewController, nil];
+        _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentVC, secondContentVC, thirdContentVC, nil];
     }
     return _contentTabBarController;
 }
@@ -49,6 +51,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    UIViewController *vc = [(UINavigationController *)viewController topViewController];
+    if ([vc isKindOfClass:[DailyEpisodesListVC class]]) {
+        [(DailyEpisodesListVC *)vc refresh];
+    }
+    if ([vc isKindOfClass:[ShowListVC class]]) {
+        [(ShowListVC *)vc refresh];
+    }
+    if ([vc isKindOfClass:[SelectedShowsVC class]]) {
+        
+    }
 }
 
 @end

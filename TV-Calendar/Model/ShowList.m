@@ -34,7 +34,7 @@
                                            @"itemPerPage": [NSString stringWithFormat:@"%ld", (long)limit]}
                                  success:^(NSDictionary *data) {
                                      weakSelf.page = 0;
-                                     weakSelf.countOfShow = [data[@"num"] integerValue];
+                                     weakSelf.countOfShow = [data[@"countShow"] integerValue];
                                      weakSelf.countOfPage = ceil(weakSelf.countOfShow / 20.0);
                                      weakSelf.list = [[NSMutableArray alloc] init];
                                      NSArray *showsDataArray = data[@"shows"];

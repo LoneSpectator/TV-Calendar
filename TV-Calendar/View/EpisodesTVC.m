@@ -114,9 +114,11 @@
                          if (weakSelf.episode.isWatched) {
                              [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
                              weakSelf.infoView.alpha = 0.3;
+                             [weakSelf.checkButton setTitle:@"没看过" forState:UIControlStateNormal];
                          } else {
                              [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
                              weakSelf.infoView.alpha = 1;
+                             [weakSelf.checkButton setTitle:@"已看" forState:UIControlStateNormal];
                          }
                      }];
     if (self.episode.isWatched) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C15CF741CF8216900B84C53 /* ShowTVC.xib */; };
 		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DA31CC4CB22005BD4FC /* AFAutoPurgingImageCache.m */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C15CF741CF8216900B84C53 /* ShowTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTVC.xib; sourceTree = "<group>"; };
 		5C1B83181CDC22C0001D6D8D /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				5C8F6D491CD645FD00C521F5 /* UserTVC.xib */,
 				5CC223F21CE9F95D00003823 /* ShowTVC.h */,
 				5CC223F31CE9F95D00003823 /* ShowTVC.m */,
+				5C15CF741CF8216900B84C53 /* ShowTVC.xib */,
 				5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */,
 				5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */,
 				5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */,
@@ -757,6 +760,7 @@
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
+				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,

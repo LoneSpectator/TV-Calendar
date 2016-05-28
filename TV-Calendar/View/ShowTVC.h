@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class Show;
+
 @interface ShowTVC : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *showVerticalImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *channelLabel;
+
++ (ShowTVC *)cell;
+- (void)updateWithShow:(Show *)show;
 
 @end

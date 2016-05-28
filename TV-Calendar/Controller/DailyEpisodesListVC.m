@@ -138,6 +138,10 @@
                                       }];
 }
 
+- (void)refresh {
+    [self.tableView.mj_header beginRefreshing];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

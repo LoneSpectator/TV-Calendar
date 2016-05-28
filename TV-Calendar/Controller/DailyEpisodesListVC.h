@@ -10,4 +10,6 @@
 
 @interface DailyEpisodesListVC : UIViewController
 
+- (void)refresh;
+
 @end

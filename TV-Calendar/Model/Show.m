@@ -48,7 +48,7 @@
                                      show.channel = showData[@"channel"];
                                      show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
                                      show.airingTime = showData[@"update_time"];
-                                     show.isFavorite = data[@"subscribed"];
+                                     show.isFavorite = [data[@"subscribed"] boolValue];
 #warning 未处理集详情
                                      NSArray *epsArray = data[@"episodes"];
                                      show.lastEp = [[Episode alloc] init];

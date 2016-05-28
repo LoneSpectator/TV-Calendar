@@ -7,18 +7,35 @@
 //
 
 #import "ShowTVC.h"
+#import "Show.h"
+#import "UIKit+AFNetworking.h"
 
 @implementation ShowTVC
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
++ (ShowTVC *)cell {
+    ShowTVC *cell = (ShowTVC *)[[NSBundle mainBundle] loadNibNamed:@"ShowTVC"
+                                                             owner:nil
+                                                           options:nil].firstObject;
+    cell.backgroundColor = [UIColor clearColor];
+    
+    return cell;
+}
+
+- (void)updateWithShow:(Show *)show {
+    [self.showVerticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
+                               placeholderImage:nil];
+    self.nameLabel.text = show.name;
+    self.statusLabel.text = [NSString stringWithFormat:@"状态：%@", show.status];
+    self.areaLabel.text = [NSString stringWithFormat:@"区域：%@", show.area];
+    self.channelLabel.text = [NSString stringWithFormat:@"出品：%@", show.channel];
 }
 
 @end
