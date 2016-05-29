@@ -10,6 +10,7 @@
 #import "NetworkManager.h"
 #import "Show.h"
 #import "SettingsManager.h"
+#import "User.h"
 
 @implementation ShowList
 
@@ -29,13 +30,13 @@
                                    success:(void (^)())success
                                    failure:(void (^)(NSError *))failure {
     ShowList __weak *weakSelf = self;
-    [[NetworkManager defaultManager] GET:@"AllShow"
+    [[NetworkManager defaultManager] GET:@"AllShows"
                               parameters:@{@"startPage": @"0",
                                            @"itemPerPage": [NSString stringWithFormat:@"%ld", (long)limit]}
                                  success:^(NSDictionary *data) {
                                      weakSelf.page = 0;
-                                     weakSelf.countOfShow = [data[@"countShow"] integerValue];
-                                     weakSelf.countOfPage = ceil(weakSelf.countOfShow / 20.0);
+                                     weakSelf.countOfPage = [data[@"countShow"] integerValue];
+//                                     weakSelf.countOfPage = ceil(weakSelf.countOfShow / 20.0);
                                      weakSelf.list = [[NSMutableArray alloc] init];
                                      NSArray *showsDataArray = data[@"shows"];
                                      for (NSDictionary *showData in showsDataArray) {
@@ -68,7 +69,7 @@
         return 1;
     }
     ShowList __weak *weakSelf = self;
-    [[NetworkManager defaultManager] GET:@"AllShow"
+    [[NetworkManager defaultManager] GET:@"AllShows"
                               parameters:@{@"startPage": [NSString stringWithFormat:@"%ld", (long)self.page],
                                            @"itemPerPage": [NSString stringWithFormat:@"%ld", (long)limit]}
                                  success:^(NSDictionary *data) {
@@ -94,6 +95,37 @@
                                      }
                                  }];
     return 0;
+}
+
+- (void)fetchFavouriteShowListWithSuccess:(void (^)())success
+                                  failure:(void (^)(NSError *))failure {
+    ShowList __weak *weakSelf = self;
+    [[NetworkManager defaultManager] GET:@"FavouriteShows"
+                              parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"u_token": currentUser.token}
+                                 success:^(NSDictionary *data) {
+                                     NSArray *showsDataArray = data[@"mySubscribe"];
+                                     for (NSDictionary *showData in showsDataArray) {
+                                         Show *show = [[Show alloc] init];
+                                         show.showID = [showData[@"s_id"] integerValue];
+                                         show.name = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? showData[@"s_name_cn"] : showData[@"s_name"];
+                                         show.status = showData[@"status"];
+                                         show.area = showData[@"area"];
+                                         show.channel = showData[@"channel"];
+                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
+//                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
+                                         show.percentOfWatched = [showData[@"percent"] floatValue];
+                                         [weakSelf.list addObject:show];
+                                     }
+                                     if (success) {
+                                         success();
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
 }
 
 @end

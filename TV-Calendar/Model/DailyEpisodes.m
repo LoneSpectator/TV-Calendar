@@ -40,7 +40,7 @@
             NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
             ep.isReleased = secondsInterval <= 0 ? YES : NO;
             ep.showVerticalImageURL = [NSString stringWithFormat:@"http:%@", epData[@"s_vertical_image"]];
-#warning 未处理是否已看
+            if (currentUser) ep.isWatched = [epData[@"syned"] boolValue];
             [dailyEpisodes.list addObject:ep];
         }
         if (success) {

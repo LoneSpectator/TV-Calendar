@@ -22,5 +22,7 @@
 - (int)fetchAllShowListNextPageWithLimit:(NSInteger)limit
                                  success:(void (^)())success
                                  failure:(void (^)(NSError *))failure;
+- (void)fetchFavouriteShowListWithSuccess:(void (^)())success
+                                  failure:(void (^)(NSError *))failure;
 
 @end

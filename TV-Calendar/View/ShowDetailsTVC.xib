@@ -21,10 +21,6 @@
                             <constraint firstAttribute="width" secondItem="L0O-yW-4Qu" secondAttribute="height" multiplier="25:14" id="I4P-Yh-AAd"/>
                         </constraints>
                     </imageView>
-                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrd-Pu-TSA">
-                        <rect key="frame" x="0.0" y="160" width="24" height="50"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Eb-gc-3nV">
                         <rect key="frame" x="12" y="218" width="283" height="24"/>
                         <subviews>
@@ -152,6 +148,10 @@
                             <constraint firstItem="T7j-3E-rLT" firstAttribute="leading" secondItem="6ge-Sw-lDV" secondAttribute="leading" constant="5" id="dlS-g8-zZe"/>
                             <constraint firstItem="LaA-TW-Ry9" firstAttribute="top" secondItem="6ge-Sw-lDV" secondAttribute="top" id="zrb-Ok-uUI"/>
                         </constraints>
+                    </view>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrd-Pu-TSA">
+                        <rect key="frame" x="0.0" y="160" width="24" height="50"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZL-hA-Fb7">
                         <rect key="frame" x="0.0" y="160" width="375" height="50"/>

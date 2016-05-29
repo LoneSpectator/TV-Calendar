@@ -9,7 +9,7 @@
 #import "MainVC.h"
 #import "DailyEpisodesListVC.h"
 #import "ShowListVC.h"
-#import "SelectedShowsVC.h"
+#import "FavouriteShowsVC.h"
 
 @interface MainVC () <UITabBarControllerDelegate>
 
@@ -26,10 +26,10 @@
         
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
         ShowListVC *showListVC = [[ShowListVC alloc] init];
-        SelectedShowsVC *selectedShowsVC = [[SelectedShowsVC alloc] init];
+        FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
         UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
         UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
-        UINavigationController *thirdContentVC = [[UINavigationController alloc] initWithRootViewController:selectedShowsVC];
+        UINavigationController *thirdContentVC = [[UINavigationController alloc] initWithRootViewController:favouriteShowsVC];
         
         _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentVC, secondContentVC, thirdContentVC, nil];
     }
@@ -63,7 +63,7 @@
     if ([vc isKindOfClass:[ShowListVC class]]) {
         [(ShowListVC *)vc refresh];
     }
-    if ([vc isKindOfClass:[SelectedShowsVC class]]) {
+    if ([vc isKindOfClass:[FavouriteShowsVC class]]) {
         
     }
 }

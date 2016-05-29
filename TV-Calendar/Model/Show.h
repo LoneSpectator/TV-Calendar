@@ -26,6 +26,7 @@
 @property NSInteger constOfSeason;          // 有几季
 @property Episode *lastEp;
 @property BOOL isFavorite;                  // 是否关注
+@property float percentOfWatched;
 
 - (instancetype)init;
 + (void)fetchShowDetailWithID:(NSInteger)showID

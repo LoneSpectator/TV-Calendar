@@ -6,7 +6,9 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
-		<key>AllShow</key>
+		<key>FavouriteShows</key>
+		<string>myshows/</string>
+		<key>AllShows</key>
 		<string>showFilter/</string>
 		<key>LoginByPassword</key>
 		<string>loginByPassword/</string>

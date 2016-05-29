@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="30" id="EqA-In-cw5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx0-tI-grO">
@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="21" id="9sP-0Q-D0y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5m-Xr-4wv">
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="height" constant="21" id="n9a-Ge-XKz"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyJ-sv-wYk">
@@ -54,9 +54,16 @@
                             <constraint firstAttribute="height" constant="21" id="Ba7-Y0-wlM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hly-y7-Np0">
+                        <rect key="frame" x="0.0" y="74" width="375" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="dJz-Yh-SxP"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="K6C-eM-DYW" firstAttribute="top" secondItem="D7o-K4-UKK" secondAttribute="top" constant="5" id="1RP-sI-LOM"/>
@@ -69,11 +76,14 @@
                     <constraint firstItem="dyJ-sv-wYk" firstAttribute="width" secondItem="w47-QX-aMe" secondAttribute="width" id="RPs-ln-IdN"/>
                     <constraint firstItem="K6C-eM-DYW" firstAttribute="leading" secondItem="D7o-K4-UKK" secondAttribute="leading" constant="12" id="RnT-ku-0kx"/>
                     <constraint firstAttribute="trailing" secondItem="w47-QX-aMe" secondAttribute="trailing" constant="12" id="XOb-2N-9sq"/>
+                    <constraint firstAttribute="trailing" secondItem="hly-y7-Np0" secondAttribute="trailing" id="YQG-Z5-ZzH"/>
                     <constraint firstItem="gx0-tI-grO" firstAttribute="leading" secondItem="w47-QX-aMe" secondAttribute="leading" id="jAU-Wy-2gg"/>
                     <constraint firstItem="I5m-Xr-4wv" firstAttribute="leading" secondItem="w47-QX-aMe" secondAttribute="leading" id="mNK-hC-KPo"/>
                     <constraint firstItem="dyJ-sv-wYk" firstAttribute="top" secondItem="I5m-Xr-4wv" secondAttribute="bottom" constant="8" id="oiw-iq-Eji"/>
+                    <constraint firstItem="hly-y7-Np0" firstAttribute="leading" secondItem="D7o-K4-UKK" secondAttribute="leading" id="tCw-Qk-st9"/>
                     <constraint firstItem="w47-QX-aMe" firstAttribute="top" secondItem="D7o-K4-UKK" secondAttribute="top" constant="8" id="tW5-ST-obr"/>
                     <constraint firstItem="K6C-eM-DYW" firstAttribute="centerY" secondItem="D7o-K4-UKK" secondAttribute="centerY" id="wJ3-gO-cg5"/>
+                    <constraint firstItem="I5m-Xr-4wv" firstAttribute="top" secondItem="hly-y7-Np0" secondAttribute="bottom" id="zKD-rE-LOk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
