@@ -104,6 +104,7 @@
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
                                            @"u_token": currentUser.token}
                                  success:^(NSDictionary *data) {
+                                     [weakSelf.list removeAllObjects];
                                      NSArray *showsDataArray = data[@"mySubscribe"];
                                      for (NSDictionary *showData in showsDataArray) {
                                          Show *show = [[Show alloc] init];

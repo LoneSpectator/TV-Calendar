@@ -10,6 +10,7 @@
 		5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C15CF741CF8216900B84C53 /* ShowTVC.xib */; };
 		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
+		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
 		5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */; };
 		5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C687DA31CC4CB22005BD4FC /* AFAutoPurgingImageCache.m */; };
@@ -44,7 +45,6 @@
 		5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */; };
 		5CBE29011ADA4F1000FB763E /* DailyEpisodesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */; };
 		5CBE54431AD5535800BF565B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54411AD5535800BF565B /* Main.storyboard */; };
-		5CBE54451AD5535800BF565B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54441AD5535800BF565B /* Images.xcassets */; };
 		5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBE54461AD5535800BF565B /* LaunchScreen.xib */; };
 		5CBE54541AD5535800BF565B /* TV_CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE54531AD5535800BF565B /* TV_CalendarTests.swift */; };
 		5CBE54C51AD556BA00BF565B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE54C41AD556BA00BF565B /* AppDelegate.m */; };
@@ -111,6 +111,7 @@
 		5C1B83181CDC22C0001D6D8D /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
 		5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsTVC.h; sourceTree = "<group>"; };
 		5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsTVC.m; sourceTree = "<group>"; };
 		5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteShowsTVC.xib; sourceTree = "<group>"; };
@@ -179,7 +180,6 @@
 		5CBE54381AD5535800BF565B /* TV-Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV-Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBE543C1AD5535800BF565B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CBE54421AD5535800BF565B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5CBE54441AD5535800BF565B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5CBE54471AD5535800BF565B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5CBE544D1AD5535800BF565B /* TV-CalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TV-CalendarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBE54521AD5535800BF565B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -372,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				5CBE543A1AD5535800BF565B /* TV-Calendar */,
+				5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */,
 				5CBE54D01AD5623A00BF565B /* TV-Calendar-Bridging-Header.h */,
 				5CBE54D11AD5623A00BF565B /* TV-Calendar-Prefix.h */,
 				5CF300C01B5B3FBB00F3E65E /* Frameworks */,
@@ -399,7 +400,6 @@
 				5CEF95761AD902E1000051B3 /* Model */,
 				5CEF95771AD902E1000051B3 /* View */,
 				5CEF95751AD902E1000051B3 /* Controller */,
-				5CBE54441AD5535800BF565B /* Images.xcassets */,
 				5CBE54461AD5535800BF565B /* LaunchScreen.xib */,
 				5CBE545D1AD553EB00BF565B /* External */,
 				5CBE543B1AD5535800BF565B /* Supporting Files */,
@@ -768,13 +768,13 @@
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
+				5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */,
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */,
 				5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
-				5CBE54451AD5535800BF565B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

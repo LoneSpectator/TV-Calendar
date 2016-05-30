@@ -32,7 +32,7 @@
     [self.showImageView setImageWithURL:[NSURL URLWithString:show.imageURL]
                        placeholderImage:nil];
     self.showNameLabel.text = show.name;
-    self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"已看过 %.1f%%", show.percentOfWatched];
+    self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"已看过 %.1f%%", show.percentOfWatched*100];
     if (show.percentOfWatched >= 0.99) {
         self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:51.0/255.0 alpha:1.0];
     } else if (show.percentOfWatched >= 0.8) {

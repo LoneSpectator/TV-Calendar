@@ -58,7 +58,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hly-y7-Np0">
-                        <rect key="frame" x="0.0" y="74" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="133" width="375" height="0.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="0.5" id="dJz-Yh-SxP"/>
@@ -77,13 +77,13 @@
                     <constraint firstItem="K6C-eM-DYW" firstAttribute="leading" secondItem="D7o-K4-UKK" secondAttribute="leading" constant="12" id="RnT-ku-0kx"/>
                     <constraint firstAttribute="trailing" secondItem="w47-QX-aMe" secondAttribute="trailing" constant="12" id="XOb-2N-9sq"/>
                     <constraint firstAttribute="trailing" secondItem="hly-y7-Np0" secondAttribute="trailing" id="YQG-Z5-ZzH"/>
+                    <constraint firstAttribute="bottom" secondItem="hly-y7-Np0" secondAttribute="bottom" id="Yg1-Pw-qo1"/>
                     <constraint firstItem="gx0-tI-grO" firstAttribute="leading" secondItem="w47-QX-aMe" secondAttribute="leading" id="jAU-Wy-2gg"/>
                     <constraint firstItem="I5m-Xr-4wv" firstAttribute="leading" secondItem="w47-QX-aMe" secondAttribute="leading" id="mNK-hC-KPo"/>
                     <constraint firstItem="dyJ-sv-wYk" firstAttribute="top" secondItem="I5m-Xr-4wv" secondAttribute="bottom" constant="8" id="oiw-iq-Eji"/>
                     <constraint firstItem="hly-y7-Np0" firstAttribute="leading" secondItem="D7o-K4-UKK" secondAttribute="leading" id="tCw-Qk-st9"/>
                     <constraint firstItem="w47-QX-aMe" firstAttribute="top" secondItem="D7o-K4-UKK" secondAttribute="top" constant="8" id="tW5-ST-obr"/>
                     <constraint firstItem="K6C-eM-DYW" firstAttribute="centerY" secondItem="D7o-K4-UKK" secondAttribute="centerY" id="wJ3-gO-cg5"/>
-                    <constraint firstItem="I5m-Xr-4wv" firstAttribute="top" secondItem="hly-y7-Np0" secondAttribute="bottom" id="zKD-rE-LOk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
