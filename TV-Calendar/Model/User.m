@@ -101,4 +101,42 @@ User *currentUser = nil;
     return [hash lowercaseString];
 }
 
++ (void)registerWithPhone:(NSString *)phone
+                 userName:(NSString *)userName
+                 password:(NSString *)password
+                  success:(void (^)())success
+                  failure:(void (^)(NSError *))failure {
+    [[NetworkManager defaultManager] POST:@"Register"
+                               parameters:@{@"u_phone": phone,
+                                            @"u_name": userName,
+                                            @"u_passwd": [self md5HexDigest:password]}
+                                  success:^(NSDictionary *userData) {
+                                      User *user = [[User alloc] init];
+                                      user.ID = [userData[@"u_id"] integerValue];
+                                      user.name = userData[@"u_name"];
+                                      user.phone = userData[@"u_phone"];
+                                      user.token = userData[@"u_token"];
+                                      user.status = [userData[@"u_status"] integerValue];
+                                      currentUser = user;
+                                      NSFileManager* fm = [NSFileManager defaultManager];
+                                      if (![fm fileExistsAtPath:[User plistPath]]) {
+                                          if ([fm createFileAtPath:[User plistPath] contents:nil attributes:nil]) {
+                                              [userData writeToFile:[User plistPath] atomically:YES];
+                                          } else {
+                                              NSLog(@"[User]用户信息文件创建失败");
+                                          }
+                                      } else {
+                                          NSLog(@"[User]用户信息文件存在");
+                                      }
+                                      if (success) {
+                                          success();
+                                      }
+                                  }
+                                  failure:^(NSError *error) {
+                                      if (failure) {
+                                          failure(error);
+                                      }
+                                  }];
+}
+
 @end

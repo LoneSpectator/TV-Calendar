@@ -24,6 +24,11 @@
                failure:(void (^)(NSError *))failure;
 + (BOOL)loginWithCache;
 + (void)logout;
++ (void)registerWithPhone:(NSString *)phone
+                 userName:(NSString *)userName
+                 password:(NSString *)password
+                  success:(void (^)())success
+                  failure:(void (^)(NSError *))failure;
 
 @end
 

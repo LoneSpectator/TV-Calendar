@@ -94,6 +94,7 @@
                                                      style:UIBarButtonItemStylePlain
                                                     target:self
                                                     action:@selector(showLoginViewController)];
+        [self.showList.list removeAllObjects];
         [self.tableView reloadData];
     } else {
         loginItem = [[UIBarButtonItem alloc] initWithTitle:@"注销"

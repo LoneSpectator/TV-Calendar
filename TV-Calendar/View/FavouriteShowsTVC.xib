@@ -59,14 +59,14 @@
                         </constraints>
                     </scrollView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkW-wQ-H9E">
-                        <rect key="frame" x="195" y="25" width="180" height="40"/>
+                        <rect key="frame" x="231" y="25" width="144" height="40"/>
                         <subviews>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlL-rj-Xq7">
-                                <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="144" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已看完 100.0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="801-QH-UcD">
-                                <rect key="frame" x="10" y="6" width="160" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已看完 00%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="801-QH-UcD">
+                                <rect key="frame" x="10" y="6" width="124" height="28"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -77,13 +77,18 @@
                             <constraint firstItem="ZlL-rj-Xq7" firstAttribute="leading" secondItem="bkW-wQ-H9E" secondAttribute="leading" id="28f-n5-iVN"/>
                             <constraint firstAttribute="bottom" secondItem="ZlL-rj-Xq7" secondAttribute="bottom" id="4yd-cu-kGq"/>
                             <constraint firstAttribute="trailing" secondItem="ZlL-rj-Xq7" secondAttribute="trailing" id="7ks-Fn-1PN"/>
-                            <constraint firstAttribute="width" constant="180" id="DUW-sL-gYu"/>
+                            <constraint firstAttribute="width" constant="155" id="DUW-sL-gYu"/>
                             <constraint firstItem="ZlL-rj-Xq7" firstAttribute="top" secondItem="bkW-wQ-H9E" secondAttribute="top" id="J4v-eT-ddW"/>
                             <constraint firstItem="801-QH-UcD" firstAttribute="centerY" secondItem="bkW-wQ-H9E" secondAttribute="centerY" id="YbX-O5-z9C"/>
                             <constraint firstItem="801-QH-UcD" firstAttribute="leading" secondItem="bkW-wQ-H9E" secondAttribute="leading" constant="10" id="aVs-D9-uW7"/>
                             <constraint firstAttribute="height" constant="40" id="ieK-wC-frG"/>
                             <constraint firstAttribute="trailing" secondItem="801-QH-UcD" secondAttribute="trailing" constant="10" id="o3l-sy-nNo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DUW-sL-gYu"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <constraints>

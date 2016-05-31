@@ -129,6 +129,7 @@ constructingBodyWithBlock:nil
                           }
                           failure:^(NSURLSessionDataTask *task, NSError *error) {
                               [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                              NSLog(@"[NetworkManager]%@\n%@\n", task.response.URL, error);
                               if (failure) {
                                   failure(error);
                               }

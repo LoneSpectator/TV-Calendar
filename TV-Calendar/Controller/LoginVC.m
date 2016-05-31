@@ -133,24 +133,46 @@
                      [weakSelf dismissViewControllerAnimated:YES completion:nil];
                  } failure:^(NSError *error) {
                      if (error) {
-                         NSString *errorMsg = nil;
                          if (error.domain == [NetworkManager defaultManager].webSite) {
-                             errorMsg = error.userInfo[NSLocalizedDescriptionKey];
+                             weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
+                         } else {
+                             UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"登陆失败，请重新登陆！"
+                                                                                         message:nil
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                             [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:nil]];
                          }
-                         weakSelf.errorMesssgeLabel.text = errorMsg;
-                         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"登陆失败，请重新登陆！"
-                                                                                     message:errorMsg
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-                         [ac addAction:[UIAlertAction actionWithTitle:@"好的"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:nil]];
                          NSLog(@"[LoginVC]%@", error);
                      }
                  }];
 }
 
 - (void)registration {
-    
+    if (![self.passwdTextField.text isEqualToString:self.confirmPasswdTextField.text]) {
+        self.errorMesssgeLabel.text = @"两次输入密码不一致，请检查后重试！";
+        return;
+    }
+    LoginVC __weak *weakSelf = self;
+    [User registerWithPhone:self.phoneTextField.text
+                   userName:self.phoneTextField.text
+                   password:self.passwdTextField.text
+                    success:^{
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    }
+                    failure:^(NSError *error) {
+                        if (error.domain == [NetworkManager defaultManager].webSite) {
+                            weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
+                        } else {
+                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"注册失败，请重新注册！"
+                                                                                        message:nil
+                                                                                 preferredStyle:UIAlertControllerStyleAlert];
+                            [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:nil]];
+                        }
+                        NSLog(@"[LoginVC]%@", error);
+                    }];
 }
 
 - (IBAction)cancel:(id)sender {

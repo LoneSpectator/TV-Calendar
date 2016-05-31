@@ -6,6 +6,8 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
+		<key>Register</key>
+		<string>mobileRegister/</string>
 		<key>FavouriteShows</key>
 		<string>myshows/</string>
 		<key>AllShows</key>

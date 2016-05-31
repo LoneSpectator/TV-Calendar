@@ -28,8 +28,11 @@
         ShowListVC *showListVC = [[ShowListVC alloc] init];
         FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
         UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
+        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-DailyEpList"]];
         UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
+        [secondContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-ShowList"]];
         UINavigationController *thirdContentVC = [[UINavigationController alloc] initWithRootViewController:favouriteShowsVC];
+        [thirdContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-FavouriteShows"]];
         
         _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentVC, secondContentVC, thirdContentVC, nil];
     }
