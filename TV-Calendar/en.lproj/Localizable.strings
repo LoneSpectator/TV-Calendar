@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TV-Calendar
+
+  Created by GaoMing on 2017/4/3.
+  Copyright © 2017年 ifLab. All rights reserved.
+*/
+
+"Watched" = "Watched";
+"UnWatched" = "UnWatched";

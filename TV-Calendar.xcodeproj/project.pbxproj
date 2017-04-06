@@ -43,6 +43,9 @@
 		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
 		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
 		5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE91AEBD36F00E9CE7C /* User.m */; };
+		5CA88A261E927D0A00F0B952 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CA88A241E927D0A00F0B952 /* InfoPlist.strings */; };
+		5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CA88A2D1E9286F000F0B952 /* Localizable.strings */; };
+		5CA88A331E9383E100F0B952 /* LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA88A321E9383E100F0B952 /* LocalizedString.m */; };
 		5CB7C1C71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */; };
 		5CB7C1C91AF0F2E7005CFFB6 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7C1AB1AF0F2E7005CFFB6 /* UIImage+ImageEffects.m */; };
 		5CBE29011ADA4F1000FB763E /* DailyEpisodesListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */; };
@@ -176,6 +179,12 @@
 		5C9BADE61AEBCCD200E9CE7C /* Season.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Season.m; sourceTree = "<group>"; };
 		5C9BADE81AEBD36F00E9CE7C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5C9BADE91AEBD36F00E9CE7C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5CA88A311E9383E100F0B952 /* LocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedString.h; sourceTree = "<group>"; };
+		5CA88A321E9383E100F0B952 /* LocalizedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedString.m; sourceTree = "<group>"; };
+		5CA88A341E93D29E00F0B952 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5CA88A351E93D29E00F0B952 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5CA88A361E93D31100F0B952 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5CA88A371E93D31100F0B952 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5CB7C1A71AF0F2E7005CFFB6 /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
 		5CB7C1A81AF0F2E7005CFFB6 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
 		5CB7C1AA1AF0F2E7005CFFB6 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -415,7 +424,9 @@
 		5CBE543B1AD5535800BF565B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CA88A2D1E9286F000F0B952 /* Localizable.strings */,
 				5CBE543C1AD5535800BF565B /* Info.plist */,
+				5CA88A241E927D0A00F0B952 /* InfoPlist.strings */,
 				5CEF57C11CB91BE5000C5C8A /* Configuration.plist */,
 			);
 			name = "Supporting Files";
@@ -621,6 +632,8 @@
 				5CC5FA391CB6017100E39CB7 /* NetworkManager.m */,
 				5C7DA8531CC609F7008F3662 /* SettingsManager.h */,
 				5C7DA8541CC609F7008F3662 /* SettingsManager.m */,
+				5CA88A311E9383E100F0B952 /* LocalizedString.h */,
+				5CA88A321E9383E100F0B952 /* LocalizedString.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -735,15 +748,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = ifLab;
 				TargetAttributes = {
 					5CBE54371AD5535800BF565B = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = SUWZE5CNF2;
+						LastSwiftMigration = 0830;
 					};
 					5CBE544C1AD5535800BF565B = {
 						CreatedOnToolsVersion = 6.3;
+						LastSwiftMigration = 0830;
 						TestTargetID = 5CBE54371AD5535800BF565B;
 					};
 				};
@@ -755,6 +770,7 @@
 			knownRegions = (
 				Base,
 				"zh-Hans",
+				en,
 			);
 			mainGroup = 5CBE542F1AD5535800BF565B;
 			productRefGroup = 5CBE54391AD5535800BF565B /* Products */;
@@ -775,6 +791,8 @@
 				5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */,
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
+				5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */,
+				5CA88A261E927D0A00F0B952 /* InfoPlist.strings in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */,
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
@@ -855,6 +873,7 @@
 				5CC5F8981CB55C7A00E39CB7 /* MJRefreshBackFooter.m in Sources */,
 				5CC5F8A41CB55C7A00E39CB7 /* MJRefreshStateHeader.m in Sources */,
 				5CE705F31CE1BB60002E12B4 /* FavouriteShowsVC.m in Sources */,
+				5CA88A331E9383E100F0B952 /* LocalizedString.m in Sources */,
 				5CC5F8621CB55C6A00E39CB7 /* MJProperty.m in Sources */,
 				5CC5F8601CB55C6A00E39CB7 /* MJExtensionConst.m in Sources */,
 				5C815CC61AEE839D00B0E9BA /* DayTitleLabel.m in Sources */,
@@ -899,6 +918,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5CA88A241E927D0A00F0B952 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CA88A351E93D29E00F0B952 /* zh-Hans */,
+				5CA88A371E93D31100F0B952 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5CA88A2D1E9286F000F0B952 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CA88A341E93D29E00F0B952 /* zh-Hans */,
+				5CA88A361E93D31100F0B952 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5CBE54411AD5535800BF565B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -922,6 +959,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -931,8 +969,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -967,6 +1007,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -976,8 +1017,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -996,6 +1039,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1020,6 +1064,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TV-Calendar/TV-Calendar-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1043,6 +1088,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TV-Calendar/TV-Calendar-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1062,6 +1108,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.iming.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TV-Calendar.app/TV-Calendar";
 			};
 			name = Debug;
@@ -1078,6 +1125,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.iming.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TV-Calendar.app/TV-Calendar";
 			};
 			name = Release;

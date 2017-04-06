@@ -111,7 +111,7 @@ constructingBodyWithBlock:nil
         }
         return nil;
     }
-    NSLog(@"[NetworkManager]%@", URLString);
+//    NSLog(@"[NetworkManager]%@", URLString);
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NetworkManager __weak *weakSelf = self;

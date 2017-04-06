@@ -10,6 +10,7 @@
 #import "Episode.h"
 #import "UIKit+AFNetworking.h"
 #import "User.h"
+#import "LocalizedString.h"
 
 @implementation EpisodesTVC
 
@@ -114,11 +115,11 @@
                          if (weakSelf.episode.isWatched) {
                              [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
                              weakSelf.infoView.alpha = 0.3;
-                             [weakSelf.checkButton setTitle:@"没看过" forState:UIControlStateNormal];
+                             [weakSelf.checkButton setTitle:LocalizedString(@"Watched") forState:UIControlStateNormal];
                          } else {
                              [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
                              weakSelf.infoView.alpha = 1;
-                             [weakSelf.checkButton setTitle:@"已看" forState:UIControlStateNormal];
+                             [weakSelf.checkButton setTitle:LocalizedString(@"UnWatched") forState:UIControlStateNormal];
                          }
                      }];
     if (self.episode.isWatched) {
