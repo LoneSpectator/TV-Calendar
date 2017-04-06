@@ -10,6 +10,7 @@
 #import "DailyEpisodesListVC.h"
 #import "ShowListVC.h"
 #import "FavouriteShowsVC.h"
+#import "LocalizedString.h"
 
 @interface MainVC () <UITabBarControllerDelegate>
 
@@ -27,12 +28,15 @@
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
         ShowListVC *showListVC = [[ShowListVC alloc] init];
         FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
-        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
-        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-DailyEpList"]];
-        UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
-        [secondContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-ShowList"]];
+        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
+        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-ShowList"]];
+        [firstContentVC.tabBarItem setTitle:LocalizedString(@"探索")];
+        UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
+        [secondContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-DailyEpList"]];
+        [secondContentVC.tabBarItem setTitle:LocalizedString(@"时间表")];
         UINavigationController *thirdContentVC = [[UINavigationController alloc] initWithRootViewController:favouriteShowsVC];
         [thirdContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-FavouriteShows"]];
+        [thirdContentVC.tabBarItem setTitle:LocalizedString(@"订阅")];
         
         _contentTabBarController.viewControllers = [[NSArray alloc] initWithObjects:firstContentVC, secondContentVC, thirdContentVC, nil];
     }

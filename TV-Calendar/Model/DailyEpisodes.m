@@ -55,7 +55,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"Z"];
-    NSString *timeZoneStr = [dateFormatter stringFromDate:[NSDate new]];
+    NSString *timeZoneStr = [dateFormatter stringFromDate:[NSDate date]];
     timeZoneStr = [timeZoneStr substringToIndex:3];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateStr = [dateFormatter stringFromDate:date];
