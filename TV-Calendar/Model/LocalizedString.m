@@ -7,13 +7,14 @@
 //
 
 #import "LocalizedString.h"
+#import "SettingsManager.h"
 
 @implementation LocalizedString
 
 + (NSString *)localizedStringForKey:(NSString *)key {
     NSString * localizedString = NSLocalizedString(key, nil);
     
-    if (![[[NSLocale preferredLanguages] objectAtIndex:0] hasPrefix:@"zh-Hans"]) {
+    if (SettingsManager.defaultManager.defaultLanguage != zh_CN) {
         NSString * path = [[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"];
         NSBundle * languageBundle = [NSBundle bundleWithPath:path];
         localizedString = [languageBundle localizedStringForKey:key value:@"" table:nil];

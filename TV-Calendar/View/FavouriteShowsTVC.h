@@ -12,10 +12,10 @@
 
 @interface FavouriteShowsTVC : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *verticalImageView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentOfWatchedLabel;
-@property (weak, nonatomic) IBOutlet UIView *percentOfWatchedBackgroungColorView;
+@property (weak, nonatomic) IBOutlet UIProgressView *watchedProgressView;
 
 + (FavouriteShowsTVC *)cell;
 - (void)updateWithShow:(Show *)show;

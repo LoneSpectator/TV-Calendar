@@ -113,8 +113,9 @@
                                          show.status = showData[@"status"];
                                          show.area = showData[@"area"];
                                          show.channel = showData[@"channel"];
-                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-//                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
+#warning 网址
+//                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
+                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
                                          show.percentOfWatched = [showData[@"percent"] floatValue];
                                          [weakSelf.list addObject:show];
                                      }

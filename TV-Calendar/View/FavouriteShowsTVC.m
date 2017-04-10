@@ -29,22 +29,23 @@
 }
 
 - (void)updateWithShow:(Show *)show {
-    [self.showImageView setImageWithURL:[NSURL URLWithString:show.imageURL]
-                       placeholderImage:nil];
+    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
+                           placeholderImage:nil];
     self.showNameLabel.text = show.name;
-    self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"已看过 %.0f%%", show.percentOfWatched*100];
+    self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"%.0f%%", show.percentOfWatched*100];
+    [self.watchedProgressView setProgress:show.percentOfWatched animated:NO];
     if (show.percentOfWatched >= 0.99) {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:51.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:51.0/255.0 alpha:1.0]];
     } else if (show.percentOfWatched >= 0.8) {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:153.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1.0]];
     } else if (show.percentOfWatched >= 0.6) {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:94.0/255.0 green:178.0/255.0 blue:191.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:94.0/255.0 green:178.0/255.0 blue:191.0/255.0 alpha:1.0]];
     } else if (show.percentOfWatched >= 0.4) {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:178.0/255.0 blue:15.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:247.0/255.0 green:178.0/255.0 blue:15.0/255.0 alpha:1.0]];
     } else if (show.percentOfWatched >= 0.2) {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:233.0/255.0 green:86.0/255.0 blue:31.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:233.0/255.0 green:86.0/255.0 blue:31.0/255.0 alpha:1.0]];
     } else {
-        self.percentOfWatchedBackgroungColorView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0];
+        [self.watchedProgressView setProgressTintColor:[UIColor colorWithRed:204.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0]];
     }
 }
 

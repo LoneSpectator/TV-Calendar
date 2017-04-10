@@ -21,7 +21,11 @@
     static SettingsManager *manager = nil;
     dispatch_once(&ID, ^{
         manager = [[self alloc] init];
-        manager.defaultLanguage = zh_CN;
+        if ([[[NSLocale preferredLanguages] objectAtIndex:0] hasPrefix:@"zh-Hans"]) {
+            manager.defaultLanguage = zh_CN;
+        } else {
+            manager.defaultLanguage = en;
+        }
     });
     return manager;
 }

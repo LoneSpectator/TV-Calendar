@@ -14,6 +14,7 @@
 #import "MJRefresh.h"
 #import "ShowDetailsVC.h"
 #import "Show.h"
+#import "LocalizedString.h"
 
 @interface FavouriteShowsVC ()
 
@@ -57,6 +58,7 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
+    self.navigationItem.title = LocalizedString(@"Favourites");
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
     NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
@@ -159,8 +161,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                       reuseIdentifier:nil];
         cell.textLabel.text = @"您尚未登录，请先登录！";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
 //        cell.detailTextLabel.text = @"test";
 //        UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 20.f, 20.f)];
 //        v.backgroundColor = [UIColor redColor];
@@ -194,7 +198,7 @@
         return 45;
     }
     if (indexPath.section == 1) {
-//        return 210;
+        return 77;
     }
     return UITableViewAutomaticDimension;
 }

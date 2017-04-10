@@ -12,7 +12,7 @@
 
 typedef enum{
     zh_CN,
-    en_US,
+    en,
 } Language;
 
 @property (readonly) Language defaultLanguage;
