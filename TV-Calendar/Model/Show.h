@@ -26,6 +26,8 @@
 @property NSInteger constOfSeason;          // 有几季
 @property Episode *lastEp;
 @property BOOL isFavorite;                  // 是否关注
+@property NSInteger constOfEpisode;         // 总集数
+@property NSInteger constOfWatchedEpisode;  // 已看过集数
 @property float percentOfWatched;
 
 - (instancetype)init;

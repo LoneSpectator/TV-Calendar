@@ -25,6 +25,7 @@
         _airingDate = nil;
         _isReleased = NO;
         _isWatched = NO;
+        _showImageURL = @"";
         _showVerticalImageURL = @"";
         _showWideImageURL = @"";
     }

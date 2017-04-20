@@ -29,8 +29,11 @@
 }
 
 - (void)updateWithShow:(Show *)show {
-    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
+#warning URL修正
+    [self.verticalImageView setImageWithURL:[NSURL URLWithString:@"http://pogd.es/assets/sibig/We-Bare-Bears.jpg"]
                            placeholderImage:nil];
+//    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
+//                           placeholderImage:nil];
     self.showNameLabel.text = show.name;
     self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"%.0f%%", show.percentOfWatched*100];
     [self.watchedProgressView setProgress:show.percentOfWatched animated:NO];

@@ -39,7 +39,7 @@
 
 - (void)updateWithEpisode:(Episode *)episode {
     self.episode = episode;
-    [self.showImageView setImageWithURL:[NSURL URLWithString:episode.showVerticalImageURL]
+    [self.showImageView setImageWithURL:[NSURL URLWithString:episode.showImageURL]
                        placeholderImage:nil];
     self.showNameLabel.text = episode.showName;
     self.episodeNameLabel.text = episode.episodeName;

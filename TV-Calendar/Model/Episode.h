@@ -19,6 +19,7 @@
 @property NSDate *airingDate;        // 播出日期
 @property BOOL isReleased;           // 是否播出
 @property BOOL isWatched;            // 是否已看
+@property (copy) NSString *showImageURL;
 @property (copy) NSString *showVerticalImageURL;
 @property (copy) NSString *showWideImageURL;
 
