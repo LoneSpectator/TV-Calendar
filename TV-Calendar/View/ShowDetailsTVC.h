@@ -29,12 +29,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *channelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lengthNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *introductionNameLable;
 @property (weak, nonatomic) IBOutlet UILabel *introductionLable;
+@property (weak, nonatomic) IBOutlet UIButton *fullIntroductionButton;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 @property (weak, nonatomic) IBOutlet UIImageView *favouriteButtonImageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *favouriteButtonAIView;
 
 @property (nonatomic) Show *show;
+
+@property void (^refreshBlock)();
 
 + (ShowDetailsTVC *)cell;
 - (void)updateWithShow:(Show *)show;

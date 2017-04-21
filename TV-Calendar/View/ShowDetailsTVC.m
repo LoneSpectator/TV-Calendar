@@ -34,6 +34,13 @@
                                                                        options:nil].firstObject;
     cell.favouriteButtonAIView.hidden = YES;
     cell.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 25.0 : 0.0;
+    cell.statusNameLabel.text = LocalizedString(@"状态");
+    cell.lastEpNamelabel.text = LocalizedString(@"播出进度");
+    cell.airingTimeNameLabel.text = LocalizedString(@"下集时间");
+    cell.areaNameLabel.text = LocalizedString(@"地区");
+    cell.channelNameLabel.text = LocalizedString(@"电视台");
+    cell.lengthNameLabel.text = LocalizedString(@"长度");
+    [cell showLessIntroduction:NULL];
     [cell layoutIfNeeded];
     return cell;
 }
@@ -48,9 +55,7 @@
     } else {
         self.showNameLabel.text = show.enName;
     }
-    self.statusNameLabel.text = LocalizedString(@"状态");
     self.statusLabel.text = show.status;
-    self.lastEpNamelabel.text = LocalizedString(@"播出进度");
     if (show.lastEp.numOfSeason < 10) {
         self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.lastEp.numOfSeason];
     } else {
@@ -61,13 +66,9 @@
     } else {
         self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfEpisode];
     }
-    self.airingTimeNameLabel.text = LocalizedString(@"下集时间");
     self.airingTimeLabel.text = show.airingTime;
-    self.areaNameLabel.text = LocalizedString(@"地区");
     self.areaLabel.text = show.area;
-    self.channelNameLabel.text = LocalizedString(@"电视台");
     self.channelLabel.text = show.channel;
-    self.lengthNameLabel.text = LocalizedString(@"长度");
     self.lengthLabel.text = show.length;
     self.introductionLable.text = show.introduction;
     if (!currentUser) {
@@ -134,6 +135,38 @@
                                 weakSelf.favouriteButtonAIView.hidden = YES;
                                 [weakSelf.favouriteButtonAIView stopAnimating];
                             }];
+    }
+}
+
+- (void)showMoreIntroduction:(UIButton *)sender {
+    self.introductionLable.numberOfLines = 0;
+    [self.introductionLable sizeToFit];
+    [self layoutIfNeeded];
+    [self.fullIntroductionButton setTitle:LocalizedString(@"▲收起") forState:UIControlStateNormal];
+    [self.fullIntroductionButton removeTarget:self
+                                       action:@selector(showMoreIntroduction:)
+                             forControlEvents:UIControlEventTouchUpInside];
+    [self.fullIntroductionButton addTarget:self
+                                    action:@selector(showLessIntroduction:)
+                          forControlEvents:UIControlEventTouchUpInside];
+    if (self.refreshBlock) {
+        self.refreshBlock();
+    }
+}
+
+- (void)showLessIntroduction:(UIButton *)sender {
+    self.introductionLable.numberOfLines = 8;
+    [self.introductionLable sizeToFit];
+    [self layoutIfNeeded];
+    [self.fullIntroductionButton setTitle:LocalizedString(@"▼展开") forState:UIControlStateNormal];
+    [self.fullIntroductionButton removeTarget:self
+                                       action:@selector(showLessIntroduction:)
+                             forControlEvents:UIControlEventTouchUpInside];
+    [self.fullIntroductionButton addTarget:self
+                                    action:@selector(showMoreIntroduction:)
+                          forControlEvents:UIControlEventTouchUpInside];
+    if (self.refreshBlock) {
+        self.refreshBlock();
     }
 }
 

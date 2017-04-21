@@ -375,7 +375,9 @@
                 <outlet property="favouriteButton" destination="fB6-7E-h1z" id="Tlz-dT-Csu"/>
                 <outlet property="favouriteButtonAIView" destination="HW1-YM-nt9" id="oeu-qY-60a"/>
                 <outlet property="favouriteButtonImageView" destination="a1E-WA-88f" id="p2Y-5J-Lu1"/>
+                <outlet property="fullIntroductionButton" destination="89B-4u-XGK" id="hpY-lI-CYg"/>
                 <outlet property="introductionLable" destination="T7j-3E-rLT" id="qxA-K0-dnk"/>
+                <outlet property="introductionNameLable" destination="LaA-TW-Ry9" id="72p-jr-0tX"/>
                 <outlet property="lastEpNamelabel" destination="iq3-NI-ESd" id="eu5-Nf-p2T"/>
                 <outlet property="lengthLabel" destination="oqo-vK-Eh5" id="Wg9-Og-JJy"/>
                 <outlet property="lengthNameLabel" destination="VZo-X1-uAx" id="CYS-fM-aDN"/>

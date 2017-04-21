@@ -130,6 +130,10 @@
         if (!cell) {
             cell = [ShowDetailsTVC cell];
         }
+        cell.refreshBlock = ^{
+            [self.tableView beginUpdates];
+            [self.tableView endUpdates];
+        };
         [cell updateWithShow:self.show];
         return cell;
     }
