@@ -13,7 +13,8 @@
 @interface Show : NSObject
 
 @property NSInteger showID;
-@property (copy) NSString *name;
+@property (copy) NSString *enName;
+@property (copy) NSString *chName;
 @property (copy) NSString *introduction;    // 介绍
 @property (copy) NSString *status;          // 当前状态
 @property (copy) NSString *length;

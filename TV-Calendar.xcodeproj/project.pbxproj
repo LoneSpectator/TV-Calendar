@@ -12,6 +12,7 @@
 		5C15D6631CFD7EF900A2DD76 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C15D6621CFD7EF900A2DD76 /* SearchVC.xib */; };
 		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
+		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
 		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
 		5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */; };
@@ -58,7 +59,6 @@
 		5CC223ED1CE6470D00003823 /* ShowDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */; };
 		5CC223F41CE9F95D00003823 /* ShowTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223F31CE9F95D00003823 /* ShowTVC.m */; };
 		5CC223FC1CEB122800003823 /* ShowDetailsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */; };
-		5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */; };
 		5CC5F8601CB55C6A00E39CB7 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F84D1CB55C6A00E39CB7 /* MJExtensionConst.m */; };
 		5CC5F8611CB55C6A00E39CB7 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F84F1CB55C6A00E39CB7 /* MJFoundation.m */; };
 		5CC5F8621CB55C6A00E39CB7 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5F8511CB55C6A00E39CB7 /* MJProperty.m */; };
@@ -119,6 +119,7 @@
 		5C1B83181CDC22C0001D6D8D /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
 		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
 		5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsTVC.h; sourceTree = "<group>"; };
 		5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsTVC.m; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		5CC223F31CE9F95D00003823 /* ShowTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTVC.m; sourceTree = "<group>"; };
 		5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsTVC.h; sourceTree = "<group>"; };
 		5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsTVC.m; sourceTree = "<group>"; };
-		5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
 		5CC5F84B1CB55C6A00E39CB7 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		5CC5F84C1CB55C6A00E39CB7 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		5CC5F84D1CB55C6A00E39CB7 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -689,7 +689,7 @@
 				5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */,
 				5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */,
 				5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */,
-				5CC223FD1CEB123C00003823 /* ShowDetailsTVC.xib */,
+				5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */,
 				5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */,
 				5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */,
 			);
@@ -789,6 +789,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */,
+				5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */,
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */,
@@ -797,7 +798,6 @@
 				5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */,
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
-				5CC223FE1CEB123C00003823 /* ShowDetailsTVC.xib in Resources */,
 				5C15D6631CFD7EF900A2DD76 /* SearchVC.xib in Resources */,
 				5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,

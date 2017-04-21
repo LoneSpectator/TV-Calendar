@@ -188,7 +188,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 95;
+        return 105;
     }
     return UITableViewAutomaticDimension;
 }
@@ -203,7 +203,6 @@
     return @{CLCalendarWeekStartDay : [NSNumber numberWithInt:(components.weekday+2)%7+1], //Start Day of the week, from 1-7 Mon-Sun -- default 1
              CLCalendarDayTitleTextColor : [UIColor blackColor],
              CLCalendarSelectedDatePrintFormat : @"yyyy MMM d, EEE", //Selected Date print format,  - Default: @"EEE, d MMM yyyy"
-             CLCalendarSelectedDatePrintFontSize : @16.0, //Selected Date print font size - Default : 13.f
              CLCalendarBackgroundImageColor : [UIColor whiteColor]
         };
 }

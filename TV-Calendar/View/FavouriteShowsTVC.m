@@ -9,6 +9,7 @@
 #import "FavouriteShowsTVC.h"
 #import "Show.h"
 #import "UIKit+AFNetworking.h"
+#import "SettingsManager.h"
 
 @implementation FavouriteShowsTVC
 
@@ -34,7 +35,7 @@
                            placeholderImage:nil];
 //    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
 //                           placeholderImage:nil];
-    self.showNameLabel.text = show.name;
+    self.showNameLabel.text = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? show.chName : show.enName;
     self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"%.0f%%", show.percentOfWatched*100];
     [self.watchedProgressView setProgress:show.percentOfWatched animated:NO];
     if (show.percentOfWatched >= 0.99) {

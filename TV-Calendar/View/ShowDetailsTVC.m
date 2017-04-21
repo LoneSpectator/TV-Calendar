@@ -12,6 +12,8 @@
 #import "User.h"
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
+#import "SettingsManager.h"
+#import "LocalizedString.h"
 
 @implementation ShowDetailsTVC
 
@@ -31,6 +33,8 @@
                                                                          owner:nil
                                                                        options:nil].firstObject;
     cell.favouriteButtonAIView.hidden = YES;
+    cell.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 25.0 : 0.0;
+    [cell layoutIfNeeded];
     return cell;
 }
 
@@ -38,10 +42,33 @@
     self.show = show;
     [self.showImageView setImageWithURL:[NSURL URLWithString:show.imageURL]
                        placeholderImage:nil];
-    self.showNameLabel.text = show.name;
+    if (SettingsManager.defaultManager.defaultLanguage == zh_CN) {
+        self.showNameLabel.text = show.chName;
+        self.enNameLabel.text = show.enName;
+    } else {
+        self.showNameLabel.text = show.enName;
+    }
+    self.statusNameLabel.text = LocalizedString(@"状态");
+    self.statusLabel.text = show.status;
+    self.lastEpNamelabel.text = LocalizedString(@"播出进度");
+    if (show.lastEp.numOfSeason < 10) {
+        self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.lastEp.numOfSeason];
+    } else {
+        self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfSeason];
+    }
+    if (show.lastEp.numOfEpisode < 10) {
+        self.eLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.lastEp.numOfEpisode];
+    } else {
+        self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfEpisode];
+    }
+    self.airingTimeNameLabel.text = LocalizedString(@"下集时间");
     self.airingTimeLabel.text = show.airingTime;
-    self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfSeason];
-    self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfEpisode];
+    self.areaNameLabel.text = LocalizedString(@"地区");
+    self.areaLabel.text = show.area;
+    self.channelNameLabel.text = LocalizedString(@"电视台");
+    self.channelLabel.text = show.channel;
+    self.lengthNameLabel.text = LocalizedString(@"长度");
+    self.lengthLabel.text = show.length;
     self.introductionLable.text = show.introduction;
     if (!currentUser) {
         self.favouriteButtonAIView.hidden = YES;

@@ -40,7 +40,8 @@
                                      NSDictionary *showData = data[@"show"];
                                      Show *show = [[Show alloc] init];
                                      show.showID = [showData[@"s_id"] integerValue];
-                                     show.name = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? showData[@"s_name_cn"] : showData[@"s_name"];
+                                     show.enName = showData[@"s_name"];
+                                     show.chName = showData[@"s_name_cn"];
                                      show.introduction = showData[@"s_description"];
                                      show.status = showData[@"status"];
                                      show.length = showData[@"length"];

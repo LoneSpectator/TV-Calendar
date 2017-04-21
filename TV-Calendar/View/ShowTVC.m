@@ -9,6 +9,7 @@
 #import "ShowTVC.h"
 #import "Show.h"
 #import "UIKit+AFNetworking.h"
+#import "SettingsManager.h"
 
 @implementation ShowTVC
 
@@ -32,7 +33,7 @@
 - (void)updateWithShow:(Show *)show {
     [self.showVerticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
                                placeholderImage:nil];
-    self.nameLabel.text = show.name;
+    self.nameLabel.text = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? show.chName : show.enName;
     self.statusLabel.text = [NSString stringWithFormat:@"状态：%@", show.status];
     self.areaLabel.text = [NSString stringWithFormat:@"区域：%@", show.area];
     self.channelLabel.text = [NSString stringWithFormat:@"出品：%@", show.channel];
