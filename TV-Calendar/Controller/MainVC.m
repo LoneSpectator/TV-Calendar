@@ -64,13 +64,12 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     UIViewController *vc = [(UINavigationController *)viewController topViewController];
+    if ([vc isKindOfClass:[NewsVC class]]) {
+    }
     if ([vc isKindOfClass:[DailyEpisodesListVC class]]) {
         [(DailyEpisodesListVC *)vc refresh];
     }
-    if ([vc isKindOfClass:[NewsVC class]]) {
-    }
     if ([vc isKindOfClass:[FavouriteShowsVC class]]) {
-        
     }
 }
 
