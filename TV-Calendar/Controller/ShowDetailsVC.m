@@ -130,9 +130,10 @@
         if (!cell) {
             cell = [ShowDetailsTVC cell];
         }
-        cell.refreshBlock = ^{
-            [self.tableView beginUpdates];
-            [self.tableView endUpdates];
+        ShowDetailsVC __weak *weakSelf = self;
+        cell.refreshTableViewBlock = ^{
+            [weakSelf.tableView beginUpdates];
+            [weakSelf.tableView endUpdates];
         };
         [cell updateWithShow:self.show];
         return cell;

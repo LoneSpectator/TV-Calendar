@@ -27,7 +27,7 @@
 		<key>RemoveShowFromFavourites</key>
 		<string>unsubscribe/</string>
 		<key>ShowDetail</key>
-		<string>searchByShowId/</string>
+		<string>getShowDetailsWithId/</string>
 	</dict>
 	<key>Success Code</key>
 	<integer>1</integer>

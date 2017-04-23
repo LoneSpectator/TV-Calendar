@@ -363,8 +363,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="airingTimeLabel" destination="iT1-5b-IPz" id="2i9-Ur-DUp"/>
-                <outlet property="airingTimeNameLabel" destination="AFg-3a-1j7" id="847-Ou-pVE"/>
                 <outlet property="areaLabel" destination="Lam-Bn-9Pn" id="L91-fc-2ln"/>
                 <outlet property="areaNameLabel" destination="4Qx-FE-gO1" id="J43-si-Gdi"/>
                 <outlet property="channelLabel" destination="wJy-2o-zRx" id="RTR-AE-CXw"/>
@@ -381,6 +379,8 @@
                 <outlet property="lastEpNamelabel" destination="iq3-NI-ESd" id="eu5-Nf-p2T"/>
                 <outlet property="lengthLabel" destination="oqo-vK-Eh5" id="Wg9-Og-JJy"/>
                 <outlet property="lengthNameLabel" destination="VZo-X1-uAx" id="CYS-fM-aDN"/>
+                <outlet property="nextEpTimeLabel" destination="iT1-5b-IPz" id="30r-W6-cDH"/>
+                <outlet property="nextEpTimeNameLabel" destination="AFg-3a-1j7" id="837-E5-zij"/>
                 <outlet property="sLabel" destination="xhh-es-DoY" id="tv6-PY-cQC"/>
                 <outlet property="showImageView" destination="L0O-yW-4Qu" id="eWb-k0-Z9r"/>
                 <outlet property="showNameLabel" destination="Vcg-pg-CfL" id="iLc-vm-9dn"/>

@@ -8,9 +8,9 @@
 
 #import "MainVC.h"
 #import "DailyEpisodesListVC.h"
-#import "ShowListVC.h"
 #import "FavouriteShowsVC.h"
 #import "LocalizedString.h"
+#import "NewsVC.h"
 
 @interface MainVC () <UITabBarControllerDelegate>
 
@@ -26,9 +26,9 @@
         _contentTabBarController.delegate = self;
         
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
-        ShowListVC *showListVC = [[ShowListVC alloc] init];
+        NewsVC *newsVC = [[NewsVC alloc] init];
         FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
-        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:showListVC];
+        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:newsVC];
         [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-ShowList"]];
         [firstContentVC.tabBarItem setTitle:LocalizedString(@"探索")];
         UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
@@ -67,8 +67,7 @@
     if ([vc isKindOfClass:[DailyEpisodesListVC class]]) {
         [(DailyEpisodesListVC *)vc refresh];
     }
-    if ([vc isKindOfClass:[ShowListVC class]]) {
-        [(ShowListVC *)vc refresh];
+    if ([vc isKindOfClass:[NewsVC class]]) {
     }
     if ([vc isKindOfClass:[FavouriteShowsVC class]]) {
         

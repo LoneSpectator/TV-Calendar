@@ -23,7 +23,7 @@
 @property (copy) NSString *imageURL;
 @property (copy) NSString *verticalImageURL;
 @property (copy) NSString *wideImageURL;
-@property (copy) NSString *airingTime;
+@property (copy) NSDate *nextEpTime;
 @property NSInteger constOfSeason;          // 有几季
 @property Episode *lastEp;
 @property BOOL isFavorite;                  // 是否关注

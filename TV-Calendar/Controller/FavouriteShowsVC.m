@@ -15,10 +15,14 @@
 #import "ShowDetailsVC.h"
 #import "Show.h"
 #import "LocalizedString.h"
+#import "ShowListVC.h"
+#import "SettingsVC.h"
 
 @interface FavouriteShowsVC ()
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIBarButtonItem *settingsItem;
+@property (strong, nonatomic) UIBarButtonItem *addItem;
 
 @property (nonatomic) ShowList *showList;
 
@@ -50,6 +54,25 @@
     return _showList;
 }
 
+- (UIBarButtonItem *)settingsItem {
+    if (!_settingsItem) {
+        _settingsItem = [[UIBarButtonItem alloc] initWithTitle:@"设置"
+                                                         style:UIBarButtonItemStylePlain
+                                                        target:self
+                                                        action:@selector(showSettingsViewController)];
+    }
+    return _settingsItem;
+}
+
+- (UIBarButtonItem *)addItem {
+    if (!_addItem) {
+        _addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                 target:self
+                                                                 action:@selector(showShowListViewController)];
+    }
+    return _addItem;
+}
+
 - (void)loadView {
     [super loadView];
     
@@ -57,8 +80,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = self.settingsItem;
+    self.navigationItem.rightBarButtonItem = self.addItem;
     
-    self.navigationItem.title = LocalizedString(@"Favourites");
+    self.navigationItem.title = LocalizedString(@"我的订阅");
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
     NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
@@ -81,7 +106,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    [self loadLoginState];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,40 +114,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadLoginState {
-    UIBarButtonItem *loginItem;
-    if (!currentUser) {
-        loginItem = [[UIBarButtonItem alloc] initWithTitle:@"登陆"
-                                                     style:UIBarButtonItemStylePlain
-                                                    target:self
-                                                    action:@selector(showLoginViewController)];
-        [self.showList.list removeAllObjects];
-        [self.tableView reloadData];
-    } else {
-        loginItem = [[UIBarButtonItem alloc] initWithTitle:@"注销"
-                                                     style:UIBarButtonItemStylePlain
-                                                    target:self
-                                                    action:@selector(logout)];
-        [self.tableView.mj_header beginRefreshing];
-    }
-    self.navigationItem.rightBarButtonItem = loginItem;
-}
-
 - (void)showLoginViewController {
-    [self showDetailViewController:[LoginVC viewController] sender:self];
+    [LoginVC showLoginViewControllerWithSender:self];
 }
 
-- (void)logout {
-    [User logout];
-    [self loadLoginState];
+- (void)showShowListViewController {
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[[ShowListVC alloc] init]];
+    nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self showDetailViewController:nv sender:self];
+}
+
+- (void)showSettingsViewController {
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[[SettingsVC alloc] init]];
+    nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self showDetailViewController:nv sender:self];
 }
 
 - (void)fetchData {
     if (!currentUser) {
+        [self.showList.list removeAllObjects];
+        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         return;
     }
-    FavouriteShowsVC  __weak *weakSelf = self;
+    FavouriteShowsVC __weak *weakSelf = self;
     [self.showList fetchFavouriteShowListWithSuccess:^{
                                                   [weakSelf.tableView reloadData];
                                                   [weakSelf.tableView.mj_header endRefreshing];
@@ -163,8 +178,9 @@
     if (indexPath.section == 0) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                        reuseIdentifier:nil];
-        cell.textLabel.text = @"您尚未登录，请先登录！";
+        cell.textLabel.text = LocalizedString(@"您尚未登录，点此登录！");
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.textColor = [UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1];
 //        cell.detailTextLabel.text = @"test";
 //        UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 20.f, 20.f)];
 //        v.backgroundColor = [UIColor redColor];
@@ -185,6 +201,9 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        [self showLoginViewController];
+    }
     if (indexPath.section == 1) {
         ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Show *)self.showList.list[indexPath.row]).showID];
         [self.navigationController showViewController:vc

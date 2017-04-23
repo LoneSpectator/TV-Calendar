@@ -7,10 +7,15 @@
 //
 
 #import "SettingsVC.h"
+#import "SettingsManager.h"
+#import "LocalizedString.h"
+#import "User.h"
+#import "LoginVC.h"
 
 @interface SettingsVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIBarButtonItem *backItem;
 
 @end
 
@@ -22,11 +27,21 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         _tableView.sectionHeaderHeight = CGFLOAT_MIN;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;
     }
     return _tableView;
+}
+
+- (UIBarButtonItem *)backItem {
+    if (!_backItem) {
+        _backItem = [[UIBarButtonItem alloc] initWithTitle:LocalizedString(@"返回")
+                                                     style:UIBarButtonItemStylePlain
+                                                    target:self
+                                                    action:@selector(back)];
+    }
+    return _backItem;
 }
 
 - (void)loadView {
@@ -36,6 +51,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = self.backItem;
     
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
@@ -57,9 +73,18 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - TableView data source
@@ -70,39 +95,60 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return 1;
+        if (currentUser) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
     if (section == 1) {
-        return 3;
+        return 1;
     }
     if (section == 2) {
-        return 3;
+        return 1;
     }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.textLabel.text = @"昵称";
-        cell.detailTextLabel.text = @"sdfghjk";
-        UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 20.f, 20.f)];
-        v.backgroundColor = [UIColor redColor];
-        cell.accessoryView = v;
-        return cell;
+        if (currentUser) {
+            if (indexPath.row == 0) {
+                cell.textLabel.text = LocalizedString(@"手机号");
+                cell.detailTextLabel.text = currentUser.phone;
+            }
+            if (indexPath.row == 1) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+                cell.textLabel.text = LocalizedString(@"注销");
+                cell.textLabel.textAlignment = NSTextAlignmentCenter;
+                cell.textLabel.textColor = [UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1];
+            }
+        } else {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell.textLabel.text = LocalizedString(@"登陆/注册");
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.textColor = [UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1];
+        }
     }
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.backgroundColor = [UIColor redColor];
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = LocalizedString(@"语言");
+            cell.detailTextLabel.text = LocalizedString(@"中文");
+        }
+    }
+    if (indexPath.section == 2) {
+        cell.textLabel.text = LocalizedString(@"关于");
+    }
+    cell.textLabel.font = [UIFont systemFontOfSize:18];
+//    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 20.f, 20.f)];
+//    v.backgroundColor = [UIColor redColor];
+//    cell.accessoryView = v;
     return cell;
-    return [[UITableViewCell alloc] init];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 1) {
-        return @"2";
-    }
-    if (section == 2) {
-        return @"3";
+    if (section == 0) {
     }
     return @"";
 }
@@ -111,21 +157,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        if (currentUser) {
+            if (indexPath.row == 1) {
+                [User logout];
+                [self.tableView reloadData];
+            }
+        } else {
+            [LoginVC showLoginViewControllerWithSender:self];
+        }
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 45;
     }
-    return 45;
+    return 46;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section != 0) {
-        return 5.f;
+    if (section == 0) {
     }
-    return CGFLOAT_MIN;
+    return 20;
 }
 
 @end

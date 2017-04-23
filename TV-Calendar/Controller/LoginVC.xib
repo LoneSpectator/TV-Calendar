@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,17 +18,17 @@
                 <viewControllerLayoutGuide type="bottom" id="f7D-O8-O2l"/>
             </layoutGuides>
             <view key="view" contentMode="scaleToFill" id="d0X-r8-ncc">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-pt-I4i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-pt-I4i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN1-ee-YOu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN1-ee-YOu" userLabel="Info View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yG3-AG-hGO">
-                                        <rect key="frame" x="77" y="155" width="220" height="136"/>
+                                        <rect key="frame" x="77" y="71.5" width="220" height="136"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wi1-pE-B92">
                                                 <rect key="frame" x="40" y="3" width="180" height="30"/>
@@ -64,7 +68,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="mI4-JL-VKd" firstAttribute="width" secondItem="wi1-pE-B92" secondAttribute="width" id="2uA-cU-jl1"/>
                                             <constraint firstItem="geC-ZF-8nc" firstAttribute="centerX" secondItem="cg4-CD-iHZ" secondAttribute="centerX" id="3jj-Qk-Ikd"/>
@@ -87,7 +91,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ni-GF-azD">
-                                        <rect key="frame" x="58" y="321" width="258" height="107"/>
+                                        <rect key="frame" x="58" y="237.5" width="258" height="107"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwc-X9-byd">
                                                 <rect key="frame" x="135" y="31" width="120" height="45"/>
@@ -107,7 +111,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ll-SZ-GXE">
-                                                <rect key="frame" x="69" y="84" width="120" height="20"/>
+                                                <rect key="frame" x="67.5" y="84" width="123" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="pmn-Uh-2WZ"/>
                                                 </constraints>
@@ -120,11 +124,11 @@
                                                     <constraint firstAttribute="height" constant="20" id="CLI-0B-lfA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="5Ll-SZ-GXE" secondAttribute="bottom" constant="3" id="1v2-OS-2Bj"/>
                                             <constraint firstItem="Y5d-1K-2v4" firstAttribute="leading" secondItem="1ni-GF-azD" secondAttribute="leading" constant="3" id="2vA-pu-6gb"/>
@@ -140,7 +144,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="centerX" secondItem="EN1-ee-YOu" secondAttribute="centerX" id="2ae-nu-te0"/>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="top" secondItem="yG3-AG-hGO" secondAttribute="bottom" constant="30" id="2dC-gy-pRP"/>
@@ -157,7 +161,7 @@
                         </constraints>
                     </scrollView>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="EN1-ee-YOu" firstAttribute="width" secondItem="d0X-r8-ncc" secondAttribute="width" id="ORB-WD-Iup"/>
                     <constraint firstItem="EN1-ee-YOu" firstAttribute="height" secondItem="d0X-r8-ncc" secondAttribute="height" id="Sf5-XZ-XSj"/>
@@ -167,7 +171,8 @@
                     <constraint firstAttribute="bottom" secondItem="BCQ-pt-I4i" secondAttribute="bottom" id="yC6-1C-eve"/>
                 </constraints>
             </view>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <size key="freeformSize" width="375" height="500"/>
             <connections>
                 <outlet property="cancelButton" destination="Y5d-1K-2v4" id="WJE-sC-67F"/>
                 <outlet property="changeStateButton" destination="5Ll-SZ-GXE" id="5H3-fI-V69"/>
@@ -178,11 +183,16 @@
                 <outlet property="passwdTextField" destination="mI4-JL-VKd" id="K6T-v6-dW8"/>
                 <outlet property="phoneTextField" destination="wi1-pE-B92" id="jnM-4f-FoV"/>
             </connections>
-            <point key="canvasLocation" x="399.5" y="406.5"/>
+            <point key="canvasLocation" x="455.5" y="545"/>
         </viewController>
     </objects>
     <resources>
         <image name="Login-Password" width="20" height="20"/>
         <image name="Login-User" width="20" height="20"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

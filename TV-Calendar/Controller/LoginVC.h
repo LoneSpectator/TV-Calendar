@@ -15,6 +15,6 @@ typedef enum{
     Registration,
 } LoginVCState;
 
-+ (LoginVC *)viewController;
++ (void)showLoginViewControllerWithSender:(UIViewController *)sender;
 
 @end

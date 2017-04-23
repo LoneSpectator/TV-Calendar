@@ -13,6 +13,7 @@
 		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
+		5C2BA93C1EAB856A0040E292 /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BA93B1EAB856A0040E292 /* NewsVC.m */; };
 		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
 		5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */; };
@@ -120,6 +121,8 @@
 		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
+		5C2BA93A1EAB856A0040E292 /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
+		5C2BA93B1EAB856A0040E292 /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
 		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
 		5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsTVC.h; sourceTree = "<group>"; };
 		5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsTVC.m; sourceTree = "<group>"; };
@@ -643,19 +646,21 @@
 			children = (
 				5CEF1D451AD92E8F001A3BEE /* MainVC.h */,
 				5CEF1D461AD92E90001A3BEE /* MainVC.m */,
+				5C2BA93A1EAB856A0040E292 /* NewsVC.h */,
+				5C2BA93B1EAB856A0040E292 /* NewsVC.m */,
 				5CBE28FF1ADA4F1000FB763E /* DailyEpisodesListVC.h */,
 				5CBE29001ADA4F1000FB763E /* DailyEpisodesListVC.m */,
-				5CC223EB1CE6470D00003823 /* ShowDetailsVC.h */,
-				5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */,
+				5CE705F11CE1BB60002E12B4 /* FavouriteShowsVC.h */,
+				5CE705F21CE1BB60002E12B4 /* FavouriteShowsVC.m */,
 				5C7CBE621CF42FA8004CA36F /* ShowListVC.h */,
 				5C7CBE631CF42FA8004CA36F /* ShowListVC.m */,
+				5CC223EB1CE6470D00003823 /* ShowDetailsVC.h */,
+				5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */,
+				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
+				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
 				5C15D65F1CFD75B600A2DD76 /* SearchVC.h */,
 				5C15D6601CFD75B600A2DD76 /* SearchVC.m */,
 				5C15D6621CFD7EF900A2DD76 /* SearchVC.xib */,
-				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
-				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
-				5CE705F11CE1BB60002E12B4 /* FavouriteShowsVC.h */,
-				5CE705F21CE1BB60002E12B4 /* FavouriteShowsVC.m */,
 				5C1B83181CDC22C0001D6D8D /* LoginVC.h */,
 				5C1B83191CDC22C0001D6D8D /* LoginVC.m */,
 				5C1B831B1CDC231C001D6D8D /* LoginVC.xib */,
@@ -822,6 +827,7 @@
 				5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */,
 				5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */,
 				5CC223F41CE9F95D00003823 /* ShowTVC.m in Sources */,
+				5C2BA93C1EAB856A0040E292 /* NewsVC.m in Sources */,
 				5CC5F8A31CB55C7A00E39CB7 /* MJRefreshNormalHeader.m in Sources */,
 				5CC5F8651CB55C6A00E39CB7 /* NSObject+MJClass.m in Sources */,
 				5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */,

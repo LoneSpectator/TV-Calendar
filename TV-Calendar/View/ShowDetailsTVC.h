@@ -21,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastEpNamelabel;
 @property (weak, nonatomic) IBOutlet UILabel *sLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eLabel;
-@property (weak, nonatomic) IBOutlet UILabel *airingTimeNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *airingTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextEpTimeNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextEpTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *areaNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *channelNameLabel;
@@ -38,7 +38,7 @@
 
 @property (nonatomic) Show *show;
 
-@property void (^refreshBlock)();
+@property void (^refreshTableViewBlock)();
 
 + (ShowDetailsTVC *)cell;
 - (void)updateWithShow:(Show *)show;

@@ -12,10 +12,12 @@
 #import "ShowDetailsVC.h"
 #import "ShowList.h"
 #import "Show.h"
+#import "LocalizedString.h"
 
 @interface ShowListVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) UIBarButtonItem *backItem;
 
 @property (nonatomic) ShowList *showList;
 
@@ -47,6 +49,16 @@
     return _showList;
 }
 
+- (UIBarButtonItem *)backItem {
+    if (!_backItem) {
+        _backItem = [[UIBarButtonItem alloc] initWithTitle:LocalizedString(@"返回")
+                                                     style:UIBarButtonItemStylePlain
+                                                    target:self
+                                                    action:@selector(back)];
+    }
+    return _backItem;
+}
+
 - (void)loadView {
     [super loadView];
     
@@ -54,7 +66,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    self.title = @"影视库";
+    self.title = LocalizedString(@"影视库");
+    self.navigationItem.leftBarButtonItem = self.backItem;
     
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
@@ -89,7 +102,7 @@
 }
 
 - (void)fetchData {
-    ShowListVC  __weak *weakSelf = self;
+    ShowListVC __weak *weakSelf = self;
     [self.showList fetchAllShowListFirstPageWithLimit:20
                                               success:^{
                                                   [weakSelf.tableView reloadData];
@@ -110,7 +123,7 @@
 
 - (void)fetchMoreData {
     int returnNum;
-    ShowListVC  __weak *weakSelf = self;
+    ShowListVC __weak *weakSelf = self;
     returnNum = [self.showList fetchAllShowListNextPageWithLimit:20
                                                          success:^{
                                                              [weakSelf.tableView reloadData];
@@ -134,6 +147,10 @@
 
 - (void)refresh {
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -168,8 +185,8 @@
         ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Show *)self.showList.list[indexPath.row]).showID];
         [self.navigationController showViewController:vc
                                                sender:self];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

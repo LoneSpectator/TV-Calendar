@@ -27,11 +27,11 @@
 
 @implementation LoginVC
 
-+ (LoginVC *)viewController {
++ (void)showLoginViewControllerWithSender:(UIViewController *)sender {
     LoginVC *vc = (LoginVC *)[[NSBundle mainBundle] loadNibNamed:@"LoginVC"
                                                            owner:nil
                                                          options:nil].firstObject;
-    return vc;
+    [sender showDetailViewController:vc sender:sender];
 }
 
 - (LoginVCState)state {

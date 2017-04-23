@@ -15,12 +15,14 @@
 #import "MJRefresh.h"
 #import "User.h"
 #import "ShowDetailsVC.h"
+#import "ShowListVC.h"
 
 @interface DailyEpisodesListVC () <UITableViewDelegate, UITableViewDataSource, CLWeeklyCalendarViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) CLWeeklyCalendarView* calendarView;
 @property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIBarButtonItem *addItem;
 
 @property (nonatomic) DailyEpisodes *dailyEpisodes;
 
@@ -75,6 +77,15 @@
     return _titleLabel;
 }
 
+- (UIBarButtonItem *)addItem {
+    if (!_addItem) {
+        _addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                 target:self
+                                                                 action:@selector(showShowListViewController)];
+    }
+    return _addItem;
+}
+
 - (void)loadView {
     [super loadView];
     
@@ -82,14 +93,15 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
     self.navigationItem.titleView = self.titleLabel;
+    
     UIView *blackLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 69, self.view.bounds.size.width, 1.f)];
     blackLineView.backgroundColor = [UIColor colorWithRed:170.0/255.0
                                                     green:170.0/255.0
                                                      blue:170.0/255.0
                                                     alpha:1.f];
     [self.calendarView addSubview:blackLineView];
+    
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.calendarView];
     NSMutableArray *cs = [NSMutableArray array];
@@ -121,6 +133,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if (currentUser) {
+        self.navigationItem.rightBarButtonItem = self.addItem;
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
     self.navigationController.navigationBar.hidden = NO;
 }
 
@@ -148,6 +165,12 @@
 
 - (void)refresh {
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)showShowListViewController {
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[[ShowListVC alloc] init]];
+    nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self showDetailViewController:nv sender:self];
 }
 
 #pragma mark - Table view data source

@@ -48,18 +48,20 @@
                                      show.area = showData[@"area"];
                                      show.channel = showData[@"channel"];
                                      show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-                                     show.airingTime = showData[@"update_time"];
+                                     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+                                     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                                     show.nextEpTime = [dateFormat dateFromString:showData[@"next_ep_time"]];
                                      show.isFavorite = [data[@"subscribed"] boolValue];
 #warning 未处理集详情
-                                     NSArray *epsArray = data[@"episodes"];
-                                     show.lastEp = [[Episode alloc] init];
-                                     for (NSDictionary *epData in epsArray) {
-                                         if ([epData[@"e_status"] isEqualToString:@"已播放"]) {
-                                             show.lastEp.numOfSeason = [epData[@"se_id"] integerValue];
-                                             show.lastEp.numOfEpisode = [epData[@"e_num"] integerValue];
-                                             break;
-                                         }
-                                     }
+//                                     NSArray *epsArray = data[@"episodes"];
+//                                     show.lastEp = [[Episode alloc] init];
+//                                     for (NSDictionary *epData in epsArray) {
+//                                         if ([epData[@"e_status"] isEqualToString:@"已播放"]) {
+//                                             show.lastEp.numOfSeason = [epData[@"se_id"] integerValue];
+//                                             show.lastEp.numOfEpisode = [epData[@"e_num"] integerValue];
+//                                             break;
+//                                         }
+//                                     }
                                      if (success) {
                                          success(show);
                                      }
