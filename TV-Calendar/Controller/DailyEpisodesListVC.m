@@ -121,8 +121,6 @@
                                                                     metrics:nil
                                                                       views:vs]];
     [self.view addConstraints:cs];
-    
-//    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)viewDidLoad {
@@ -139,6 +137,11 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
     self.navigationController.navigationBar.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -161,10 +164,6 @@
                                           NSLog(@"[DailyEpisodesListVC]%@", error);
                                           [weakSelf.tableView.mj_header endRefreshing];
                                       }];
-}
-
-- (void)refresh {
-    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)showShowListViewController {
