@@ -19,7 +19,8 @@
 {
     self = [super init];
     if (self) {
-        
+        _nextEpTime = [NSDate new];
+        _seasonsArray = [NSMutableArray array];
     }
     return self;
 }
@@ -49,24 +50,26 @@
                                      show.area = showData[@"area"];
                                      show.channel = showData[@"channel"];
                                      show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-                                     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
-                                     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                                     show.nextEpTime = [dateFormat dateFromString:showData[@"next_ep_time"]];
+                                     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                                     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+                                     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                                     show.nextEpTime = [dateFormatter dateFromString:showData[@"next_ep_time"]];
                                      show.isFavorite = [data[@"subscribed"] boolValue];
                                      for (NSDictionary *seData in data[@"seasons"]) {
                                          Season *se = [[Season alloc] init];
-//                                         se.seasonID = seData[]
+                                         se.showID = show.showID;
+                                         se.seNum = [seData[@"se_id"] integerValue];
+                                         se.quantityOfEpisode = [seData[@"count_of_ep"] integerValue];
+                                         for (NSDictionary *epData in seData[@"episodes"]) {
+                                             Episode *ep = [[Episode alloc] init];
+                                             ep.episodeID = [epData[@"e_id"] integerValue];
+                                             ep.seNum = se.seNum;
+                                             ep.epNum = [epData[@"e_num"] integerValue];
+                                             ep.episodeName = epData[@"e_name"];
+                                             [se.episodesArray addObject:ep];
+                                         }
+                                         [show.seasonsArray addObject:se];
                                      }
-#warning 未处理集详情
-//                                     NSArray *epsArray = data[@"episodes"];
-//                                     show.lastEp = [[Episode alloc] init];
-//                                     for (NSDictionary *epData in epsArray) {
-//                                         if ([epData[@"e_status"] isEqualToString:@"已播放"]) {
-//                                             show.lastEp.numOfSeason = [epData[@"se_id"] integerValue];
-//                                             show.lastEp.numOfEpisode = [epData[@"e_num"] integerValue];
-//                                             break;
-//                                         }
-//                                     }
                                      if (success) {
                                          success(show);
                                      }

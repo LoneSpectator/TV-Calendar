@@ -44,6 +44,7 @@
     self.showNameLabel.text = episode.showName;
     self.episodeNameLabel.text = episode.episodeName;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     self.airingTimeLabel.text = [NSString stringWithFormat:@"播出时间：%@", [dateFormatter stringFromDate:episode.airingDate]];
     if (episode.seNum < 10) {

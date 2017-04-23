@@ -231,6 +231,7 @@
 
 - (void)dailyCalendarViewDidSelect:(NSDate *)date {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *strDate = [dateFormatter stringFromDate:self.calendarView.selectedDate];
 //    if([self.calendarView.selectedDate isDateToday]){

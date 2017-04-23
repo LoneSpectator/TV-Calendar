@@ -67,6 +67,7 @@
         self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.epNumOfLastEp];
     }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     self.nextEpTimeLabel.text = [dateFormatter stringFromDate:show.nextEpTime];
     self.areaLabel.text = show.area;

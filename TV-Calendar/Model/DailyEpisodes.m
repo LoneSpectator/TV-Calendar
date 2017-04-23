@@ -34,11 +34,12 @@
             ep.showName = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? epData[@"s_name_cn"] : epData[@"s_name"];
             ep.epNum = [epData[@"e_num"] integerValue];
             ep.seNum = [epData[@"se_id"] integerValue];
-            NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            ep.airingDate = [dateFormat dateFromString:epData[@"e_time"]];
-            NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
-            ep.isReleased = secondsInterval <= 0 ? YES : NO;
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            ep.airingDate = [dateFormatter dateFromString:epData[@"e_time"]];
+//            NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
+//            ep.isReleased = secondsInterval <= 0 ? YES : NO;
             ep.showImageURL = [NSString stringWithFormat:@"http:%@", epData[@"s_vertical_image"]];
             if (currentUser) ep.isWatched = [epData[@"syned"] boolValue];
             [dailyEpisodes.list addObject:ep];

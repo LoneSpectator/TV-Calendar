@@ -10,4 +10,16 @@
 
 @implementation Season
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _showID = 0;
+        _name = @"";
+        _seNum = 0;
+        _quantityOfEpisode = 0;
+        _episodesArray = [NSMutableArray array];
+    }
+    return self;
+}
+
 @end
