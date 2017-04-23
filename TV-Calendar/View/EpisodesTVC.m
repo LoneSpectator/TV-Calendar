@@ -46,15 +46,15 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     self.airingTimeLabel.text = [NSString stringWithFormat:@"播出时间：%@", [dateFormatter stringFromDate:episode.airingDate]];
-    if (episode.numOfSeason < 10) {
-        self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)episode.numOfSeason];
+    if (episode.seNum < 10) {
+        self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)episode.seNum];
     } else {
-        self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfSeason];
+        self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.seNum];
     }
-    if (episode.numOfEpisode < 10) {
-        self.eLabel.text = [NSString stringWithFormat:@"0%ld", (long)episode.numOfEpisode];
+    if (episode.epNum < 10) {
+        self.eLabel.text = [NSString stringWithFormat:@"0%ld", (long)episode.epNum];
     } else {
-        self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.numOfEpisode];
+        self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.epNum];
     }
     
     if (self.episode.isWatched) {

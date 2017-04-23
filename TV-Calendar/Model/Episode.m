@@ -20,8 +20,8 @@
         _episodeName = @"";
         _showID = 0;
         _showName = @"";
-        _numOfSeason = 0;
-        _numOfEpisode = 0;
+        _seNum = 0;
+        _epNum = 0;
         _airingDate = nil;
         _isReleased = NO;
         _isWatched = NO;

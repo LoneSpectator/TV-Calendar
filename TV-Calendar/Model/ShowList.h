@@ -12,8 +12,8 @@
 
 @property NSMutableArray *list;
 @property NSInteger page;
-@property NSInteger countOfPage;
-@property NSInteger countOfShow;
+@property NSInteger quantityOfPage;
+@property NSInteger quantityOfShow;
 
 - (instancetype)init;
 - (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit

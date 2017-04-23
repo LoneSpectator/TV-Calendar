@@ -14,8 +14,8 @@
 @property NSInteger showID;
 @property (copy) NSString *showName;
 @property (copy) NSString *episodeName;
-@property NSInteger numOfSeason;     // 第几季
-@property NSInteger numOfEpisode;    // 第几集
+@property NSInteger seNum;           // 第几季
+@property NSInteger epNum;           // 第几集
 @property NSDate *airingDate;        // 播出日期
 @property BOOL isReleased;           // 是否播出
 @property BOOL isWatched;            // 是否已看

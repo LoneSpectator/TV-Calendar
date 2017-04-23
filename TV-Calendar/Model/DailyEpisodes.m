@@ -32,8 +32,8 @@
             ep.showID = [epData[@"s_id"] integerValue];
             ep.episodeName = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? epData[@"e_name"] : epData[@"e_name"];
             ep.showName = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? epData[@"s_name_cn"] : epData[@"s_name"];
-            ep.numOfEpisode = [epData[@"e_num"] integerValue];
-            ep.numOfSeason = [epData[@"se_id"] integerValue];
+            ep.epNum = [epData[@"e_num"] integerValue];
+            ep.seNum = [epData[@"se_id"] integerValue];
             NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             ep.airingDate = [dateFormat dateFromString:epData[@"e_time"]];

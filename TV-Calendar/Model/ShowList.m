@@ -20,8 +20,8 @@
     if (self) {
         _list = [[NSMutableArray alloc] init];
         _page = 0;
-        _countOfPage = 0;
-        _countOfShow = 0;
+        _quantityOfPage = 0;
+        _quantityOfShow = 0;
     }
     return self;
 }
@@ -35,7 +35,7 @@
                                            @"itemPerPage": [NSString stringWithFormat:@"%ld", (long)limit]}
                                  success:^(NSDictionary *data) {
                                      weakSelf.page = 0;
-                                     weakSelf.countOfPage = [data[@"countShow"] integerValue];
+                                     weakSelf.quantityOfPage = [data[@"countShow"] integerValue];
 //                                     weakSelf.countOfPage = ceil(weakSelf.countOfShow / 20.0);
                                      weakSelf.list = [[NSMutableArray alloc] init];
                                      NSArray *showsDataArray = data[@"shows"];
@@ -66,7 +66,7 @@
                                  success:(void (^)())success
                                  failure:(void (^)(NSError *))failure {
     self.page++;
-    if (self.page >= self.countOfPage) {
+    if (self.page >= self.quantityOfPage) {
         return 1;
     }
     ShowList __weak *weakSelf = self;

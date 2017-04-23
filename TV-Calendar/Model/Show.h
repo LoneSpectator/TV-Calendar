@@ -17,17 +17,19 @@
 @property (copy) NSString *chName;
 @property (copy) NSString *introduction;    // 介绍
 @property (copy) NSString *status;          // 当前状态
-@property (copy) NSString *length;
+@property NSInteger seNumOfLastEp;
+@property NSInteger epNumOfLastEp;
+@property (copy) NSDate *nextEpTime;
 @property (copy) NSString *area;
 @property (copy) NSString *channel;
+@property (copy) NSString *length;
 @property (copy) NSString *imageURL;
 @property (copy) NSString *verticalImageURL;
 @property (copy) NSString *wideImageURL;
-@property (copy) NSDate *nextEpTime;
-@property NSInteger constOfSeason;          // 有几季
-@property Episode *lastEp;
+@property NSInteger quantityOfSeason;       // 总季数
+@property NSInteger quantityOfEpisode;      // 总集数
+@property NSMutableArray *seasonsArray;     // 季列表
 @property BOOL isFavorite;                  // 是否关注
-@property NSInteger constOfEpisode;         // 总集数
 @property NSInteger constOfWatchedEpisode;  // 已看过集数
 @property float percentOfWatched;
 

@@ -56,15 +56,15 @@
         self.showNameLabel.text = show.enName;
     }
     self.statusLabel.text = show.status;
-    if (show.lastEp.numOfSeason < 10) {
-        self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.lastEp.numOfSeason];
+    if (show.seNumOfLastEp < 10) {
+        self.sLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.seNumOfLastEp];
     } else {
-        self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfSeason];
+        self.sLabel.text = [NSString stringWithFormat:@"%ld", (long)show.seNumOfLastEp];
     }
-    if (show.lastEp.numOfEpisode < 10) {
-        self.eLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.lastEp.numOfEpisode];
+    if (show.epNumOfLastEp < 10) {
+        self.eLabel.text = [NSString stringWithFormat:@"0%ld", (long)show.epNumOfLastEp];
     } else {
-        self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.lastEp.numOfEpisode];
+        self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)show.epNumOfLastEp];
     }
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];

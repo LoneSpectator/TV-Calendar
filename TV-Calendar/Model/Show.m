@@ -9,6 +9,7 @@
 #import "Show.h"
 #import "NetworkManager.h"
 #import "SettingsManager.h"
+#import "Season.h"
 #import "Episode.h"
 #import "User.h"
 
@@ -52,6 +53,10 @@
                                      [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
                                      show.nextEpTime = [dateFormat dateFromString:showData[@"next_ep_time"]];
                                      show.isFavorite = [data[@"subscribed"] boolValue];
+                                     for (NSDictionary *seData in data[@"seasons"]) {
+                                         Season *se = [[Season alloc] init];
+//                                         se.seasonID = seData[]
+                                     }
 #warning 未处理集详情
 //                                     NSArray *epsArray = data[@"episodes"];
 //                                     show.lastEp = [[Episode alloc] init];
