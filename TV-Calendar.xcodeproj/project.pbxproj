@@ -43,6 +43,10 @@
 		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
 		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
 		5C9BADEA1AEBD36F00E9CE7C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE91AEBD36F00E9CE7C /* User.m */; };
+		5CA4573E1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4573D1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.m */; };
+		5CA457401EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CA4573F1EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib */; };
+		5CA457441EAF86FD005ABD89 /* ShowDetailsTVEpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA457421EAF86FD005ABD89 /* ShowDetailsTVEpCell.m */; };
+		5CA457451EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CA457431EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib */; };
 		5CA88A261E927D0A00F0B952 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CA88A241E927D0A00F0B952 /* InfoPlist.strings */; };
 		5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CA88A2D1E9286F000F0B952 /* Localizable.strings */; };
 		5CA88A331E9383E100F0B952 /* LocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA88A321E9383E100F0B952 /* LocalizedString.m */; };
@@ -177,6 +181,12 @@
 		5C9BADE61AEBCCD200E9CE7C /* Season.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Season.m; sourceTree = "<group>"; };
 		5C9BADE81AEBD36F00E9CE7C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5C9BADE91AEBD36F00E9CE7C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5CA4573C1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsTVEpHeaderView.h; sourceTree = "<group>"; };
+		5CA4573D1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsTVEpHeaderView.m; sourceTree = "<group>"; };
+		5CA4573F1EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVEpHeaderView.xib; sourceTree = "<group>"; };
+		5CA457411EAF86FD005ABD89 /* ShowDetailsTVEpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsTVEpCell.h; sourceTree = "<group>"; };
+		5CA457421EAF86FD005ABD89 /* ShowDetailsTVEpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsTVEpCell.m; sourceTree = "<group>"; };
+		5CA457431EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVEpCell.xib; sourceTree = "<group>"; };
 		5CA88A311E9383E100F0B952 /* LocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedString.h; sourceTree = "<group>"; };
 		5CA88A321E9383E100F0B952 /* LocalizedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedString.m; sourceTree = "<group>"; };
 		5CA88A341E93D29E00F0B952 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -684,6 +694,12 @@
 				5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */,
 				5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */,
 				5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */,
+				5CA4573C1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.h */,
+				5CA4573D1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.m */,
+				5CA4573F1EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib */,
+				5CA457411EAF86FD005ABD89 /* ShowDetailsTVEpCell.h */,
+				5CA457421EAF86FD005ABD89 /* ShowDetailsTVEpCell.m */,
+				5CA457431EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -784,10 +800,12 @@
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */,
+				5CA457401EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib in Resources */,
 				5CA88A261E927D0A00F0B952 /* InfoPlist.strings in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */,
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
+				5CA457451EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
 				5C15D6631CFD7EF900A2DD76 /* SearchVC.xib in Resources */,
 				5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */,
@@ -814,6 +832,7 @@
 				5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */,
 				5CC223F41CE9F95D00003823 /* ShowTVC.m in Sources */,
 				5C2BA93C1EAB856A0040E292 /* NewsVC.m in Sources */,
+				5CA457441EAF86FD005ABD89 /* ShowDetailsTVEpCell.m in Sources */,
 				5CC5F8A31CB55C7A00E39CB7 /* MJRefreshNormalHeader.m in Sources */,
 				5CC5F8651CB55C6A00E39CB7 /* NSObject+MJClass.m in Sources */,
 				5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */,
@@ -874,6 +893,7 @@
 				5CC5F8661CB55C6A00E39CB7 /* NSObject+MJCoding.m in Sources */,
 				5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */,
 				5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */,
+				5CA4573E1EAF4498005ABD89 /* ShowDetailsTVEpHeaderView.m in Sources */,
 				5CC5FA2E1CB5F68B00E39CB7 /* AFSecurityPolicy.m in Sources */,
 				5CC5F8A81CB55C7A00E39CB7 /* UIScrollView+MJRefresh.m in Sources */,
 				5C687DB71CC4CB22005BD4FC /* AFImageDownloader.m in Sources */,

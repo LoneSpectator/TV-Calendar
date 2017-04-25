@@ -7,12 +7,14 @@
 //
 
 #import "ShowDetailsVC.h"
+#import "LocalizedString.h"
 #import "Show.h"
 #import "Season.h"
 #import "Episode.h"
 #import "MJRefresh.h"
 #import "ShowDetailsTVC.h"
-#import "LocalizedString.h"
+#import "ShowDetailsTVEpHeaderView.h"
+#import "ShowDetailsTVEpCell.h"
 
 @interface ShowDetailsVC () <UITableViewDelegate, UITableViewDataSource>
 
@@ -38,9 +40,17 @@
     return _show;
 }
 
+- (NSMutableArray *)seTagArray {
+    if (!_seTagArray) {
+        _seTagArray = [NSMutableArray array];
+    }
+    return _seTagArray;
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero
+                                                  style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -101,7 +111,7 @@
     [Show fetchShowDetailWithID:self.show.showID
                         success:^(Show *show) {
                             weakSelf.show = show;
-                            for (int i = 0; i < show.quantityOfSeason; i++) {
+                            for (int i = 0; i < self.show.seasonsArray.count; i++) {
                                 [weakSelf.seTagArray addObject:@0];
                             }
                             [weakSelf.tableView reloadData];
@@ -144,25 +154,71 @@
         if (!cell) {
             cell = [ShowDetailsTVC cell];
         }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         ShowDetailsVC __weak *weakSelf = self;
         cell.refreshTableViewBlock = ^{
             [weakSelf.tableView beginUpdates];
             [weakSelf.tableView endUpdates];
         };
         [cell updateWithShow:self.show];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        return cell;
+    } else {
+        ShowDetailsTVEpCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShowDetailsTVEpCell"];
+        if (!cell) {
+            cell = [ShowDetailsTVEpCell cell];
+        }
+        [cell updateWithEpisode:((Season *)self.show.seasonsArray[indexPath.section-1]).episodesArray[indexPath.row]];
         return cell;
     }
     return [[UITableViewCell alloc] init];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section != 0) {
+        ShowDetailsTVEpHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"ShowDetailsTVEpHeaderView"];
+        if (!view) {
+            view = [ShowDetailsTVEpHeaderView view];
+        }
+        ShowDetailsVC __weak *weakSelf = self;
+        view.refreshTableViewBlock = ^{
+            weakSelf.seTagArray[section-1] = (((NSNumber *)self.seTagArray[section-1]).intValue == 0) ? @1 : @0;
+            [weakSelf.tableView reloadData];
+        };
+        view.signLabel.transform = (((NSNumber *)self.seTagArray[section-1]).intValue == 0) ? CGAffineTransformMakeRotation(0) : CGAffineTransformMakeRotation(M_PI_2);
+        [view updateWithSeason:self.show.seasonsArray[section-1]];
+        return view;
+    }
+    return nil;
+}
+
 #pragma mark - Table view delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIColor *color = [UIColor whiteColor];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > 121) {
+        CGFloat alpha = 1.0 - ((174.0 - offsetY) / 53.0);
+        self.navigationController.navigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
+    } else {
+        self.navigationController.navigationBar.backgroundColor = [color colorWithAlphaComponent:0];
+    }
+    if (offsetY > 166) {
+        [self.navigationController.navigationBar setShadowImage:nil];
+        scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    } else {
+        [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+        scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section != 0) {
+        return 45;
+    }
     return UITableViewAutomaticDimension;
 }
 
@@ -170,7 +226,7 @@
     if (section == 0) {
         return CGFLOAT_MIN;
     }
-    return 20;
+    return 45;
 }
 
 @end

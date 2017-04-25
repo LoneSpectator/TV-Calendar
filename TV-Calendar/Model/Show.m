@@ -50,6 +50,9 @@
                                      show.area = showData[@"area"];
                                      show.channel = showData[@"channel"];
                                      show.imageURL = showData[@"s_sibox_image"];
+                                     show.quantityOfSeason = [showData[@"count_of_se"] integerValue];
+                                     show.seNumOfLastEp = [showData[@"last_se_id"] integerValue];
+                                     show.epNumOfLastEp = [showData[@"last_ep_num"] integerValue];
                                      NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
                                      [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
                                      [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -65,6 +68,7 @@
                                              ep.episodeID = [epData[@"e_id"] integerValue];
                                              ep.seNum = se.seNum;
                                              ep.epNum = [epData[@"e_num"] integerValue];
+                                             ep.isReleased = [epData[@"e_status"] isEqualToString:@"1"] ? true : false;
                                              ep.episodeName = epData[@"e_name"];
                                              [se.episodesArray addObject:ep];
                                          }
