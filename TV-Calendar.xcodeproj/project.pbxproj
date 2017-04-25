@@ -39,8 +39,6 @@
 		5C8F6D3D1CD636D800C521F5 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */; };
 		5C8F6D411CD6386400C521F5 /* EpisodesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */; };
 		5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */; };
-		5C8F6D481CD645E900C521F5 /* UserTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F6D471CD645E900C521F5 /* UserTVC.m */; };
-		5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8F6D491CD645FD00C521F5 /* UserTVC.xib */; };
 		5C9BADE11AEB6A9900E9CE7C /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE01AEB6A9900E9CE7C /* Episode.m */; };
 		5C9BADE41AEB708900E9CE7C /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE31AEB708900E9CE7C /* Show.m */; };
 		5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BADE61AEBCCD200E9CE7C /* Season.m */; };
@@ -97,7 +95,6 @@
 		5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA2B1CB5F68B00E39CB7 /* AFURLSessionManager.m */; };
 		5CC5FA3A1CB6017100E39CB7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5FA391CB6017100E39CB7 /* NetworkManager.m */; };
 		5CE705F31CE1BB60002E12B4 /* FavouriteShowsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE705F21CE1BB60002E12B4 /* FavouriteShowsVC.m */; };
-		5CEBB9701CEF22BF00F6561F /* EpisodeSimpleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */; };
 		5CEF1D471AD92E90001A3BEE /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF1D461AD92E90001A3BEE /* MainVC.m */; };
 		5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF57C11CB91BE5000C5C8A /* Configuration.plist */; };
 /* End PBXBuildFile section */
@@ -172,9 +169,6 @@
 		5C8F6D3E1CD6386400C521F5 /* EpisodesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesTVC.h; sourceTree = "<group>"; };
 		5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesTVC.m; sourceTree = "<group>"; };
 		5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesTVC.xib; sourceTree = "<group>"; };
-		5C8F6D461CD645E900C521F5 /* UserTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTVC.h; sourceTree = "<group>"; };
-		5C8F6D471CD645E900C521F5 /* UserTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTVC.m; sourceTree = "<group>"; };
-		5C8F6D491CD645FD00C521F5 /* UserTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTVC.xib; sourceTree = "<group>"; };
 		5C9BADDF1AEB6A9900E9CE7C /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		5C9BADE01AEB6A9900E9CE7C /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		5C9BADE21AEB708900E9CE7C /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
@@ -291,8 +285,6 @@
 		5CC5FA391CB6017100E39CB7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		5CE705F11CE1BB60002E12B4 /* FavouriteShowsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsVC.h; sourceTree = "<group>"; };
 		5CE705F21CE1BB60002E12B4 /* FavouriteShowsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsVC.m; sourceTree = "<group>"; };
-		5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeSimpleTVC.h; sourceTree = "<group>"; };
-		5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeSimpleTVC.m; sourceTree = "<group>"; };
 		5CEF1D451AD92E8F001A3BEE /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		5CEF1D461AD92E90001A3BEE /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		5CEF57C11CB91BE5000C5C8A /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -683,20 +675,15 @@
 				5C8F6D3E1CD6386400C521F5 /* EpisodesTVC.h */,
 				5C8F6D3F1CD6386400C521F5 /* EpisodesTVC.m */,
 				5C8F6D401CD6386400C521F5 /* EpisodesTVC.xib */,
-				5C8F6D461CD645E900C521F5 /* UserTVC.h */,
-				5C8F6D471CD645E900C521F5 /* UserTVC.m */,
-				5C8F6D491CD645FD00C521F5 /* UserTVC.xib */,
-				5CC223F21CE9F95D00003823 /* ShowTVC.h */,
-				5CC223F31CE9F95D00003823 /* ShowTVC.m */,
-				5C15CF741CF8216900B84C53 /* ShowTVC.xib */,
 				5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */,
 				5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */,
 				5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */,
+				5CC223F21CE9F95D00003823 /* ShowTVC.h */,
+				5CC223F31CE9F95D00003823 /* ShowTVC.m */,
+				5C15CF741CF8216900B84C53 /* ShowTVC.xib */,
 				5CC223FA1CEB122800003823 /* ShowDetailsTVC.h */,
 				5CC223FB1CEB122800003823 /* ShowDetailsTVC.m */,
 				5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */,
-				5CEBB96E1CEF22BF00F6561F /* EpisodeSimpleTVC.h */,
-				5CEBB96F1CEF22BF00F6561F /* EpisodeSimpleTVC.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,7 +780,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8F6D4A1CD645FD00C521F5 /* UserTVC.xib in Resources */,
 				5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */,
 				5C8F6D421CD6386400C521F5 /* EpisodesTVC.xib in Resources */,
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
@@ -888,7 +874,6 @@
 				5CC5F8661CB55C6A00E39CB7 /* NSObject+MJCoding.m in Sources */,
 				5CC5FA311CB5F68B00E39CB7 /* AFURLSessionManager.m in Sources */,
 				5C687DB61CC4CB22005BD4FC /* AFAutoPurgingImageCache.m in Sources */,
-				5C8F6D481CD645E900C521F5 /* UserTVC.m in Sources */,
 				5CC5FA2E1CB5F68B00E39CB7 /* AFSecurityPolicy.m in Sources */,
 				5CC5F8A81CB55C7A00E39CB7 /* UIScrollView+MJRefresh.m in Sources */,
 				5C687DB71CC4CB22005BD4FC /* AFImageDownloader.m in Sources */,
@@ -897,7 +882,6 @@
 				5CC5F89E1CB55C7A00E39CB7 /* MJRefreshAutoStateFooter.m in Sources */,
 				5CC223FC1CEB122800003823 /* ShowDetailsTVC.m in Sources */,
 				5CC5F8971CB55C7A00E39CB7 /* MJRefreshAutoFooter.m in Sources */,
-				5CEBB9701CEF22BF00F6561F /* EpisodeSimpleTVC.m in Sources */,
 				5C815CC81AEE839D00B0E9BA /* NSDictionary+CL.m in Sources */,
 				5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */,
 				5C7CBE671CF45C2D004CA36F /* ShowList.m in Sources */,
