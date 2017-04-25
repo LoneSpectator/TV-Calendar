@@ -90,8 +90,7 @@
     [super loadView];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationItem.titleView = self.titleLabel;
     
@@ -125,22 +124,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ShowDetailsVC-NavBarImg"]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    
     if (currentUser) {
         self.navigationItem.rightBarButtonItem = self.addItem;
     } else {
         self.navigationItem.rightBarButtonItem = nil;
     }
-    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     [self fetchData];
 }
 

@@ -427,10 +427,10 @@
 		5CBE543B1AD5535800BF565B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5CA88A2D1E9286F000F0B952 /* Localizable.strings */,
 				5CBE543C1AD5535800BF565B /* Info.plist */,
 				5CA88A241E927D0A00F0B952 /* InfoPlist.strings */,
 				5CEF57C11CB91BE5000C5C8A /* Configuration.plist */,
+				5CA88A2D1E9286F000F0B952 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

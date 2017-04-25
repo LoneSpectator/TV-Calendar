@@ -8,15 +8,18 @@
 
 #import "ShowDetailsVC.h"
 #import "Show.h"
+#import "Season.h"
 #import "Episode.h"
 #import "MJRefresh.h"
 #import "ShowDetailsTVC.h"
+#import "LocalizedString.h"
 
 @interface ShowDetailsVC () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
 
 @property (nonatomic) Show *show;
+@property (nonatomic) NSMutableArray *seTagArray;
 
 @end
 
@@ -37,16 +40,16 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.allowsSelection = NO;
+        _tableView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
+        _tableView.estimatedRowHeight = 350;
+        _tableView.sectionFooterHeight = CGFLOAT_MIN;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
-        _tableView.estimatedRowHeight = 350;
     }
     return _tableView;
 }
@@ -55,10 +58,7 @@
     [super loadView];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.hidden = YES;
+    self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
     
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
@@ -68,7 +68,7 @@
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[tlg][tableView]|"
+    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(-44)-[tableView]|"
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
@@ -78,7 +78,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.hidden = YES;
+    [super viewWillAppear:animated];
+    
+//    [self.navigationController.navigationBar setTintColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ShowDetailsVC-NavBarImg"]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewDidLoad {
@@ -96,16 +101,19 @@
     [Show fetchShowDetailWithID:self.show.showID
                         success:^(Show *show) {
                             weakSelf.show = show;
+                            for (int i = 0; i < show.quantityOfSeason; i++) {
+                                [weakSelf.seTagArray addObject:@0];
+                            }
                             [weakSelf.tableView reloadData];
                             [weakSelf.tableView.mj_header endRefreshing];
                         }
                         failure:^(NSError *error) {
                             NSLog(@"[ShowDetailsVC]%@", error);
                             [weakSelf.tableView.mj_header endRefreshing];
-                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
-                                                                                        message:@"请下拉刷新"
+                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                        message:LocalizedString(@"请再次刷新")
                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                            [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                            [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:nil]];
                         }];
@@ -114,12 +122,18 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 1 + self.show.seasonsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
+    } else {
+        if (((NSNumber *)self.seTagArray[section-1]).intValue == 0) {
+            return 0;
+        } else {
+            return ((Season *)self.show.seasonsArray[section-1]).episodesArray.count;
+        }
     }
     return 0;
 }
@@ -136,6 +150,7 @@
             [weakSelf.tableView endUpdates];
         };
         [cell updateWithShow:self.show];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         return cell;
     }
     return [[UITableViewCell alloc] init];
@@ -149,6 +164,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return CGFLOAT_MIN;
+    }
+    return 20;
 }
 
 @end

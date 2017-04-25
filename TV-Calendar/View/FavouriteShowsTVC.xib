@@ -88,6 +88,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="EbN-Zw-csw" firstAttribute="height" secondItem="S4o-Ce-fJP" secondAttribute="height" id="3q6-oO-24V"/>
                     <constraint firstAttribute="bottom" secondItem="6WQ-3W-xii" secondAttribute="bottom" id="Cda-Sm-h7s"/>

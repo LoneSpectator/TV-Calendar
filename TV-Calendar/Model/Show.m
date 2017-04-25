@@ -49,7 +49,7 @@
                                      show.length = showData[@"length"];
                                      show.area = showData[@"area"];
                                      show.channel = showData[@"channel"];
-                                     show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
+                                     show.imageURL = showData[@"s_sibox_image"];
                                      NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
                                      [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
                                      [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

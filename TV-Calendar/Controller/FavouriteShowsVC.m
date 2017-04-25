@@ -38,7 +38,7 @@
         _tableView.estimatedRowHeight = 45;
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         _tableView.sectionHeaderHeight = CGFLOAT_MIN;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
@@ -77,13 +77,11 @@
     [super loadView];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
+    self.navigationItem.title = LocalizedString(@"我的订阅");
     self.navigationItem.leftBarButtonItem = self.settingsItem;
     self.navigationItem.rightBarButtonItem = self.addItem;
     
-    self.navigationItem.title = LocalizedString(@"我的订阅");
     [self.view addSubview:self.tableView];
     NSMutableArray *cs = [NSMutableArray array];
     NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
@@ -92,7 +90,7 @@
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[tlg][tableView]|"
+    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[tableView]|"
                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
                                                                     metrics:nil
                                                                       views:vs]];
@@ -105,7 +103,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+    
+//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ShowDetailsVC-NavBarImg"]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
