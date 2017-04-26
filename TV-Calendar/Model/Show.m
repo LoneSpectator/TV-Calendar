@@ -70,6 +70,7 @@
                                              ep.epNum = [epData[@"e_num"] integerValue];
                                              ep.isReleased = [epData[@"e_status"] isEqualToString:@"1"] ? true : false;
                                              ep.episodeName = epData[@"e_name"];
+                                             ep.airingDate = [dateFormatter dateFromString:epData[@"e_time"]];
                                              [se.episodesArray addObject:ep];
                                          }
                                          [show.seasonsArray addObject:se];

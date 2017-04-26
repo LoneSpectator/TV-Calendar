@@ -55,6 +55,7 @@
         _tableView.dataSource = self;
         _tableView.translatesAutoresizingMaskIntoConstraints = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.bounces = YES;
         _tableView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         _tableView.estimatedRowHeight = 350;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;
@@ -196,6 +197,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     UIColor *color = [UIColor whiteColor];
     CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY < 0) {
+        return;
+    }
     if (offsetY > 121) {
         CGFloat alpha = 1.0 - ((174.0 - offsetY) / 53.0);
         self.navigationController.navigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
@@ -217,7 +221,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section != 0) {
-        return 45;
+        return 35;
     }
     return UITableViewAutomaticDimension;
 }
