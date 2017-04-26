@@ -14,6 +14,7 @@
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
 		5C2BA93C1EAB856A0040E292 /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BA93B1EAB856A0040E292 /* NewsVC.m */; };
+		5C44246C1EB09D8C00226D6B /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */; };
 		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
 		5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */; };
@@ -124,6 +125,8 @@
 		5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
 		5C2BA93A1EAB856A0040E292 /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
 		5C2BA93B1EAB856A0040E292 /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
+		5C44246A1EB09D8C00226D6B /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
 		5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsTVC.h; sourceTree = "<group>"; };
 		5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsTVC.m; sourceTree = "<group>"; };
@@ -318,6 +321,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C4424691EB09D8C00226D6B /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				5C44246A1EB09D8C00226D6B /* HMSegmentedControl.h */,
+				5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */,
+			);
+			name = HMSegmentedControl;
+			path = "HMSegmentedControl-1.5.3/HMSegmentedControl";
+			sourceTree = "<group>";
+		};
 		5C687DA11CC4CB22005BD4FC /* UIKit+AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +470,7 @@
 		5CBE545D1AD553EB00BF565B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5C4424691EB09D8C00226D6B /* HMSegmentedControl */,
 				5C687DA11CC4CB22005BD4FC /* UIKit+AFNetworking */,
 				5CC5FA1E1CB5F68B00E39CB7 /* AFNetworking */,
 				5C815CB41AEE839D00B0E9BA /* CLWeeklyCalendarViewSourceCode */,
@@ -874,6 +888,7 @@
 				5CC5F8A21CB55C7A00E39CB7 /* MJRefreshGifHeader.m in Sources */,
 				5C687DBE1CC4CB22005BD4FC /* UIWebView+AFNetworking.m in Sources */,
 				5CC5F8991CB55C7A00E39CB7 /* MJRefreshComponent.m in Sources */,
+				5C44246C1EB09D8C00226D6B /* HMSegmentedControl.m in Sources */,
 				5CC5F8681CB55C6A00E39CB7 /* NSObject+MJProperty.m in Sources */,
 				5C9BADE71AEBCCD200E9CE7C /* Season.m in Sources */,
 				5CC5F8A71CB55C7A00E39CB7 /* UIScrollView+MJExtension.m in Sources */,
