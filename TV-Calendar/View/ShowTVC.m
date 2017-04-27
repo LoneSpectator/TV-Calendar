@@ -31,8 +31,8 @@
 }
 
 - (void)updateWithShow:(Show *)show {
-    [self.showVerticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
-                               placeholderImage:nil];
+    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
+                           placeholderImage:nil];
     self.nameLabel.text = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? show.chName : show.enName;
     self.statusLabel.text = [NSString stringWithFormat:@"状态：%@", show.status];
     self.areaLabel.text = [NSString stringWithFormat:@"区域：%@", show.area];

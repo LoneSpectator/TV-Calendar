@@ -35,16 +35,96 @@
         self.epNumLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.epNum];
     }
     self.epNameLabel.text = episode.episodeName;
-    if (episode.isReleased) {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter setDateFormat:@"MM-dd"];
+    self.epAiringDateLabel.text = [dateFormatter stringFromDate:episode.airingDate];
+    
+    [self reloadData];
+}
+
+- (void)markAsWatched {
+    self.checkButton.hidden = YES;
+    self.checkButtonImageView.hidden = YES;
+    self.checkButtonAIView.hidden = NO;
+    [self.checkButtonAIView startAnimating];
+    
+    ShowDetailsTVEpCell __weak *weakSelf = self;
+    [Episode markAsWatchedWithID:self.episode.episodeID
+                         success:^(){
+                             weakSelf.episode.isWatched = YES;
+                             [weakSelf reloadData];
+                             weakSelf.checkButton.hidden = NO;
+                             weakSelf.checkButtonImageView.hidden = NO;
+                             weakSelf.checkButtonAIView.hidden = YES;
+                             [weakSelf.checkButtonAIView stopAnimating];
+                         }
+                         failure:^(NSError *error) {
+                             NSLog(@"[EpisodesTVC]%@", error);
+                             weakSelf.checkButton.hidden = NO;
+                             weakSelf.checkButtonImageView.hidden = NO;
+                             weakSelf.checkButtonAIView.hidden = YES;
+                             [weakSelf.checkButtonAIView stopAnimating];
+                         }];
+}
+
+- (void)unMarkAsWatched {
+    self.checkButton.hidden = YES;
+    self.checkButtonImageView.hidden = YES;
+    self.checkButtonAIView.hidden = NO;
+    [self.checkButtonAIView startAnimating];
+    
+    ShowDetailsTVEpCell __weak *weakSelf = self;
+    [Episode unMarkAsWatchedWithID:self.episode.episodeID
+                           success:^(){
+                               weakSelf.episode.isWatched = NO;
+                               [weakSelf reloadData];
+                               weakSelf.checkButton.hidden = NO;
+                               weakSelf.checkButtonImageView.hidden = NO;
+                               weakSelf.checkButtonAIView.hidden = YES;
+                               [weakSelf.checkButtonAIView stopAnimating];
+                           }
+                           failure:^(NSError *error) {
+                               NSLog(@"[EpisodesTVC]%@", error);
+                               weakSelf.checkButton.hidden = NO;
+                               weakSelf.checkButtonImageView.hidden = NO;
+                               weakSelf.checkButtonAIView.hidden = YES;
+                               [weakSelf.checkButtonAIView stopAnimating];
+                           }];
+}
+
+- (void)reloadData {
+    if (self.episode.isReleased) {
         self.epAiringDateLabel.hidden = YES;
+        
+        ShowDetailsTVEpCell __weak *weakSelf = self;
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             if (weakSelf.episode.isWatched) {
+                                 [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
+                             } else {
+                                 [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
+                             }
+                         }];
+        if (self.episode.isWatched) {
+            [self.checkButton removeTarget:self
+                                    action:@selector(markAsWatched)
+                          forControlEvents:UIControlEventTouchUpInside];
+            [self.checkButton addTarget:self
+                                 action:@selector(unMarkAsWatched)
+                       forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            [self.checkButton removeTarget:self
+                                    action:@selector(unMarkAsWatched)
+                          forControlEvents:UIControlEventTouchUpInside];
+            [self.checkButton addTarget:self
+                                 action:@selector(markAsWatched)
+                       forControlEvents:UIControlEventTouchUpInside];
+        }
     } else {
         self.checkButtonImageView.hidden = YES;
         self.checkButton.hidden = YES;
         self.checkButtonAIView.hidden = YES;
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-        [dateFormatter setDateFormat:@"MM-dd"];
-        self.epAiringDateLabel.text = [dateFormatter stringFromDate:episode.airingDate];
     }
 }
 

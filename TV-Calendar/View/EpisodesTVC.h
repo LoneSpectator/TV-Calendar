@@ -14,7 +14,7 @@
 @interface EpisodesTVC : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *infoView;
-@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *showVerticalImageView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *episodeNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *airingTimeLabel;

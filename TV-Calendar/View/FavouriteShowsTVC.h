@@ -12,7 +12,7 @@
 
 @interface FavouriteShowsTVC : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *verticalImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *wideImageURL;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentOfWatchedLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *watchedProgressView;

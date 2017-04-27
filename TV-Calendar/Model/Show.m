@@ -63,16 +63,22 @@
                                          se.showID = show.showID;
                                          se.seNum = [seData[@"se_id"] integerValue];
                                          se.quantityOfEpisode = [seData[@"count_of_ep"] integerValue];
+                                         int count = 0;
                                          for (NSDictionary *epData in seData[@"episodes"]) {
                                              Episode *ep = [[Episode alloc] init];
                                              ep.episodeID = [epData[@"e_id"] integerValue];
+                                             ep.episodeName = epData[@"e_name"];
                                              ep.seNum = se.seNum;
                                              ep.epNum = [epData[@"e_num"] integerValue];
-                                             ep.isReleased = [epData[@"e_status"] isEqualToString:@"1"] ? true : false;
-                                             ep.episodeName = epData[@"e_name"];
+                                             ep.isReleased = [epData[@"e_status"] boolValue];
+                                             ep.isWatched = [epData[@"e_Syn"] boolValue];
+                                             if (ep.isWatched) {
+                                                 count++;
+                                             }
                                              ep.airingDate = [dateFormatter dateFromString:epData[@"e_time"]];
                                              [se.episodesArray addObject:ep];
                                          }
+                                         se.isAllWatched = (count == se.episodesArray.count) ? true : false;
                                          [show.seasonsArray addObject:se];
                                      }
                                      if (success) {

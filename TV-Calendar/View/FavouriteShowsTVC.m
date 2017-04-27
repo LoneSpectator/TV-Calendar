@@ -30,11 +30,8 @@
 }
 
 - (void)updateWithShow:(Show *)show {
-#warning URL修正
-    [self.verticalImageView setImageWithURL:[NSURL URLWithString:@"http://pogd.es/assets/sibig/We-Bare-Bears.jpg"]
-                           placeholderImage:nil];
-//    [self.verticalImageView setImageWithURL:[NSURL URLWithString:show.verticalImageURL]
-//                           placeholderImage:nil];
+    [self.wideImageURL setImageWithURL:[NSURL URLWithString:show.wideImageURL]
+                      placeholderImage:nil];
     self.showNameLabel.text = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? show.chName : show.enName;
     self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"%.0f%%", show.percentOfWatched*100];
     [self.watchedProgressView setProgress:show.percentOfWatched animated:NO];

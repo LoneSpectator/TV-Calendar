@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-Ce-fJP" userLabel="Vertical Image View">
+                    <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-Ce-fJP" userLabel="Vertical Image View">
                         <rect key="frame" x="-19.5" y="0.0" width="414" height="76.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="S4o-Ce-fJP" secondAttribute="height" multiplier="379:70" id="xLa-qf-84a"/>
@@ -107,8 +107,8 @@
             <connections>
                 <outlet property="percentOfWatchedLabel" destination="K4I-vX-WVy" id="eBo-cQ-e7H"/>
                 <outlet property="showNameLabel" destination="vDF-mu-idN" id="yRG-NJ-CbV"/>
-                <outlet property="verticalImageView" destination="S4o-Ce-fJP" id="WaY-RC-UtU"/>
                 <outlet property="watchedProgressView" destination="bMq-Ui-brW" id="Nqz-bX-dUr"/>
+                <outlet property="wideImageURL" destination="S4o-Ce-fJP" id="21L-xN-lcR"/>
             </connections>
             <point key="canvasLocation" x="252.5" y="299.5"/>
         </tableViewCell>

@@ -12,9 +12,10 @@
 
 @property NSInteger showID;
 @property (copy) NSString *name;
-@property NSInteger seNum;          // 第几季
-@property NSInteger quantityOfEpisode;       // 有几集
+@property NSInteger seNum;                // 第几季
+@property NSInteger quantityOfEpisode;    // 有几集
 @property NSMutableArray *episodesArray;  // 集列表
+@property BOOL isAllWatched;              // 是否全部已看过
 @property (copy) NSDate *firstAiringDate; // 开播日期
 @property (copy) NSDate *lastAiringDate;  // 结束日期
 @property NSString *status;               // 当前状态

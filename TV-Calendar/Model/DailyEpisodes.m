@@ -40,7 +40,7 @@
             ep.airingDate = [dateFormatter dateFromString:epData[@"e_time"]];
 //            NSTimeInterval secondsInterval= [ep.airingDate timeIntervalSinceDate:[NSDate date]];
 //            ep.isReleased = secondsInterval <= 0 ? YES : NO;
-            ep.showImageURL = [NSString stringWithFormat:@"http:%@", epData[@"s_vertical_image"]];
+            ep.showVerticalImageURL = epData[@"s_vertical_image"];
             if (currentUser) ep.isWatched = [epData[@"syned"] boolValue];
             [dailyEpisodes.list addObject:ep];
         }

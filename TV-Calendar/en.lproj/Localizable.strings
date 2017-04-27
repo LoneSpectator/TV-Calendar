@@ -6,9 +6,5 @@
   Copyright © 2017年 ifLab. All rights reserved.
 */
 
-/* 时间表 */
-"Watched" = "Watched";
-"UnWatched" = "UnWatched";
-
 /* 订阅 */
 "我的订阅" = "Favourites";

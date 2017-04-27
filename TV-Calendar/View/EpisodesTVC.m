@@ -39,7 +39,7 @@
 
 - (void)updateWithEpisode:(Episode *)episode {
     self.episode = episode;
-    [self.showImageView setImageWithURL:[NSURL URLWithString:episode.showImageURL]
+    [self.showVerticalImageView setImageWithURL:[NSURL URLWithString:episode.showVerticalImageURL]
                        placeholderImage:nil];
     self.showNameLabel.text = episode.showName;
     self.episodeNameLabel.text = episode.episodeName;
@@ -58,7 +58,7 @@
         self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.epNum];
     }
     
-    if (self.episode.isWatched) {
+    if (self.episode.isWatched) {  // 避免刷新时的闪动
         self.infoView.alpha = 0.3;
     } else {
         self.infoView.alpha = 1;
@@ -120,15 +120,12 @@
     EpisodesTVC __weak *weakSelf = self;
     [UIView animateWithDuration:0.5
                      animations:^{
-#warning 少图片
                          if (weakSelf.episode.isWatched) {
-                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
+                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
                              weakSelf.infoView.alpha = 0.3;
-                             [weakSelf.checkButton setTitle:LocalizedString(@"Watched") forState:UIControlStateNormal];
                          } else {
-                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@""]];
+                             [weakSelf.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
                              weakSelf.infoView.alpha = 1;
-                             [weakSelf.checkButton setTitle:LocalizedString(@"UnWatched") forState:UIControlStateNormal];
                          }
                      }];
     if (self.episode.isWatched) {

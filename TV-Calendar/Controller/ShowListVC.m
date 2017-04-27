@@ -69,7 +69,11 @@
     self.title = LocalizedString(@"影视库");
     self.navigationItem.leftBarButtonItem = self.backItem;
     
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, self.view.bounds.size.width, 64)];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.tableView];
+    [self.view addSubview:whiteView];
     NSMutableArray *cs = [NSMutableArray array];
     NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
                          @"tableView": self.tableView};
@@ -93,7 +97,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+    
+//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0 green:122.0/255.0 blue:1 alpha:1]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ShowDetailsVC-NavBarImg"]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,7 +199,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 134;
+        return 125;
     }
     return UITableViewAutomaticDimension;
 }

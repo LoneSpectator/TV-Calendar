@@ -29,7 +29,7 @@
         NewsVC *newsVC = [[NewsVC alloc] init];
         FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
         UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:newsVC];
-        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-ShowList"]];
+        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-News"]];
         [firstContentVC.tabBarItem setTitle:LocalizedString(@"探索")];
         UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
         [secondContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-DailyEpList"]];

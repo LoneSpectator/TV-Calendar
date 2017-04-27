@@ -47,8 +47,8 @@
                                          show.status = showData[@"status"];
                                          show.area = showData[@"area"];
                                          show.channel = showData[@"channel"];
-                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
+                                         show.imageURL = showData[@"s_sibox_image"];
+                                         show.verticalImageURL = showData[@"s_vertical_image"];
                                          [weakSelf.list addObject:show];
                                      }
                                      if (success) {
@@ -83,8 +83,8 @@
                                          show.status = showData[@"status"];
                                          show.area = showData[@"area"];
                                          show.channel = showData[@"channel"];
-                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
+                                         show.imageURL = showData[@"s_sibox_image"];
+                                         show.verticalImageURL = showData[@"s_vertical_image"];
                                          [weakSelf.list addObject:show];
                                      }
                                      if (success) {
@@ -116,9 +116,9 @@
                                          show.status = showData[@"status"];
                                          show.area = showData[@"area"];
                                          show.channel = showData[@"channel"];
-#warning 网址
-//                                         show.imageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_sibox_image"]];
-                                         show.verticalImageURL = [NSString stringWithFormat:@"http:%@", showData[@"s_vertical_image"]];
+                                         show.imageURL = showData[@"s_sibox_image"];
+                                         show.verticalImageURL = showData[@"s_vertical_image"];
+                                         show.wideImageURL = showData[@"s_sibig_image"];
                                          show.percentOfWatched = [showData[@"percent"] floatValue];
                                          [weakSelf.list addObject:show];
                                      }
