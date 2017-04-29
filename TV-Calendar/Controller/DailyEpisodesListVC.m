@@ -242,7 +242,7 @@
 //    }
     self.titleLabel.text = strDate;
     if ([strDate isEqualToString:[dateFormatter stringFromDate:[NSDate date]]]) {
-        self.titleLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:147.0/255.0 blue:0.0/255.0 alpha:1.0];
+        self.titleLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0];
     } else {
         self.titleLabel.textColor = [UIColor blackColor];
     }

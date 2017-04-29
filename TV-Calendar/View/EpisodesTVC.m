@@ -58,9 +58,11 @@
         self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.epNum];
     }
     
-    if (self.episode.isWatched) {  // 避免刷新时的闪动
+    if (self.episode.isWatched) { // 避免刷新时的闪动
+        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
         self.infoView.alpha = 0.3;
     } else {
+        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
         self.infoView.alpha = 1;
     }
     [self reloadData];

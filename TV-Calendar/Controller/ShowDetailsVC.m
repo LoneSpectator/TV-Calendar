@@ -155,9 +155,9 @@
         if (!cell) {
             cell = [ShowDetailsTVC cell];
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; // 禁止行被选中
         ShowDetailsVC __weak *weakSelf = self;
-        cell.refreshTableViewBlock = ^{
+        cell.refreshTableViewBlock = ^{ // 剧详情行内的简介展开收起时列表页的动态刷新块
             [weakSelf.tableView beginUpdates];
             [weakSelf.tableView endUpdates];
         };
@@ -168,6 +168,7 @@
         if (!cell) {
             cell = [ShowDetailsTVEpCell cell];
         }
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; // 禁止行被选中
         [cell updateWithEpisode:((Season *)self.show.seasonsArray[indexPath.section-1]).episodesArray[indexPath.row]];
         return cell;
     }
@@ -179,14 +180,17 @@
         ShowDetailsTVEpHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"ShowDetailsTVEpHeaderView"];
         if (!view) {
             view = [ShowDetailsTVEpHeaderView view];
+            ShowDetailsVC __weak *weakSelf = self;
+            view.refreshTableViewBlock = ^{
+                [weakSelf.tableView reloadData];
+            };
         }
         ShowDetailsVC __weak *weakSelf = self;
-        view.refreshTableViewBlock = ^{
+        view.setOpenTagBlock = ^{
             weakSelf.seTagArray[section-1] = (((NSNumber *)self.seTagArray[section-1]).intValue == 0) ? @1 : @0;
             [weakSelf.tableView reloadData];
         };
-        view.signLabel.transform = (((NSNumber *)self.seTagArray[section-1]).intValue == 0) ? CGAffineTransformMakeRotation(0) : CGAffineTransformMakeRotation(M_PI_2);
-        [view updateWithSeason:self.show.seasonsArray[section-1]];
+        [view updateWithSeason:self.show.seasonsArray[section-1] openTag:(((NSNumber *)self.seTagArray[section-1]).intValue != 0)];
         return view;
     }
     return nil;

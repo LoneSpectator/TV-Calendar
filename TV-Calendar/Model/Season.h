@@ -20,4 +20,15 @@
 @property (copy) NSDate *lastAiringDate;  // 结束日期
 @property NSString *status;               // 当前状态
 
+- (instancetype)init;
++ (void)markAsWatchedWithShowID:(NSInteger)showID
+                          SeNum:(NSInteger)seNum
+                        success:(void (^)())success
+                        failure:(void (^)(NSError *))failure;
+
++ (void)unMarkAsWatchedWithShowID:(NSInteger)showID
+                            SeNum:(NSInteger)seNum
+                          success:(void (^)())success
+                          failure:(void (^)(NSError *))failure;
+
 @end

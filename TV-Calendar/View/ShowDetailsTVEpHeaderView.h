@@ -20,10 +20,12 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *checkButtonAIView;
 
 @property (nonatomic) Season *season;
+@property BOOL openTag;
 
+@property void (^setOpenTagBlock)();
 @property void (^refreshTableViewBlock)();
 
 + (ShowDetailsTVEpHeaderView *)view;
-- (void)updateWithSeason:(Season *)season;
+- (void)updateWithSeason:(Season *)season openTag:(BOOL)openTag;
 
 @end
