@@ -785,7 +785,7 @@
 }
 
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated {
-    [self setSelectedSegmentIndex:index animated:animated notify:NO];
+    [self setSelectedSegmentIndex:index animated:animated notify:YES];
 }
 
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated notify:(BOOL)notify {

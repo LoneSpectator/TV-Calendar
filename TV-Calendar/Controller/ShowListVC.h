@@ -12,6 +12,4 @@
 
 + (ShowListVC *)viewController;
 
-//- (void)refresh;
-
 @end

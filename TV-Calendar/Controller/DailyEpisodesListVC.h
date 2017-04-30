@@ -10,6 +10,4 @@
 
 @interface DailyEpisodesListVC : UIViewController
 
-- (void)fetchData;
-
 @end

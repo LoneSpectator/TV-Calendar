@@ -17,11 +17,14 @@
 
 @interface ShowListVC () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIView *segmentedControlView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIBarButtonItem *backItem;
+@property (strong, nonatomic) HMSegmentedControl *segmentedControl;
 
 @property (nonatomic) ShowList *showList;
+@property (nonatomic) NSArray *segmentArr;
+//@property NSInteger
 
 @end
 
@@ -29,6 +32,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self.segmentedControlView addSubview:self.segmentedControl];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -38,9 +43,14 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self
-                                                                    refreshingAction:@selector(fetchMoreData)];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(fetchMoreData)];
     
+    UISwipeGestureRecognizer *leftSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    leftSwipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_tableView addGestureRecognizer:leftSwipeGR];
+    UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+    [_tableView addGestureRecognizer:rightSwipeGR];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
@@ -48,7 +58,7 @@
     self.title = LocalizedString(@"影视库");
     self.navigationItem.leftBarButtonItem = self.backItem;
     
-    [self.tableView.mj_header beginRefreshing];
+    [self.segmentedControl setSelectedSegmentIndex:0 animated:YES];
 }
 
 + (ShowListVC *)viewController {
@@ -58,11 +68,39 @@
     return vc;
 }
 
+- (HMSegmentedControl *)segmentedControl {
+    if (!_segmentedControl) {
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.segmentArr];
+        [_segmentedControl setFrame:CGRectMake(0, 0, self.segmentedControlView.frame.size.width, self.segmentedControlView.frame.size.height)];
+        _segmentedControl.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
+        _segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 12, 0, 12);
+        _segmentedControl.selectionIndicatorHeight = 3.0f;
+        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segmentedControl.selectionIndicatorColor = [UIColor colorWithRed:27.0/255.0 green:173.0/255.0 blue:248.0/255.0 alpha:1.0];
+        _segmentedControl.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:15],
+                                                      NSForegroundColorAttributeName: [UIColor blackColor]};
+        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleBox;
+        
+        ShowListVC __weak *weakSelf = self;
+        [_segmentedControl setIndexChangeBlock:^(NSInteger index) {
+            [weakSelf.tableView.mj_header beginRefreshing];
+        }];
+    }
+    return _segmentedControl;
+}
+
 - (ShowList *)showList {
     if (!_showList) {
         _showList = [[ShowList alloc] init];
     }
     return _showList;
+}
+
+- (NSArray *)segmentArr {
+    if (!_segmentArr) {
+        _segmentArr = @[@"#", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    }
+    return _segmentArr;
 }
 
 - (UIBarButtonItem *)backItem {
@@ -90,6 +128,8 @@
 }
 
 - (void)fetchData {
+#warning 
+    NSLog(@"%ld", (long)self.segmentedControl.selectedSegmentIndex);
     ShowListVC __weak *weakSelf = self;
     [self.showList fetchAllShowListFirstPageWithLimit:20
                                               success:^{
@@ -131,6 +171,21 @@
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }
     
+}
+
+- (void)swipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        if (self.segmentedControl.selectedSegmentIndex - 1 >= 0) {
+            [self.segmentedControl setSelectedSegmentIndex:self.segmentedControl.selectedSegmentIndex - 1
+                                                  animated:YES];
+        }
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        if (self.segmentedControl.selectedSegmentIndex + 1 < self.segmentArr.count) {
+            [self.segmentedControl setSelectedSegmentIndex:self.segmentedControl.selectedSegmentIndex + 1
+                                                  animated:YES];
+        }
+    }
 }
 
 - (void)refresh {

@@ -42,6 +42,13 @@
         _tableView.estimatedRowHeight = 100;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
+        
+        UISwipeGestureRecognizer *leftSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+        leftSwipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
+        [_tableView addGestureRecognizer:leftSwipeGR];
+        UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+        rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+        [_tableView addGestureRecognizer:rightSwipeGR];
     }
     return _tableView;
 }
@@ -153,6 +160,17 @@
 
 - (void)titleLabelDidClick {
     [self.calendarView redrawToDate:[NSDate date]];
+}
+
+- (void)swipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:-24*60*60
+                                                           sinceDate:self.calendarView.selectedDate]];
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:24*60*60
+                                                           sinceDate:self.calendarView.selectedDate]];
+    }
 }
 
 - (void)fetchData {
