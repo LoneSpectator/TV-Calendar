@@ -12,11 +12,14 @@
 
 @interface ShowTVC : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *verticalImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
-@property (weak, nonatomic) IBOutlet UILabel *channelLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *enNameLayoutConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *enNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
+@property (weak, nonatomic) IBOutlet UIImageView *favouriteButtonImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *favouriteButtonAIView;
+
+@property (nonatomic) Show *show;
 
 + (ShowTVC *)cell;
 - (void)updateWithShow:(Show *)show;

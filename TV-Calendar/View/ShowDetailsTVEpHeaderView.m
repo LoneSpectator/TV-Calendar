@@ -9,11 +9,13 @@
 #import "ShowDetailsTVEpHeaderView.h"
 #import "Season.h"
 #import "Episode.h"
+#import "User.h"
 
 @implementation ShowDetailsTVEpHeaderView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     self.checkButtonAIView.hidden = YES;
 }
 
@@ -29,12 +31,19 @@
     self.seNumLabel.text = [NSString stringWithFormat:@"%ld", (long)season.seNum];
     self.openTag = openTag;
     self.signLabel.transform = openTag ? CGAffineTransformMakeRotation(M_PI_2) : CGAffineTransformMakeRotation(0);
-    if (self.season.isAllWatched) {
-        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
+    
+    if (!currentUser) {
+        self.checkButtonAIView.hidden = YES;
+        self.checkButton.hidden = YES;
+        self.checkButtonImageView.hidden = YES;
     } else {
-        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
+        if (self.season.isAllWatched) {
+            [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
+        } else {
+            [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
+        }
+        [self reloadData];
     }
-    [self reloadData];
 }
 
 - (void)viewTouchUpInside {

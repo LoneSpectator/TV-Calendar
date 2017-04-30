@@ -16,6 +16,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.backgroundColor = [UIColor clearColor];
     self.checkButtonAIView.hidden = YES;
 }
 
@@ -27,13 +29,6 @@
     EpisodesTVC *cell = (EpisodesTVC *)[[NSBundle mainBundle] loadNibNamed:@"EpisodesTVC"
                                                                      owner:nil
                                                                    options:nil].firstObject;
-    cell.backgroundColor = [UIColor clearColor];
-    
-    if (!currentUser) {
-        cell.checkButton.hidden = YES;
-        cell.checkButtonImageView.hidden = YES;
-    }
-    
     return cell;
 }
 
@@ -58,14 +53,20 @@
         self.eLabel.text = [NSString stringWithFormat:@"%ld", (long)episode.epNum];
     }
     
-    if (self.episode.isWatched) { // 避免刷新时的闪动
-        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
-        self.infoView.alpha = 0.3;
+    if (!currentUser) {
+        self.checkButtonAIView.hidden = YES;
+        self.checkButton.hidden = YES;
+        self.checkButtonImageView.hidden = YES;
     } else {
-        [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
-        self.infoView.alpha = 1;
+        if (self.episode.isWatched) { // 避免刷新时的闪动
+            [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
+            self.infoView.alpha = 0.3;
+        } else {
+            [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonGray"]];
+            self.infoView.alpha = 1;
+        }
+        [self reloadData];
     }
-    [self reloadData];
 }
 
 - (void)markAsWatched {

@@ -10,6 +10,8 @@
 
 @interface ShowListVC : UIViewController
 
-- (void)refresh;
++ (ShowListVC *)viewController;
+
+//- (void)refresh;
 
 @end

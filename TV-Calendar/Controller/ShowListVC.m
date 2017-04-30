@@ -13,10 +13,12 @@
 #import "ShowList.h"
 #import "Show.h"
 #import "LocalizedString.h"
+#import "HMSegmentedControl.h"
 
 @interface ShowListVC () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) IBOutlet HMSegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIBarButtonItem *backItem;
 
 @property (nonatomic) ShowList *showList;
@@ -25,21 +27,35 @@
 
 @implementation ShowListVC
 
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.estimatedRowHeight = 134;
-        _tableView.translatesAutoresizingMaskIntoConstraints = NO;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 134;
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self
                                                                     refreshingAction:@selector(fetchMoreData)];
-    }
-    return _tableView;
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.title = LocalizedString(@"影视库");
+    self.navigationItem.leftBarButtonItem = self.backItem;
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
++ (ShowListVC *)viewController {
+    ShowListVC *vc = (ShowListVC *)[[NSBundle mainBundle] loadNibNamed:@"ShowListVC"
+                                                                 owner:nil
+                                                               options:nil].firstObject;
+    return vc;
 }
 
 - (ShowList *)showList {
@@ -57,42 +73,6 @@
                                                     action:@selector(back)];
     }
     return _backItem;
-}
-
-- (void)loadView {
-    [super loadView];
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.title = LocalizedString(@"影视库");
-    self.navigationItem.leftBarButtonItem = self.backItem;
-    
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, -64, self.view.bounds.size.width, 64)];
-    whiteView.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:self.tableView];
-    [self.view addSubview:whiteView];
-    NSMutableArray *cs = [NSMutableArray array];
-    NSDictionary *vs = @{@"tlg": self.topLayoutGuide,
-                         @"tableView": self.tableView};
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|"
-                                                                    options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                    metrics:nil
-                                                                      views:vs]];
-    [cs addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[tlg][tableView]|"
-                                                                    options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                    metrics:nil
-                                                                      views:vs]];
-    [self.view addConstraints:cs];
-    
-    [self.tableView.mj_header beginRefreshing];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -199,7 +179,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 125;
     }
     return UITableViewAutomaticDimension;
 }

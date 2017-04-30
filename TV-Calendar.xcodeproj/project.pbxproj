@@ -14,6 +14,7 @@
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
 		5C2BA93C1EAB856A0040E292 /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BA93B1EAB856A0040E292 /* NewsVC.m */; };
+		5C423CDC1EB4E9BC0087877E /* ShowListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C423CDB1EB4E9BC0087877E /* ShowListVC.xib */; };
 		5C44246C1EB09D8C00226D6B /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */; };
 		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
@@ -125,6 +126,7 @@
 		5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowDetailsTVC.xib; sourceTree = "<group>"; };
 		5C2BA93A1EAB856A0040E292 /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
 		5C2BA93B1EAB856A0040E292 /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
+		5C423CDB1EB4E9BC0087877E /* ShowListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowListVC.xib; sourceTree = "<group>"; };
 		5C44246A1EB09D8C00226D6B /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				5CE705F21CE1BB60002E12B4 /* FavouriteShowsVC.m */,
 				5C7CBE621CF42FA8004CA36F /* ShowListVC.h */,
 				5C7CBE631CF42FA8004CA36F /* ShowListVC.m */,
+				5C423CDB1EB4E9BC0087877E /* ShowListVC.xib */,
 				5CC223EB1CE6470D00003823 /* ShowDetailsVC.h */,
 				5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */,
 				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
@@ -815,6 +818,7 @@
 				5CC5F8A51CB55C7A00E39CB7 /* MJRefresh.bundle in Resources */,
 				5CA88A2F1E9286F000F0B952 /* Localizable.strings in Resources */,
 				5CA457401EAF451F005ABD89 /* ShowDetailsTVEpHeaderView.xib in Resources */,
+				5C423CDC1EB4E9BC0087877E /* ShowListVC.xib in Resources */,
 				5CA88A261E927D0A00F0B952 /* InfoPlist.strings in Resources */,
 				5CEF57C21CB91BE5000C5C8A /* Configuration.plist in Resources */,
 				5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */,

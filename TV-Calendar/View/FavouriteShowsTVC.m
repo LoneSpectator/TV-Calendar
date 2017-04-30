@@ -15,6 +15,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,7 +26,6 @@
     FavouriteShowsTVC *cell = (FavouriteShowsTVC *)[[NSBundle mainBundle] loadNibNamed:@"FavouriteShowsTVC"
                                                                                  owner:nil
                                                                                options:nil].firstObject;
-    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

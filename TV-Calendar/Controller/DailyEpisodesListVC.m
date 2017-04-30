@@ -170,7 +170,7 @@
 }
 
 - (void)showShowListViewController {
-    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[[ShowListVC alloc] init]];
+    UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[ShowListVC viewController]];
     nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self showDetailViewController:nv sender:self];
 }

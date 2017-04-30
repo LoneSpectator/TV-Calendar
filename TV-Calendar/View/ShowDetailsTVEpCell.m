@@ -8,11 +8,13 @@
 
 #import "ShowDetailsTVEpCell.h"
 #import "Episode.h"
+#import "User.h"
 
 @implementation ShowDetailsTVEpCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     self.checkButtonAIView.hidden = YES;
 }
 
@@ -40,7 +42,14 @@
     [dateFormatter setDateFormat:@"MM-dd"];
     self.epAiringDateLabel.text = [dateFormatter stringFromDate:episode.airingDate];
     
-    [self reloadData];
+    
+    if (!currentUser) {
+        self.checkButtonAIView.hidden = YES;
+        self.checkButton.hidden = YES;
+        self.checkButtonImageView.hidden = YES;
+    } else {
+        [self reloadData];
+    }
 }
 
 - (void)markAsWatched {

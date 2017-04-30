@@ -19,7 +19,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.favouriteButtonAIView.hidden = YES;
+    self.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 25.0 : 0.0;
+    self.statusNameLabel.text = LocalizedString(@"状态");
+    self.lastEpNamelabel.text = LocalizedString(@"播出进度");
+    self.nextEpTimeNameLabel.text = LocalizedString(@"下集时间");
+    self.areaNameLabel.text = LocalizedString(@"地区");
+    self.channelNameLabel.text = LocalizedString(@"电视台");
+    self.lengthNameLabel.text = LocalizedString(@"长度");
+    [self showLessIntroduction:NULL];
+    [self layoutIfNeeded];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,16 +42,6 @@
     ShowDetailsTVC *cell = (ShowDetailsTVC *)[[NSBundle mainBundle] loadNibNamed:@"ShowDetailsTVC"
                                                                          owner:nil
                                                                        options:nil].firstObject;
-    cell.favouriteButtonAIView.hidden = YES;
-    cell.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 25.0 : 0.0;
-    cell.statusNameLabel.text = LocalizedString(@"状态");
-    cell.lastEpNamelabel.text = LocalizedString(@"播出进度");
-    cell.nextEpTimeNameLabel.text = LocalizedString(@"下集时间");
-    cell.areaNameLabel.text = LocalizedString(@"地区");
-    cell.channelNameLabel.text = LocalizedString(@"电视台");
-    cell.lengthNameLabel.text = LocalizedString(@"长度");
-    [cell showLessIntroduction:NULL];
-    [cell layoutIfNeeded];
     return cell;
 }
 
