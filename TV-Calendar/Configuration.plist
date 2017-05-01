@@ -6,6 +6,12 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
+		<key>SearchShowByName</key>
+		<string>searchByName/</string>
+		<key>UnMarkSeAsWatched</key>
+		<string>cancelSubscribeFullSeason/</string>
+		<key>MarkSeAsWatched</key>
+		<string>subscribeFullSeason/</string>
 		<key>Register</key>
 		<string>mobileRegister/</string>
 		<key>FavouriteShows</key>

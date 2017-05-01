@@ -28,16 +28,11 @@
                           SeNum:(NSInteger)seNum
                         success:(void (^)())success
                         failure:(void (^)(NSError *))failure {
-#warning
-    //*/
-    if (success) {
-        success();
-    }/*/
     [[NetworkManager defaultManager] GET:@"MarkSeAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
                                            @"u_token": currentUser.token,
-                                           @"showID": [NSString stringWithFormat:@"%ld", (long)showID],
-                                           @"seNum": [NSString stringWithFormat:@"%ld", (long)seNum]}
+                                           @"s_id": [NSString stringWithFormat:@"%ld", (long)showID],
+                                           @"se_id": [NSString stringWithFormat:@"%ld", (long)seNum]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Season]%@", msg[@"OK"]);
                                      if (success) {
@@ -49,23 +44,17 @@
                                          failure(error);
                                      }
                                  }];
-    //*/
 }
 
 + (void)unMarkAsWatchedWithShowID:(NSInteger)showID
                             SeNum:(NSInteger)seNum
                           success:(void (^)())success
                           failure:(void (^)(NSError *))failure {
-#warning
-    //*/
-    if (success) {
-        success();
-    }/*/
     [[NetworkManager defaultManager] GET:@"UnMarkSeAsWatched"
                               parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
                                            @"u_token": currentUser.token,
-                                           @"showID": [NSString stringWithFormat:@"%ld", (long)showID],
-                                           @"seNum": [NSString stringWithFormat:@"%ld", (long)seNum]}
+                                           @"s_id": [NSString stringWithFormat:@"%ld", (long)showID],
+                                           @"se_id": [NSString stringWithFormat:@"%ld", (long)seNum]}
                                  success:^(NSDictionary *msg) {
 //                                     NSLog(@"[Season]%@", msg[@"OK"]);
                                      if (success) {
@@ -77,7 +66,6 @@
                                          failure(error);
                                      }
                                  }];
-    //*/
 }
 
 @end

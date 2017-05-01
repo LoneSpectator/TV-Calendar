@@ -61,8 +61,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总集数358   已看239" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvy-uL-l6X" userLabel="Label">
-                                <rect key="frame" x="13" y="47" width="115.5" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvy-uL-l6X" userLabel="Label">
+                                <rect key="frame" x="13" y="47" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -106,6 +106,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="percentOfWatchedLabel" destination="K4I-vX-WVy" id="eBo-cQ-e7H"/>
+                <outlet property="quantityOfWatchedLabel" destination="Cvy-uL-l6X" id="pGB-Rm-AxM"/>
                 <outlet property="showNameLabel" destination="vDF-mu-idN" id="yRG-NJ-CbV"/>
                 <outlet property="watchedProgressView" destination="bMq-Ui-brW" id="Nqz-bX-dUr"/>
                 <outlet property="wideImageURL" destination="S4o-Ce-fJP" id="21L-xN-lcR"/>

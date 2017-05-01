@@ -29,6 +29,7 @@
 - (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit
                                    success:(void (^)())success
                                    failure:(void (^)(NSError *))failure {
+#warning
     ShowList __weak *weakSelf = self;
     [[NetworkManager defaultManager] GET:@"AllShows"
                               parameters:@{@"startPage": @"0",
@@ -65,7 +66,6 @@
 - (int)fetchAllShowListNextPageWithLimit:(NSInteger)limit
                                  success:(void (^)())success
                                  failure:(void (^)(NSError *))failure {
-#warning 
     self.page++;
     if (self.page >= self.quantityOfPage) {
         return 1;
@@ -120,7 +120,47 @@
                                          show.imageURL = showData[@"s_sibox_image"];
                                          show.verticalImageURL = showData[@"s_vertical_image"];
                                          show.wideImageURL = showData[@"s_sibig_image"];
+                                         show.quantityOfEpisode = [showData[@"count_of_ep"] integerValue];
+                                         show.quantityOfWatchedEpisode = [showData[@"count_of_syn_ep"] integerValue];
                                          show.percentOfWatched = [showData[@"percent"] floatValue];
+                                         [weakSelf.list addObject:show];
+                                     }
+                                     if (success) {
+                                         success();
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
+}
+
+- (void)searchShowByName:(NSString *)name
+                 success:(void (^)())success
+                 failure:(void (^)(NSError *))failure {
+    NSDictionary *parameters;
+    if (!currentUser) {
+        parameters = @{@"words": [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]};
+    } else {
+        parameters = @{@"words": [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                       @"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                       @"u_token": currentUser.token};
+    }
+    ShowList __weak *weakSelf = self;
+    [[NetworkManager defaultManager] GET:@"SearchShowByName"
+                              parameters:parameters
+                                 success:^(NSDictionary *data) {
+                                     weakSelf.page = 0;
+                                     weakSelf.list = [[NSMutableArray alloc] init];
+                                     for (NSDictionary *showData in data) {
+                                         Show *show = [[Show alloc] init];
+                                         show.showID = [showData[@"s_id"] integerValue];
+                                         show.enName = showData[@"s_name"];
+                                         show.chName = showData[@"s_name_cn"];
+                                         if (currentUser) {
+#warning 缺少是否订阅
+                                         }
                                          [weakSelf.list addObject:show];
                                      }
                                      if (success) {

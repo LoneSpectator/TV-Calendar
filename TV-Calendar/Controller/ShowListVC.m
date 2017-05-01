@@ -15,16 +15,18 @@
 #import "LocalizedString.h"
 #import "HMSegmentedControl.h"
 
-@interface ShowListVC () <UITableViewDelegate, UITableViewDataSource>
+@interface ShowListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchBarLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIBarButtonItem *backItem;
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
 
 @property (nonatomic) ShowList *showList;
 @property (nonatomic) NSArray *segmentArr;
-//@property NSInteger
+@property (nonatomic) BOOL searchMode;
 
 @end
 
@@ -34,6 +36,7 @@
     [super awakeFromNib];
     
     [self.segmentedControlView addSubview:self.segmentedControl];
+    self.searchBar.delegate = self;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -57,6 +60,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.title = LocalizedString(@"影视库");
     self.navigationItem.leftBarButtonItem = self.backItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(showSearchBar)];
     
     [self.segmentedControl setSelectedSegmentIndex:0 animated:YES];
 }
@@ -111,6 +115,13 @@
                                                     action:@selector(back)];
     }
     return _backItem;
+}
+
+- (BOOL)searchMode {
+    if (!_searchMode) {
+        _searchMode = NO;
+    }
+    return _searchMode;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -196,6 +207,37 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)showSearchBar {
+    self.tableView.bounces = NO;
+    [self.showList.list removeAllObjects];
+    [self.tableView reloadData];
+    self.navigationItem.leftBarButtonItem = nil;
+    ShowListVC __weak *weakSelf = self;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         weakSelf.searchBar.alpha = 1;
+                     } completion:^(BOOL finished) {
+                         weakSelf.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(hideSearchBar)];
+                         [weakSelf.searchBar becomeFirstResponder];
+                     }];
+}
+
+- (void)hideSearchBar {
+    [self.searchBar resignFirstResponder];
+    ShowListVC __weak *weakSelf = self;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         weakSelf.searchBar.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         weakSelf.navigationItem.leftBarButtonItem = self.backItem;
+                         weakSelf.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(showSearchBar)];
+                         
+                         weakSelf.tableView.bounces = YES;
+                         [weakSelf.tableView.mj_header beginRefreshing];
+                     }];
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -236,6 +278,26 @@
     if (indexPath.section == 0) {
     }
     return UITableViewAutomaticDimension;
+}
+
+#pragma mark - Search bar delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    ShowListVC __weak *weakSelf = self;
+    [self.showList searchShowByName:self.searchBar.text
+                            success:^{
+                                [weakSelf.tableView reloadData];
+                            }
+                            failure:^(NSError *error) {
+                                NSLog(@"[ShowDetailsVC]%@", error);
+                                [weakSelf.tableView.mj_header endRefreshing];
+                                UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
+                                                                                            message:@"请下拉刷新"
+                                                                                     preferredStyle:UIAlertControllerStyleAlert];
+                                [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                                       style:UIAlertActionStyleDefault
+                                                                     handler:nil]];
+                            }];
 }
 
 @end

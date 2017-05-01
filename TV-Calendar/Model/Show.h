@@ -15,8 +15,8 @@
 @property NSInteger showID;
 @property (copy) NSString *enName;
 @property (copy) NSString *chName;
-@property (copy) NSString *introduction;    // 介绍
-@property (copy) NSString *status;          // 当前状态
+@property (copy) NSString *introduction;       // 介绍
+@property (copy) NSString *status;             // 当前状态
 @property NSInteger seNumOfLastEp;
 @property NSInteger epNumOfLastEp;
 @property (copy) NSDate *nextEpTime;
@@ -26,11 +26,11 @@
 @property (copy) NSString *imageURL;
 @property (copy) NSString *verticalImageURL;
 @property (copy) NSString *wideImageURL;
-@property NSInteger quantityOfSeason;       // 总季数
-@property NSInteger quantityOfEpisode;      // 总集数
-@property NSMutableArray *seasonsArray;     // 季列表
-@property BOOL isFavorite;                  // 是否关注
-@property NSInteger constOfWatchedEpisode;  // 已看过集数
+@property NSInteger quantityOfSeason;          // 总季数
+@property NSInteger quantityOfEpisode;         // 总集数
+@property NSInteger quantityOfWatchedEpisode;  // 已看过集数
+@property NSMutableArray *seasonsArray;        // 季列表
+@property BOOL isFavorite;                     // 是否关注
 @property float percentOfWatched;
 
 - (instancetype)init;

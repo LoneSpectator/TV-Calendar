@@ -24,5 +24,8 @@
                                  failure:(void (^)(NSError *))failure;
 - (void)fetchFavouriteShowListWithSuccess:(void (^)())success
                                   failure:(void (^)(NSError *))failure;
+- (void)searchShowByName:(NSString *)name
+                 success:(void (^)())success
+                 failure:(void (^)(NSError *))failure;
 
 @end

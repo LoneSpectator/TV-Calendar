@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *wideImageURL;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *quantityOfWatchedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *percentOfWatchedLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *watchedProgressView;
 
