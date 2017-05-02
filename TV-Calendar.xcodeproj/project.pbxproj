@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C15CF741CF8216900B84C53 /* ShowTVC.xib */; };
-		5C15D6611CFD75B600A2DD76 /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15D6601CFD75B600A2DD76 /* SearchVC.m */; };
-		5C15D6631CFD7EF900A2DD76 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C15D6621CFD7EF900A2DD76 /* SearchVC.xib */; };
 		5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B83191CDC22C0001D6D8D /* LoginVC.m */; };
 		5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C1B831B1CDC231C001D6D8D /* LoginVC.xib */; };
 		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
@@ -117,9 +115,6 @@
 
 /* Begin PBXFileReference section */
 		5C15CF741CF8216900B84C53 /* ShowTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowTVC.xib; sourceTree = "<group>"; };
-		5C15D65F1CFD75B600A2DD76 /* SearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
-		5C15D6601CFD75B600A2DD76 /* SearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
-		5C15D6621CFD7EF900A2DD76 /* SearchVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 		5C1B83181CDC22C0001D6D8D /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5C1B83191CDC22C0001D6D8D /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5C1B831B1CDC231C001D6D8D /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -677,9 +672,6 @@
 				5CC223EC1CE6470D00003823 /* ShowDetailsVC.m */,
 				5C8F6D3B1CD636D800C521F5 /* SettingsVC.h */,
 				5C8F6D3C1CD636D800C521F5 /* SettingsVC.m */,
-				5C15D65F1CFD75B600A2DD76 /* SearchVC.h */,
-				5C15D6601CFD75B600A2DD76 /* SearchVC.m */,
-				5C15D6621CFD7EF900A2DD76 /* SearchVC.xib */,
 				5C1B83181CDC22C0001D6D8D /* LoginVC.h */,
 				5C1B83191CDC22C0001D6D8D /* LoginVC.m */,
 				5C1B831B1CDC231C001D6D8D /* LoginVC.xib */,
@@ -825,7 +817,6 @@
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
 				5CA457451EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
-				5C15D6631CFD7EF900A2DD76 /* SearchVC.xib in Resources */,
 				5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
@@ -872,7 +863,6 @@
 				5CC5F89B1CB55C7A00E39CB7 /* MJRefreshHeader.m in Sources */,
 				5CC5F8A61CB55C7A00E39CB7 /* MJRefreshConst.m in Sources */,
 				5C1B831A1CDC22C0001D6D8D /* LoginVC.m in Sources */,
-				5C15D6611CFD75B600A2DD76 /* SearchVC.m in Sources */,
 				5CC5F8631CB55C6A00E39CB7 /* MJPropertyKey.m in Sources */,
 				5C7DA8551CC609F7008F3662 /* SettingsManager.m in Sources */,
 				5CC5FA2F1CB5F68B00E39CB7 /* AFURLRequestSerialization.m in Sources */,
