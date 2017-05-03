@@ -188,13 +188,13 @@
         return;
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        if (self.segmentedControl.selectedSegmentIndex - 1 >= 0) {
+        if (self.segmentedControl.selectedSegmentIndex + 1 < self.segmentArr.count) {
             [self.segmentedControl setSelectedSegmentIndex:self.segmentedControl.selectedSegmentIndex + 1
                                                   animated:YES];
         }
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        if (self.segmentedControl.selectedSegmentIndex + 1 < self.segmentArr.count) {
+        if (self.segmentedControl.selectedSegmentIndex - 1 >= 0) {
             [self.segmentedControl setSelectedSegmentIndex:self.segmentedControl.selectedSegmentIndex - 1
                                                   animated:YES];
         }
