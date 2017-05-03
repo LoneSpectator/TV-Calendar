@@ -25,7 +25,9 @@
 }
 
 + (ShowDetailsTVEpCell *)cell {
-    ShowDetailsTVEpCell *cell = (ShowDetailsTVEpCell *)[[NSBundle mainBundle] loadNibNamed:@"ShowDetailsTVEpCell" owner:nil options:nil].firstObject;
+    ShowDetailsTVEpCell *cell = (ShowDetailsTVEpCell *)[[NSBundle mainBundle] loadNibNamed:@"ShowDetailsTVEpCell"
+                                                                                     owner:nil
+                                                                                   options:nil].firstObject;
     return cell;
 }
 

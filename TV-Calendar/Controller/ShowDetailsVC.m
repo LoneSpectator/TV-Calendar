@@ -57,7 +57,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.bounces = YES;
         _tableView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
-        _tableView.estimatedRowHeight = 350;
+        _tableView.estimatedRowHeight = 500;
         _tableView.sectionFooterHeight = CGFLOAT_MIN;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(fetchData)];

@@ -164,11 +164,11 @@
 
 - (void)swipe:(UISwipeGestureRecognizer *)sender {
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:-24*60*60
+        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:24*60*60
                                                            sinceDate:self.calendarView.selectedDate]];
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
-        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:24*60*60
+        [self.calendarView redrawToDate:[NSDate dateWithTimeInterval:-24*60*60
                                                            sinceDate:self.calendarView.selectedDate]];
     }
 }

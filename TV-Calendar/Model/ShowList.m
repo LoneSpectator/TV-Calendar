@@ -26,6 +26,32 @@
     return self;
 }
 
+- (void)fetchTopShowListWithSuccess:(void (^)())success
+                            failure:(void (^)(NSError *))failure {
+    ShowList __weak *weakSelf = self;
+    [[NetworkManager defaultManager] GET:@"TopShowList"
+                              parameters:@{@"time":[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]*1000]}
+                                 success:^(NSDictionary *data) {
+                                     weakSelf.list = [[NSMutableArray alloc] init];
+                                     for (NSDictionary *showData in data) {
+                                         Show *show = [[Show alloc] init];
+                                         show.showID = [showData[@"s_id"] integerValue];
+                                         show.enName = showData[@"s_name"];
+                                         show.chName = showData[@"s_name_cn"];
+                                         show.imageURL = showData[@"s_sibox_image"];
+                                         [weakSelf.list addObject:show];
+                                     }
+                                     if (success) {
+                                         success();
+                                     }
+                                 }
+                                 failure:^(NSError *error) {
+                                     if (failure) {
+                                         failure(error);
+                                     }
+                                 }];
+}
+
 - (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit
                                    success:(void (^)())success
                                    failure:(void (^)(NSError *))failure {

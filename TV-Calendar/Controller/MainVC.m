@@ -10,7 +10,7 @@
 #import "DailyEpisodesListVC.h"
 #import "FavouriteShowsVC.h"
 #import "LocalizedString.h"
-#import "NewsVC.h"
+#import "DiscoveryVC.h"
 
 @interface MainVC () <UITabBarControllerDelegate>
 
@@ -26,11 +26,11 @@
         _contentTabBarController.delegate = self;
         
         DailyEpisodesListVC *dailyEpisodesListVC = [[DailyEpisodesListVC alloc] init];
-        NewsVC *newsVC = [[NewsVC alloc] init];
+        DiscoveryVC *discoveryVC = [DiscoveryVC viewController];
         FavouriteShowsVC *favouriteShowsVC = [[FavouriteShowsVC alloc] init];
-        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:newsVC];
-        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-News"]];
-        [firstContentVC.tabBarItem setTitle:LocalizedString(@"探索")];
+        UINavigationController *firstContentVC = [[UINavigationController alloc] initWithRootViewController:discoveryVC];
+        [firstContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-Discovery"]];
+        [firstContentVC.tabBarItem setTitle:LocalizedString(@"发现")];
         UINavigationController *secondContentVC = [[UINavigationController alloc] initWithRootViewController:dailyEpisodesListVC];
         [secondContentVC.tabBarItem setImage:[UIImage imageNamed:@"MainNavigationTabBar-DailyEpList"]];
         [secondContentVC.tabBarItem setTitle:LocalizedString(@"时间表")];
@@ -64,7 +64,7 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
     UIViewController *vc = [(UINavigationController *)viewController topViewController];
-    if ([vc isKindOfClass:[NewsVC class]]) {
+    if ([vc isKindOfClass:[DiscoveryVC class]]) {
     }
     if ([vc isKindOfClass:[DailyEpisodesListVC class]]) {
     }
