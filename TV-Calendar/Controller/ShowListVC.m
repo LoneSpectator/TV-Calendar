@@ -150,12 +150,15 @@
                                               failure:^(NSError *error) {
                                                   NSLog(@"[ShowListVC]%@", error);
                                                   [weakSelf.tableView.mj_header endRefreshing];
-                                                  UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
-                                                                                                              message:@"请下拉刷新"
+                                                  UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                                              message:LocalizedString(@"请下拉刷新")
                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                                  [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                  [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                                          style:UIAlertActionStyleDefault
                                                                                        handler:nil]];
+                                                  [weakSelf presentViewController:ac
+                                                                         animated:YES
+                                                                       completion:nil];
                                               }];
 }
 
@@ -170,12 +173,15 @@
                                                          failure:^(NSError *error) {
                                                              NSLog(@"[ShowListVC]%@", error);
                                                              [weakSelf.tableView.mj_footer endRefreshing];
-                                                             UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
-                                                                                                                         message:@"请再试一次"
+                                                             UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                                                         message:LocalizedString(@"请再试一次")
                                                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                                                             [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                             [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                                                     style:UIAlertActionStyleDefault
                                                                                                   handler:nil]];
+                                                             [weakSelf presentViewController:ac
+                                                                                    animated:YES
+                                                                                  completion:nil];
                                                          }];
     if (returnNum == 1) {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -313,12 +319,15 @@
                                     return;
                                 }
                                 NSLog(@"[ShowListVC]%@", error);
-                                UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
-                                                                                            message:@"请下拉刷新"
+                                UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                            message:LocalizedString(@"请下拉刷新")
                                                                                      preferredStyle:UIAlertControllerStyleAlert];
-                                [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                        style:UIAlertActionStyleDefault
                                                                      handler:nil]];
+                                [weakSelf presentViewController:ac
+                                                       animated:YES
+                                                     completion:nil];
                             }];
 }
 

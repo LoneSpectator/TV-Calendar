@@ -58,7 +58,7 @@
         self.checkButton.hidden = YES;
         self.checkButtonImageView.hidden = YES;
     } else {
-        if (self.episode.isWatched) { // 避免刷新时的闪动
+        if (self.episode.isWatched) {  // 避免刷新时的闪动
             [self.checkButtonImageView setImage:[UIImage imageNamed:@"EpisodeCheckButtonBlue"]];
             self.infoView.alpha = 0.3;
         } else {

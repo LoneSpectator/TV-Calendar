@@ -14,14 +14,20 @@
 
 @implementation ShowList
 
+- (NSMutableArray *)list {
+    if (!_list) {
+        _list = [[NSMutableArray alloc] init];
+    }
+    return _list;
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _list = [[NSMutableArray alloc] init];
+        _quantityOfShow = 0;
         _page = 0;
         _quantityOfPage = 0;
-        _quantityOfShow = 0;
     }
     return self;
 }

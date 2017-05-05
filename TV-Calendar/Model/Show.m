@@ -15,12 +15,102 @@
 
 @implementation Show
 
+- (NSString *)enName {
+    if (!_enName) {
+        _enName = @"";
+    }
+    return _enName;
+}
+
+- (NSString *)chName {
+    if (!_chName) {
+        _chName = @"";
+    }
+    return _chName;
+}
+
+- (NSString *)imageURL {
+    if (!_imageURL) {
+        _imageURL = @"";
+    }
+    return _imageURL;
+}
+
+- (NSString *)verticalImageURL {
+    if (!_verticalImageURL) {
+        _verticalImageURL = @"";
+    }
+    return _verticalImageURL;
+}
+
+- (NSString *)wideImageURL {
+    if (!_wideImageURL) {
+        _wideImageURL = @"";
+    }
+    return _wideImageURL;
+}
+
+- (NSString *)status {
+    if (!_status) {
+        _status = @"";
+    }
+    return _status;
+}
+
+- (NSDate *)nextEpTime {
+    if (_nextEpTime) {
+        _nextEpTime = [NSDate date];
+    }
+    return _nextEpTime;
+}
+
+- (NSString *)area {
+    if (!_area) {
+        _area = @"";
+    }
+    return _area;
+}
+
+- (NSString *)channel {
+    if (!_channel) {
+        _channel = @"";
+    }
+    return _channel;
+}
+
+- (NSString *)length {
+    if (!_length) {
+        _length = @"";
+    }
+    return _length;
+}
+
+- (NSString *)introduction {
+    if (!_introduction) {
+        _introduction = @"";
+    }
+    return _introduction;
+}
+
+- (NSMutableArray *)seasonsArray {
+    if (!_seasonsArray) {
+        _seasonsArray = [NSMutableArray array];
+    }
+    return _seasonsArray;
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _nextEpTime = [NSDate new];
-        _seasonsArray = [NSMutableArray array];
+        _showID = -1;
+        _seNumOfLastEp = 0;
+        _epNumOfLastEp = 0;
+        _quantityOfSeason = 0;
+        _quantityOfEpisode = 0;
+        _isFavorite = NO;
+        _quantityOfWatchedEpisode = 0;
+        _percentOfWatched = 0;
     }
     return self;
 }
@@ -85,7 +175,8 @@
                                          success(show);
                                      }
                                      
-                                 } failure:^(NSError *error) {
+                                 }
+                                 failure:^(NSError *error) {
                                      if (failure) {
                                          failure(error);
                                      }

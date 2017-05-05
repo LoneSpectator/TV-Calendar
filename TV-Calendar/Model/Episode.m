@@ -12,22 +12,58 @@
 
 @implementation Episode
 
+- (NSString *)showName {
+    if (!_showName) {
+        _showName = @"";
+    }
+    return _showName;
+}
+
+- (NSString *)showImageURL {
+    if (!_showImageURL) {
+        _showImageURL = @"";
+    }
+    return _showImageURL;
+}
+
+- (NSString *)showVerticalImageURL {
+    if (!_showVerticalImageURL) {
+        _showVerticalImageURL = @"";
+    }
+    return _showVerticalImageURL;
+}
+
+- (NSString *)showWideImageURL {
+    if (!_showWideImageURL) {
+        _showWideImageURL = @"";
+    }
+    return _showWideImageURL;
+}
+
+- (NSString *)episodeName {
+    if (!_episodeName) {
+        _episodeName = @"";
+    }
+    return _episodeName;
+}
+
+- (NSDate *)airingDate {
+    if (!_airingDate) {
+        _airingDate = [NSDate dateWithTimeIntervalSince1970:0];
+    }
+    return _airingDate;
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _episodeID = 0;
-        _episodeName = @"";
-        _showID = 0;
-        _showName = @"";
+        _showID = -1;
+        _episodeID = -1;
         _seNum = 0;
         _epNum = 0;
-        _airingDate = nil;
         _isReleased = NO;
         _isWatched = NO;
-        _showImageURL = @"";
-        _showVerticalImageURL = @"";
-        _showWideImageURL = @"";
     }
     return self;
 }

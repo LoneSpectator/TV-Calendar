@@ -127,6 +127,9 @@
                             [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:nil]];
+                            [weakSelf presentViewController:ac
+                                                   animated:YES
+                                                 completion:nil];
                         }];
 }
 

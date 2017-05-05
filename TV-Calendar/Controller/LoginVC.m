@@ -145,7 +145,8 @@
                  success:^{
                      [weakSelf endWaitMode];
                      [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                 } failure:^(NSError *error) {
+                 }
+                 failure:^(NSError *error) {
                      [weakSelf endWaitMode];
                      if (error) {
                          if (error.domain == [NetworkManager defaultManager].webSite) {
@@ -157,6 +158,9 @@
                              [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                     style:UIAlertActionStyleDefault
                                                                   handler:nil]];
+                             [weakSelf presentViewController:ac
+                                                    animated:YES
+                                                  completion:nil];
                          }
                          NSLog(@"[LoginVC]%@", error);
                      }
@@ -189,6 +193,9 @@
                             [ac addAction:[UIAlertAction actionWithTitle:@"好的"
                                                                    style:UIAlertActionStyleDefault
                                                                  handler:nil]];
+                            [weakSelf presentViewController:ac
+                                                   animated:YES
+                                                 completion:nil];
                         }
                         NSLog(@"[LoginVC]%@", error);
                     }];

@@ -10,10 +10,10 @@
 
 @interface ShowList : NSObject
 
-@property NSMutableArray *list;
+@property (nonatomic) NSMutableArray *list;
+@property NSInteger quantityOfShow;
 @property NSInteger page;
 @property NSInteger quantityOfPage;
-@property NSInteger quantityOfShow;
 
 - (instancetype)init;
 - (void)fetchTopShowListWithSuccess:(void (^)())success

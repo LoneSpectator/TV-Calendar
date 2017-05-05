@@ -12,14 +12,41 @@
 
 @implementation Season
 
+- (NSMutableArray *)episodesArray {
+    if (!_episodesArray) {
+        _episodesArray = [NSMutableArray array];
+    }
+    return _episodesArray;
+}
+
+- (NSString *)status {
+    if (!_status) {
+        _status = @"";
+    }
+    return _status;
+}
+
+- (NSDate *)firstAiringDate {
+    if (!_firstAiringDate) {
+        _firstAiringDate = [NSDate dateWithTimeIntervalSince1970:0];
+    }
+    return _firstAiringDate;
+}
+
+- (NSDate *)lastAiringDate {
+    if (!_lastAiringDate) {
+        _lastAiringDate = [NSDate dateWithTimeIntervalSince1970:0];
+    }
+    return _lastAiringDate;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _showID = 0;
-        _name = @"";
+        _showID = -1;
         _seNum = 0;
         _quantityOfEpisode = 0;
-        _episodesArray = [NSMutableArray array];
+        _isAllWatched = NO;
     }
     return self;
 }

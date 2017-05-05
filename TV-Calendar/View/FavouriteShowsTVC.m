@@ -34,7 +34,7 @@
     [self.wideImageURL setImageWithURL:[NSURL URLWithString:show.wideImageURL]
                       placeholderImage:nil];
     self.showNameLabel.text = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? show.chName : show.enName;
-    self.quantityOfWatchedLabel.text = [NSString stringWithFormat:@"%@%ld   %@%ld", LocalizedString(@"总集数"), (long)show.quantityOfEpisode, LocalizedString(@"已看"), show.quantityOfWatchedEpisode];
+    self.quantityOfWatchedLabel.text = [NSString stringWithFormat:@"%@%ld   %@%ld", LocalizedString(@"总集数"), (long)show.quantityOfEpisode, LocalizedString(@"已看"), (long)show.quantityOfWatchedEpisode];
     self.percentOfWatchedLabel.text = [NSString stringWithFormat:@"%.0f%%", show.percentOfWatched*100];
     [self.watchedProgressView setProgress:show.percentOfWatched animated:NO];
     if (show.percentOfWatched >= 0.99) {

@@ -56,7 +56,7 @@
 
 - (UIBarButtonItem *)settingsItem {
     if (!_settingsItem) {
-        _settingsItem = [[UIBarButtonItem alloc] initWithTitle:@"设置"
+        _settingsItem = [[UIBarButtonItem alloc] initWithTitle:LocalizedString(@"设置")
                                                          style:UIBarButtonItemStylePlain
                                                         target:self
                                                         action:@selector(showSettingsViewController)];
@@ -148,12 +148,15 @@
                                               failure:^(NSError *error) {
                                                   NSLog(@"[FavouriteShowsVC]%@", error);
                                                   [weakSelf.tableView.mj_header endRefreshing];
-                                                  UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"发生了一点小问题！"
-                                                                                                              message:@"请下拉刷新"
+                                                  UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                                              message:LocalizedString(@"请下拉刷新")
                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                                  [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                                                  [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                                          style:UIAlertActionStyleDefault
                                                                                        handler:nil]];
+                                                  [weakSelf presentViewController:ac
+                                                                         animated:YES
+                                                                       completion:nil];
                                               }];
 }
 

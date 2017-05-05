@@ -32,6 +32,7 @@
     DiscoveryVC *vc = (DiscoveryVC *)[[NSBundle mainBundle] loadNibNamed:@"DiscoveryVC"
                                                                    owner:nil
                                                                  options:nil].firstObject;
+    vc.refreshTag = 0;
     return vc;
 }
 
@@ -47,13 +48,6 @@
         _tipShowList = [[ShowList alloc] init];
     }
     return _tipShowList;
-}
-
-- (NSInteger)refreshTag {
-    if (!_refreshTag) {
-        _refreshTag = 0;
-    }
-    return _refreshTag;
 }
 
 - (void)viewDidLoad {
@@ -119,6 +113,9 @@
                                               [ac addAction:[UIAlertAction actionWithTitle:@"好的"
                                                                                      style:UIAlertActionStyleDefault
                                                                                    handler:nil]];
+                                              [weakSelf presentViewController:ac
+                                                                     animated:YES
+                                                                   completion:nil];
                                           }];
 }
 
@@ -138,6 +135,9 @@
                                               [ac addAction:[UIAlertAction actionWithTitle:@"好的"
                                                                                      style:UIAlertActionStyleDefault
                                                                                    handler:nil]];
+                                              [weakSelf presentViewController:ac
+                                                                     animated:YES
+                                                                   completion:nil];
                                           }];
 }
 
