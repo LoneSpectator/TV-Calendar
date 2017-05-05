@@ -35,10 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrn-8H-abq">
-                                <rect key="frame" x="66" y="17.5" width="0.0" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="Nf2-pE-Kgz"/>
-                                </constraints>
+                                <rect key="frame" x="66" y="18" width="187" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -70,6 +67,7 @@
                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="i6J-se-bFT" firstAttribute="centerY" secondItem="e90-zv-ERG" secondAttribute="centerY" id="5Q7-61-bIP"/>
+                            <constraint firstItem="wQn-6E-9Y5" firstAttribute="leading" secondItem="wrn-8H-abq" secondAttribute="trailing" constant="12" id="6dm-C7-K86"/>
                             <constraint firstItem="Jqg-ng-gY0" firstAttribute="centerY" secondItem="e90-zv-ERG" secondAttribute="centerY" id="EKJ-Tf-aj4"/>
                             <constraint firstItem="icq-70-pGu" firstAttribute="centerY" secondItem="Jqg-ng-gY0" secondAttribute="centerY" id="FdP-PM-Xpa"/>
                             <constraint firstAttribute="trailing" secondItem="i6J-se-bFT" secondAttribute="trailing" constant="10" id="PfX-Uz-8bd"/>

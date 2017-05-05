@@ -100,6 +100,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationItem.titleView = self.titleLabel;
+    self.navigationItem.rightBarButtonItem = self.addItem;
     
     UIView *blackLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 69, self.view.bounds.size.width, 1.f)];
     blackLineView.backgroundColor = [UIColor colorWithRed:170.0/255.0
@@ -140,12 +141,6 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"ShowDetailsVC-NavBarImg"]
                                                   forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-    
-    if (currentUser) {
-        self.navigationItem.rightBarButtonItem = self.addItem;
-    } else {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

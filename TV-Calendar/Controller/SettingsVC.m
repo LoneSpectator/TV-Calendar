@@ -118,6 +118,7 @@
             if (indexPath.row == 0) {
                 cell.textLabel.text = LocalizedString(@"手机号");
                 cell.detailTextLabel.text = currentUser.phone;
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];  // 禁止行被选中
             }
             if (indexPath.row == 1) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -136,6 +137,7 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = LocalizedString(@"语言");
             cell.detailTextLabel.text = LocalizedString(@"中文");
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];  // 禁止行被选中
         }
     }
     if (indexPath.section == 2) {
