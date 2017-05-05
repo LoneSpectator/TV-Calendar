@@ -39,39 +39,6 @@
     return vc;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    [self.segmentedControlView addSubview:self.segmentedControl];
-    self.searchBar.delegate = self;
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 61.5;
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
-                                                                refreshingAction:@selector(fetchData)];
-//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(fetchMoreData)];
-    
-    UISwipeGestureRecognizer *leftSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
-    leftSwipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
-    [_tableView addGestureRecognizer:leftSwipeGR];
-    UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
-    rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
-    [_tableView addGestureRecognizer:rightSwipeGR];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.title = LocalizedString(@"影视库");
-    self.navigationItem.leftBarButtonItem = self.backItem;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(showSearchBar)];
-    
-    [self.segmentedControl setSelectedSegmentIndex:0 animated:YES];
-}
-
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:self.segmentArr];
@@ -122,6 +89,39 @@
         _searchMode = NO;
     }
     return _searchMode;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.segmentedControlView addSubview:self.segmentedControl];
+    self.searchBar.delegate = self;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 61.5;
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
+                                                                refreshingAction:@selector(fetchData)];
+//    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(fetchMoreData)];
+    
+    UISwipeGestureRecognizer *leftSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    leftSwipeGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_tableView addGestureRecognizer:leftSwipeGR];
+    UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+    [_tableView addGestureRecognizer:rightSwipeGR];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.title = LocalizedString(@"影视库");
+    self.navigationItem.leftBarButtonItem = self.backItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(showSearchBar)];
+    
+    [self.segmentedControl setSelectedSegmentIndex:0 animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

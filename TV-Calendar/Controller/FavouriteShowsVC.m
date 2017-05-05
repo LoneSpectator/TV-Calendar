@@ -121,10 +121,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showLoginViewController {
-    [LoginVC showLoginViewControllerWithSender:self];
-}
-
 - (void)showShowListViewController {
     UINavigationController *nv = [[UINavigationController alloc] initWithRootViewController:[ShowListVC viewController]];
     nv.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -209,7 +205,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        [self showLoginViewController];
+        [LoginVC showLoginViewControllerWithSender:self];
     }
     if (indexPath.section == 1) {
         ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Show *)self.showList.list[indexPath.row]).showID];

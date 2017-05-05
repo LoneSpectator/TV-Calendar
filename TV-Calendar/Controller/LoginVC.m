@@ -9,6 +9,7 @@
 #import "LoginVC.h"
 #import "User.h"
 #import "NetworkManager.h"
+#import "LocalizedString.h"
 
 @interface LoginVC () <UITextViewDelegate, UITextFieldDelegate>
 
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeStateButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorMesssgeLabel;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *AIView;
 
 @property (nonatomic) LoginVCState state;
 
@@ -43,7 +46,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.layer.masksToBounds = YES;
+    self.AIView.alpha = 0;
+    self.overlayView.alpha = 0;
     
     self.phoneTextField.delegate = self;
     self.passwdTextField.delegate = self;
@@ -97,9 +103,12 @@
                              weakSelf.confirmPasswdTextField.alpha = 0;
                              weakSelf.confirmPasswdImageView.alpha = 0;
                              
-                             [weakSelf.changeStateButton setTitle:@"没有账号？马上注册！" forState:UIControlStateNormal];
-                             [weakSelf.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-                             [weakSelf.loginButton setTitle:@"登陆" forState:UIControlStateNormal];
+                             [weakSelf.changeStateButton setTitle:LocalizedString(@"没有账号？马上注册！")
+                                                         forState:UIControlStateNormal];
+                             [weakSelf.cancelButton setTitle:LocalizedString(@"取消")
+                                                    forState:UIControlStateNormal];
+                             [weakSelf.loginButton setTitle:LocalizedString(@"登陆")
+                                                   forState:UIControlStateNormal];
                              [weakSelf.loginButton removeTarget:self
                                                          action:@selector(registration)
                                                forControlEvents:UIControlEventTouchUpInside];
@@ -111,9 +120,12 @@
                              weakSelf.confirmPasswdTextField.alpha = 1;
                              weakSelf.confirmPasswdImageView.alpha = 1;
                              
-                             [weakSelf.changeStateButton setTitle:@"已有账号？马上登陆！" forState:UIControlStateNormal];
-                             [weakSelf.cancelButton setTitle:@" 取消 " forState:UIControlStateNormal];
-                             [weakSelf.loginButton setTitle:@"注册" forState:UIControlStateNormal];
+                             [weakSelf.changeStateButton setTitle:LocalizedString(@"已有账号？马上登陆！")
+                                                         forState:UIControlStateNormal];
+                             [weakSelf.cancelButton setTitle:LocalizedString(@"取消")
+                                                    forState:UIControlStateNormal];
+                             [weakSelf.loginButton setTitle:LocalizedString(@"注册")
+                                                   forState:UIControlStateNormal];
                              [weakSelf.loginButton removeTarget:self
                                                          action:@selector(login)
                                                forControlEvents:UIControlEventTouchUpInside];
@@ -126,20 +138,23 @@
 }
 
 - (void)login {
+    [self startWaitMode];
     LoginVC __weak *weakSelf = self;
     [User loginWithPhone:self.phoneTextField.text
                 password:self.passwdTextField.text
                  success:^{
+                     [weakSelf endWaitMode];
                      [weakSelf dismissViewControllerAnimated:YES completion:nil];
                  } failure:^(NSError *error) {
+                     [weakSelf endWaitMode];
                      if (error) {
                          if (error.domain == [NetworkManager defaultManager].webSite) {
                              weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
                          } else {
-                             UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"登陆失败，请重新登陆！"
+                             UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"登陆失败，请重新登陆！")
                                                                                          message:nil
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
-                             [ac addAction:[UIAlertAction actionWithTitle:@"好的"
+                             [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                     style:UIAlertActionStyleDefault
                                                                   handler:nil]];
                          }
@@ -150,21 +165,25 @@
 
 - (void)registration {
     if (![self.passwdTextField.text isEqualToString:self.confirmPasswdTextField.text]) {
-        self.errorMesssgeLabel.text = @"两次输入密码不一致，请检查后重试！";
+        self.errorMesssgeLabel.text = LocalizedString(@"两次输入密码不一致，请检查后重试！");
         return;
     }
+    
+    [self startWaitMode];
     LoginVC __weak *weakSelf = self;
     [User registerWithPhone:self.phoneTextField.text
                    userName:self.phoneTextField.text
                    password:self.passwdTextField.text
                     success:^{
+                        [weakSelf endWaitMode];
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                     }
                     failure:^(NSError *error) {
+                        [weakSelf endWaitMode];
                         if (error.domain == [NetworkManager defaultManager].webSite) {
                             weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
                         } else {
-                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"注册失败，请重新注册！"
+                            UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"注册失败，请重新注册！")
                                                                                         message:nil
                                                                                  preferredStyle:UIAlertControllerStyleAlert];
                             [ac addAction:[UIAlertAction actionWithTitle:@"好的"
@@ -185,5 +204,23 @@
     [self.confirmPasswdTextField resignFirstResponder];
 }
 
+- (void)startWaitMode {
+    [self.AIView startAnimating];
+    
+    LoginVC __weak *weakSelf = self;
+    [UIView animateWithDuration:0.2 animations:^{
+        weakSelf.overlayView.alpha = 0.66;
+        weakSelf.AIView.alpha = 1;
+    }];
+}
+
+- (void)endWaitMode {
+    [self.AIView stopAnimating];
+    LoginVC __weak *weakSelf = self;
+    [UIView animateWithDuration:0.2 animations:^{
+        weakSelf.AIView.alpha = 0;
+        weakSelf.overlayView.alpha = 0;
+    }];
+}
 
 @end

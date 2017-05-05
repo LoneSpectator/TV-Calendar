@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +68,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="mI4-JL-VKd" firstAttribute="width" secondItem="wi1-pE-B92" secondAttribute="width" id="2uA-cU-jl1"/>
                                             <constraint firstItem="geC-ZF-8nc" firstAttribute="centerX" secondItem="cg4-CD-iHZ" secondAttribute="centerX" id="3jj-Qk-Ikd"/>
@@ -128,7 +128,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="5Ll-SZ-GXE" secondAttribute="bottom" constant="3" id="1v2-OS-2Bj"/>
                                             <constraint firstItem="Y5d-1K-2v4" firstAttribute="leading" secondItem="1ni-GF-azD" secondAttribute="leading" constant="3" id="2vA-pu-6gb"/>
@@ -143,13 +143,26 @@
                                             <constraint firstItem="wwc-X9-byd" firstAttribute="centerY" secondItem="Y5d-1K-2v4" secondAttribute="centerY" id="d9e-50-VYO"/>
                                         </constraints>
                                     </view>
+                                    <view alpha="0.66000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLk-bc-ncF" userLabel="Overlay View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                        <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="f6n-fz-0lb">
+                                        <rect key="frame" x="177" y="240" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="centerX" secondItem="EN1-ee-YOu" secondAttribute="centerX" id="2ae-nu-te0"/>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="top" secondItem="yG3-AG-hGO" secondAttribute="bottom" constant="30" id="2dC-gy-pRP"/>
+                                    <constraint firstAttribute="trailing" secondItem="dLk-bc-ncF" secondAttribute="trailing" id="Khl-lq-9Tk"/>
                                     <constraint firstItem="yG3-AG-hGO" firstAttribute="centerY" secondItem="EN1-ee-YOu" secondAttribute="centerY" constant="-110" id="Obg-Ul-h9a"/>
+                                    <constraint firstItem="f6n-fz-0lb" firstAttribute="centerY" secondItem="EN1-ee-YOu" secondAttribute="centerY" id="XX2-Pc-Iaj"/>
                                     <constraint firstItem="yG3-AG-hGO" firstAttribute="centerX" secondItem="EN1-ee-YOu" secondAttribute="centerX" id="Zy6-h9-sdJ"/>
+                                    <constraint firstItem="dLk-bc-ncF" firstAttribute="top" secondItem="EN1-ee-YOu" secondAttribute="top" id="kla-na-YkX"/>
+                                    <constraint firstItem="f6n-fz-0lb" firstAttribute="centerX" secondItem="EN1-ee-YOu" secondAttribute="centerX" id="o2A-tq-xOC"/>
+                                    <constraint firstItem="dLk-bc-ncF" firstAttribute="leading" secondItem="EN1-ee-YOu" secondAttribute="leading" id="qFt-tX-G18"/>
+                                    <constraint firstAttribute="bottom" secondItem="dLk-bc-ncF" secondAttribute="bottom" id="zZv-SS-3dY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -174,12 +187,14 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <size key="freeformSize" width="375" height="500"/>
             <connections>
+                <outlet property="AIView" destination="f6n-fz-0lb" id="bTy-pd-vpa"/>
                 <outlet property="cancelButton" destination="Y5d-1K-2v4" id="WJE-sC-67F"/>
                 <outlet property="changeStateButton" destination="5Ll-SZ-GXE" id="5H3-fI-V69"/>
                 <outlet property="confirmPasswdImageView" destination="geC-ZF-8nc" id="wdZ-Ia-QXn"/>
                 <outlet property="confirmPasswdTextField" destination="940-OB-rxA" id="fAU-ab-VTf"/>
                 <outlet property="errorMesssgeLabel" destination="Xti-4D-Vap" id="IEr-rJ-qBT"/>
                 <outlet property="loginButton" destination="wwc-X9-byd" id="N25-Zb-mAv"/>
+                <outlet property="overlayView" destination="dLk-bc-ncF" id="VC5-tY-aoe"/>
                 <outlet property="passwdTextField" destination="mI4-JL-VKd" id="K6T-v6-dW8"/>
                 <outlet property="phoneTextField" destination="wi1-pE-B92" id="jnM-4f-FoV"/>
             </connections>

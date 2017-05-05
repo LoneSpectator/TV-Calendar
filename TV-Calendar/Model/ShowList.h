@@ -18,6 +18,8 @@
 - (instancetype)init;
 - (void)fetchTopShowListWithSuccess:(void (^)())success
                             failure:(void (^)(NSError *))failure;
+- (void)fetchTipShowListWithSuccess:(void (^)())success
+                            failure:(void (^)(NSError *))failure;
 - (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit
                                    success:(void (^)())success
                                    failure:(void (^)(NSError *))failure;

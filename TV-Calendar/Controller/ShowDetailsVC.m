@@ -155,9 +155,9 @@
         if (!cell) {
             cell = [ShowDetailsTVC cell];
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; // 禁止行被选中
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];  // 禁止行被选中
         ShowDetailsVC __weak *weakSelf = self;
-        cell.refreshTableViewBlock = ^{ // 剧详情行内的简介展开收起时列表页的动态刷新块
+        cell.refreshTableViewBlock = ^{  // 剧详情行内的简介展开收起时列表页的动态刷新块
             [weakSelf.tableView beginUpdates];
             [weakSelf.tableView endUpdates];
         };
@@ -168,7 +168,7 @@
         if (!cell) {
             cell = [ShowDetailsTVEpCell cell];
         }
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone]; // 禁止行被选中
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];  // 禁止行被选中
         [cell updateWithEpisode:((Season *)self.show.seasonsArray[indexPath.section-1]).episodesArray[indexPath.row]];
         return cell;
     }
@@ -193,7 +193,7 @@
         [view updateWithSeason:self.show.seasonsArray[section-1] openTag:(((NSNumber *)self.seTagArray[section-1]).intValue != 0)];
         return view;
     }
-    return nil;
+    return [[UIView alloc] init];
 }
 
 #pragma mark - Table view delegate
