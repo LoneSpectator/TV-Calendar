@@ -21,7 +21,7 @@
     [super awakeFromNib];
     
     self.favouriteButtonAIView.hidden = YES;
-    self.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 25.0 : 0.0;
+    self.enNameLayoutConstraint.constant = (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? 20.0 : 0.0;
     self.statusNameLabel.text = LocalizedString(@"状态");
     self.lastEpNamelabel.text = LocalizedString(@"播出进度");
     self.nextEpTimeNameLabel.text = LocalizedString(@"下集时间");
