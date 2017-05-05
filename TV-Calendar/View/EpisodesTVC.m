@@ -70,53 +70,49 @@
 }
 
 - (void)markAsWatched {
-    self.checkButton.hidden = YES;
-    self.checkButtonImageView.hidden = YES;
-    self.checkButtonAIView.hidden = NO;
-    [self.checkButtonAIView startAnimating];
+    [self startWaiting];
     
     EpisodesTVC __weak *weakSelf = self;
     [Episode markAsWatchedWithID:self.episode.episodeID
                          success:^(){
                              weakSelf.episode.isWatched = YES;
                              [weakSelf reloadData];
-                             weakSelf.checkButton.hidden = NO;
-                             weakSelf.checkButtonImageView.hidden = NO;
-                             weakSelf.checkButtonAIView.hidden = YES;
-                             [weakSelf.checkButtonAIView stopAnimating];
+                             [weakSelf endWaiting];
                          }
                          failure:^(NSError *error) {
                              NSLog(@"[EpisodesTVC]%@", error);
-                             weakSelf.checkButton.hidden = NO;
-                             weakSelf.checkButtonImageView.hidden = NO;
-                             weakSelf.checkButtonAIView.hidden = YES;
-                             [weakSelf.checkButtonAIView stopAnimating];
+                             [weakSelf endWaiting];
                          }];
 }
 
 - (void)unMarkAsWatched {
-    self.checkButton.hidden = YES;
-    self.checkButtonImageView.hidden = YES;
-    self.checkButtonAIView.hidden = NO;
-    [self.checkButtonAIView startAnimating];
+    [self startWaiting];
     
     EpisodesTVC __weak *weakSelf = self;
     [Episode unMarkAsWatchedWithID:self.episode.episodeID
                            success:^(){
                                weakSelf.episode.isWatched = NO;
                                [weakSelf reloadData];
-                               weakSelf.checkButton.hidden = NO;
-                               weakSelf.checkButtonImageView.hidden = NO;
-                               weakSelf.checkButtonAIView.hidden = YES;
-                               [weakSelf.checkButtonAIView stopAnimating];
+                               [weakSelf endWaiting];
                            }
                            failure:^(NSError *error) {
                                NSLog(@"[EpisodesTVC]%@", error);
-                               weakSelf.checkButton.hidden = NO;
-                               weakSelf.checkButtonImageView.hidden = NO;
-                               weakSelf.checkButtonAIView.hidden = YES;
-                               [weakSelf.checkButtonAIView stopAnimating];
+                               [weakSelf endWaiting];
                            }];
+}
+
+- (void)startWaiting {
+    self.checkButton.enabled = NO;
+    self.checkButtonImageView.hidden = YES;
+    [self.checkButtonAIView startAnimating];
+    self.checkButtonAIView.hidden = NO;
+}
+
+- (void)endWaiting {
+    [self.checkButtonAIView stopAnimating];
+    self.checkButtonAIView.hidden = YES;
+    self.checkButtonImageView.hidden = NO;
+    self.checkButton.enabled = YES;
 }
 
 - (void)reloadData {

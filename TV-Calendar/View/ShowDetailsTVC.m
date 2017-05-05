@@ -95,10 +95,7 @@
 }
 
 - (void)favouriteButtonTouchUpInside {
-    self.favouriteButton.hidden = YES;
-    self.favouriteButtonImageView.hidden = YES;
-    self.favouriteButtonAIView.hidden = NO;
-    [self.favouriteButtonAIView startAnimating];
+    [self startWaiting];
     
     ShowDetailsTVC __weak *weakSelf = self;
     if (self.show.isFavorite) {
@@ -106,36 +103,38 @@
                                  success:^{
                                      weakSelf.show.isFavorite = NO;
                                      [weakSelf reloadData];
-                                     weakSelf.favouriteButton.hidden = NO;
-                                     weakSelf.favouriteButtonImageView.hidden = NO;
-                                     weakSelf.favouriteButtonAIView.hidden = YES;
-                                     [weakSelf.favouriteButtonAIView stopAnimating];
+                                     [weakSelf endWaiting];
                                  }
                                  failure:^(NSError *error) {
                                      NSLog(@"[ShowDetailsTVC]%@", error);
-                                     weakSelf.favouriteButton.hidden = NO;
-                                     weakSelf.favouriteButtonImageView.hidden = NO;
-                                     weakSelf.favouriteButtonAIView.hidden = YES;
-                                     [weakSelf.favouriteButtonAIView stopAnimating];
+                                     [weakSelf endWaiting];
                                  }];
     } else {
         [Show addToFavouritesWithID:self.show.showID
                             success:^{
                                 weakSelf.show.isFavorite = YES;
                                 [weakSelf reloadData];
-                                weakSelf.favouriteButton.hidden = NO;
-                                weakSelf.favouriteButtonImageView.hidden = NO;
-                                weakSelf.favouriteButtonAIView.hidden = YES;
-                                [weakSelf.favouriteButtonAIView stopAnimating];
+                                [weakSelf endWaiting];
                             }
                             failure:^(NSError *error) {
                                 NSLog(@"[ShowDetailsTVC]%@", error);
-                                weakSelf.favouriteButton.hidden = NO;
-                                weakSelf.favouriteButtonImageView.hidden = NO;
-                                weakSelf.favouriteButtonAIView.hidden = YES;
-                                [weakSelf.favouriteButtonAIView stopAnimating];
+                                [weakSelf endWaiting];
                             }];
     }
+}
+
+- (void)startWaiting {
+    self.favouriteButton.enabled = NO;
+    self.favouriteButtonImageView.hidden = YES;
+    [self.favouriteButtonAIView startAnimating];
+    self.favouriteButtonAIView.hidden = NO;
+}
+
+- (void)endWaiting {
+    [self.favouriteButtonAIView stopAnimating];
+    self.favouriteButtonAIView.hidden = YES;
+    self.favouriteButtonImageView.hidden = NO;
+    self.favouriteButton.enabled = YES;
 }
 
 - (void)showMoreIntroduction:(UIButton *)sender {

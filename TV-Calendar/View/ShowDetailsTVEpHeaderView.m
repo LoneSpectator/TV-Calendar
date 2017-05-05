@@ -59,10 +59,7 @@
 }
 
 - (void)markAllAsWatched {
-    self.checkButton.hidden = YES;
-    self.checkButtonImageView.hidden = YES;
-    self.checkButtonAIView.hidden = NO;
-    [self.checkButtonAIView startAnimating];
+    [self startWaiting];
     
     ShowDetailsTVEpHeaderView __weak *weakSelf = self;
     [Season markAsWatchedWithShowID:self.season.showID
@@ -78,25 +75,16 @@
                                 if (weakSelf.refreshTableViewBlock) {
                                     weakSelf.refreshTableViewBlock();
                                 }
-                                weakSelf.checkButton.hidden = NO;
-                                weakSelf.checkButtonImageView.hidden = NO;
-                                weakSelf.checkButtonAIView.hidden = YES;
-                                [weakSelf.checkButtonAIView stopAnimating];
+                                [weakSelf endWaiting];
                             }
                             failure:^(NSError *error) {
                                 NSLog(@"[ShowDetailsTVEpHeaderView]%@", error);
-                                weakSelf.checkButton.hidden = NO;
-                                weakSelf.checkButtonImageView.hidden = NO;
-                                weakSelf.checkButtonAIView.hidden = YES;
-                                [weakSelf.checkButtonAIView stopAnimating];
+                                [weakSelf endWaiting];
                             }];
 }
 
 - (void)unMarkAllAsWatched {
-    self.checkButton.hidden = YES;
-    self.checkButtonImageView.hidden = YES;
-    self.checkButtonAIView.hidden = NO;
-    [self.checkButtonAIView startAnimating];
+    [self startWaiting];
     
     ShowDetailsTVEpHeaderView __weak *weakSelf = self;
     [Season unMarkAsWatchedWithShowID:self.season.showID
@@ -112,18 +100,26 @@
                                   if (weakSelf.refreshTableViewBlock) {
                                       weakSelf.refreshTableViewBlock();
                                   }
-                                  weakSelf.checkButton.hidden = NO;
-                                  weakSelf.checkButtonImageView.hidden = NO;
-                                  weakSelf.checkButtonAIView.hidden = YES;
-                                  [weakSelf.checkButtonAIView stopAnimating];
+                                  [weakSelf endWaiting];
                               }
                               failure:^(NSError *error) {
                                   NSLog(@"[ShowDetailsTVEpHeaderView]%@", error);
-                                  weakSelf.checkButton.hidden = NO;
-                                  weakSelf.checkButtonImageView.hidden = NO;
-                                  weakSelf.checkButtonAIView.hidden = YES;
-                                  [weakSelf.checkButtonAIView stopAnimating];
+                                  [weakSelf endWaiting];
                               }];
+}
+
+- (void)startWaiting {
+    self.checkButton.enabled = NO;
+    self.checkButtonImageView.hidden = YES;
+    [self.checkButtonAIView startAnimating];
+    self.checkButtonAIView.hidden = NO;
+}
+
+- (void)endWaiting {
+    [self.checkButtonAIView stopAnimating];
+    self.checkButtonAIView.hidden = YES;
+    self.checkButtonImageView.hidden = NO;
+    self.checkButton.enabled = YES;
 }
 
 - (void)reloadData {

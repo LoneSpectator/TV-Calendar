@@ -138,16 +138,16 @@
 }
 
 - (void)login {
-    [self startWaitMode];
+    [self startWaiting];
     LoginVC __weak *weakSelf = self;
     [User loginWithPhone:self.phoneTextField.text
                 password:self.passwdTextField.text
                  success:^{
-                     [weakSelf endWaitMode];
+                     [weakSelf endWaiting];
                      [weakSelf dismissViewControllerAnimated:YES completion:nil];
                  }
                  failure:^(NSError *error) {
-                     [weakSelf endWaitMode];
+                     [weakSelf endWaiting];
                      if (error) {
                          if (error.domain == [NetworkManager defaultManager].webSite) {
                              weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
@@ -173,17 +173,17 @@
         return;
     }
     
-    [self startWaitMode];
+    [self startWaiting];
     LoginVC __weak *weakSelf = self;
     [User registerWithPhone:self.phoneTextField.text
                    userName:self.phoneTextField.text
                    password:self.passwdTextField.text
                     success:^{
-                        [weakSelf endWaitMode];
+                        [weakSelf endWaiting];
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                     }
                     failure:^(NSError *error) {
-                        [weakSelf endWaitMode];
+                        [weakSelf endWaiting];
                         if (error.domain == [NetworkManager defaultManager].webSite) {
                             weakSelf.errorMesssgeLabel.text = error.userInfo[NSLocalizedDescriptionKey];
                         } else {
@@ -211,9 +211,8 @@
     [self.confirmPasswdTextField resignFirstResponder];
 }
 
-- (void)startWaitMode {
+- (void)startWaiting {
     [self.AIView startAnimating];
-    
     LoginVC __weak *weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
         weakSelf.overlayView.alpha = 0.66;
@@ -221,7 +220,7 @@
     }];
 }
 
-- (void)endWaitMode {
+- (void)endWaiting {
     [self.AIView stopAnimating];
     LoginVC __weak *weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{

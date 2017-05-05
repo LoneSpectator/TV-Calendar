@@ -272,6 +272,7 @@
             cell.textLabel.text = LocalizedString(@"没找到相关的美剧");
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             cell.textLabel.textColor = [UIColor lightGrayColor];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];  // 禁止行被选中
             return cell;
         }
         ShowTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -288,6 +289,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        if (self.searchMode && self.showList.list.count == 0) {  // 提示行禁止点击
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
         ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Show *)self.showList.list[indexPath.row]).showID];
         [self.navigationController showViewController:vc
                                                sender:self];
@@ -304,6 +308,9 @@
 #pragma mark - Search bar delegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    if ([self.searchBar.text isEqualToString:@""]) {
+        return;
+    }
     [self.tableView.mj_header beginRefreshing];
     ShowListVC __weak *weakSelf = self;
     [self.showList searchShowByName:self.searchBar.text
@@ -320,7 +327,7 @@
                                 }
                                 NSLog(@"[ShowListVC]%@", error);
                                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
-                                                                                            message:LocalizedString(@"请下拉刷新")
+                                                                                            message:LocalizedString(@"请重试")
                                                                                      preferredStyle:UIAlertControllerStyleAlert];
                                 [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
                                                                        style:UIAlertActionStyleDefault
