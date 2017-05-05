@@ -87,7 +87,7 @@
 }
 
 - (void)startWaiting {
-    self.checkButton.enabled = NO;
+    self.checkButton.hidden = YES;
     self.checkButtonImageView.hidden = YES;
     [self.checkButtonAIView startAnimating];
     self.checkButtonAIView.hidden = NO;
@@ -97,7 +97,7 @@
     [self.checkButtonAIView stopAnimating];
     self.checkButtonAIView.hidden = YES;
     self.checkButtonImageView.hidden = NO;
-    self.checkButton.enabled = YES;
+    self.checkButton.hidden = NO;
 }
 
 - (void)reloadData {

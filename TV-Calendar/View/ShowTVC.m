@@ -93,7 +93,7 @@
 }
 
 - (void)startWaiting {
-    self.favouriteButton.enabled = NO;
+    self.favouriteButton.hidden = YES;
     self.favouriteButtonImageView.hidden = YES;
     [self.favouriteButtonAIView startAnimating];
     self.favouriteButtonAIView.hidden = NO;
@@ -103,7 +103,7 @@
     [self.favouriteButtonAIView stopAnimating];
     self.favouriteButtonAIView.hidden = YES;
     self.favouriteButtonImageView.hidden = NO;
-    self.favouriteButton.enabled = YES;
+    self.favouriteButton.hidden = NO;
 }
 
 @end

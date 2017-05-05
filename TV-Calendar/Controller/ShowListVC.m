@@ -291,6 +291,7 @@
     if (indexPath.section == 0) {
         if (self.searchMode && self.showList.list.count == 0) {  // 提示行禁止点击
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            return;
         }
         ShowDetailsVC *vc = [ShowDetailsVC viewControllerWithShowID:((Show *)self.showList.list[indexPath.row]).showID];
         [self.navigationController showViewController:vc
