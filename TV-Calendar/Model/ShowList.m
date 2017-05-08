@@ -89,21 +89,28 @@
     //*/
 }
 
-- (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit
-                                   success:(void (^)())success
-                                   failure:(void (^)(NSError *))failure {
-#warning 待修改
+- (void)fetchAllShowListFirstPageWithTag:(NSString *)tag
+                                 success:(void (^)())success
+                                 failure:(void (^)(NSError *))failure {
+    NSDictionary *parameters;
+    if (!currentUser) {
+        parameters = @{@"flag": tag,
+                       @"lan": (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? @"cn" : @"en"};
+    } else {
+        parameters = @{@"flag": tag,
+                       @"lan": (SettingsManager.defaultManager.defaultLanguage == zh_CN) ? @"cn" : @"en",
+                       @"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                       @"u_token": currentUser.token};;
+    }
     ShowList __weak *weakSelf = self;
     [[NetworkManager defaultManager] GET:@"AllShows"
-                              parameters:@{@"startPage": @"0",
-                                           @"itemPerPage": [NSString stringWithFormat:@"%ld", (long)limit]}
+                              parameters:parameters
                                  success:^(NSDictionary *data) {
-                                     weakSelf.page = 0;
-                                     weakSelf.quantityOfPage = [data[@"countShow"] integerValue];
+//                                     weakSelf.page = 0;
+//                                     weakSelf.quantityOfPage = [data[@"countShow"] integerValue];
 //                                     weakSelf.countOfPage = ceil(weakSelf.countOfShow / 20.0);
                                      weakSelf.list = [[NSMutableArray alloc] init];
-                                     NSArray *showsDataArray = data[@"shows"];
-                                     for (NSDictionary *showData in showsDataArray) {
+                                     for (NSDictionary *showData in data) {
                                          Show *show = [[Show alloc] init];
                                          show.showID = [showData[@"s_id"] integerValue];
                                          show.enName = showData[@"s_name"];
@@ -113,6 +120,7 @@
                                          show.channel = showData[@"channel"];
                                          show.imageURL = showData[@"s_sibox_image"];
                                          show.verticalImageURL = showData[@"s_vertical_image"];
+                                         show.isFavorite = [showData[@"subscribed"] boolValue];
                                          [weakSelf.list addObject:show];
                                      }
                                      if (success) {
@@ -126,6 +134,7 @@
                                  }];
 }
 
+/*/
 - (int)fetchAllShowListNextPageWithLimit:(NSInteger)limit
                                  success:(void (^)())success
                                  failure:(void (^)(NSError *))failure {
@@ -161,7 +170,7 @@
                                      }
                                  }];
     return 0;
-}
+}//*/
 
 - (void)fetchFavouriteShowListWithSuccess:(void (^)())success
                                   failure:(void (^)(NSError *))failure {
@@ -221,9 +230,7 @@
                                          show.showID = [showData[@"s_id"] integerValue];
                                          show.enName = showData[@"s_name"];
                                          show.chName = showData[@"s_name_cn"];
-                                         if (currentUser) {
-#warning 缺少是否订阅
-                                         }
+                                         show.isFavorite = [showData[@"subscribed"] boolValue];
                                          [weakSelf.list addObject:show];
                                      }
                                      if (success) {

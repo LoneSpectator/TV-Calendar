@@ -19,7 +19,7 @@
 		<key>FavouriteShows</key>
 		<string>myshows/</string>
 		<key>AllShows</key>
-		<string>showFilter/</string>
+		<string>newShowFilter/</string>
 		<key>LoginByPassword</key>
 		<string>loginByPassword/</string>
 		<key>DailyEpisodes</key>

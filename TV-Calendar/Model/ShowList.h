@@ -20,12 +20,12 @@
                             failure:(void (^)(NSError *))failure;
 - (void)fetchTipShowListWithSuccess:(void (^)())success
                             failure:(void (^)(NSError *))failure;
-- (void)fetchAllShowListFirstPageWithLimit:(NSInteger)limit
-                                   success:(void (^)())success
-                                   failure:(void (^)(NSError *))failure;
-- (int)fetchAllShowListNextPageWithLimit:(NSInteger)limit
+- (void)fetchAllShowListFirstPageWithTag:(NSString *)tag
                                  success:(void (^)())success
                                  failure:(void (^)(NSError *))failure;
+//- (int)fetchAllShowListNextPageWithLimit:(NSInteger)limit
+//                                 success:(void (^)())success
+//                                 failure:(void (^)(NSError *))failure;
 - (void)fetchFavouriteShowListWithSuccess:(void (^)())success
                                   failure:(void (^)(NSError *))failure;
 - (void)searchShowByName:(NSString *)name

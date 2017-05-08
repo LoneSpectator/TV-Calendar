@@ -121,7 +121,8 @@
     self.navigationItem.leftBarButtonItem = self.backItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(showSearchBar)];
     
-    [self.segmentedControl setSelectedSegmentIndex:0 animated:YES];
+    // 中文剧名按拼音排序，第0个标签“#”没有数据，所以默认从第1个标签“A”开始
+    [self.segmentedControl setSelectedSegmentIndex:1 animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -139,29 +140,29 @@
 }
 
 - (void)fetchData {
-#warning 
     ShowListVC __weak *weakSelf = self;
-    [self.showList fetchAllShowListFirstPageWithLimit:20
-                                              success:^{
-                                                  [weakSelf.tableView reloadData];
-                                                  [weakSelf.tableView.mj_header endRefreshing];
-                                                  [weakSelf.tableView.mj_footer resetNoMoreData];
-                                              }
-                                              failure:^(NSError *error) {
-                                                  NSLog(@"[ShowListVC]%@", error);
-                                                  [weakSelf.tableView.mj_header endRefreshing];
-                                                  UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
-                                                                                                              message:LocalizedString(@"请下拉刷新")
-                                                                                                       preferredStyle:UIAlertControllerStyleAlert];
-                                                  [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
-                                                                                         style:UIAlertActionStyleDefault
-                                                                                       handler:nil]];
-                                                  [weakSelf presentViewController:ac
-                                                                         animated:YES
-                                                                       completion:nil];
-                                              }];
+    [self.showList fetchAllShowListFirstPageWithTag:self.segmentArr[self.segmentedControl.selectedSegmentIndex]
+                                            success:^{
+                                                [weakSelf.tableView reloadData];
+                                                [weakSelf.tableView.mj_header endRefreshing];
+                                                [weakSelf.tableView.mj_footer resetNoMoreData];
+                                            }
+                                            failure:^(NSError *error) {
+                                                NSLog(@"[ShowListVC]%@", error);
+                                                [weakSelf.tableView.mj_header endRefreshing];
+                                                UIAlertController *ac = [UIAlertController alertControllerWithTitle:LocalizedString(@"发生了一点小问题！")
+                                                                                                            message:LocalizedString(@"请下拉刷新")
+                                                                                                     preferredStyle:UIAlertControllerStyleAlert];
+                                                [ac addAction:[UIAlertAction actionWithTitle:LocalizedString(@"好的")
+                                                                                       style:UIAlertActionStyleDefault
+                                                                                     handler:nil]];
+                                                [weakSelf presentViewController:ac
+                                                                       animated:YES
+                                                                     completion:nil];
+                                            }];
 }
 
+/*/
 - (void)fetchMoreData {
     int returnNum;
     ShowListVC __weak *weakSelf = self;
@@ -186,8 +187,7 @@
     if (returnNum == 1) {
         [self.tableView.mj_footer endRefreshingWithNoMoreData];
     }
-    
-}
+} //*/
 
 - (void)swipe:(UISwipeGestureRecognizer *)sender {
     if (self.searchMode) {
