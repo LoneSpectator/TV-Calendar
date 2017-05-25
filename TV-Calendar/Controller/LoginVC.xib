@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,6 +21,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login-Background" translatesAutoresizingMaskIntoConstraints="NO" id="BtT-zT-kyA">
+                        <rect key="frame" x="0.0" y="-83.5" width="375" height="667"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="BtT-zT-kyA" secondAttribute="height" multiplier="9:16" id="YqJ-Hz-N9z"/>
+                        </constraints>
+                    </imageView>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="BCQ-pt-I4i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                         <subviews>
@@ -151,7 +157,6 @@
                                         <rect key="frame" x="177" y="240" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="centerX" secondItem="EN1-ee-YOu" secondAttribute="centerX" id="2ae-nu-te0"/>
                                     <constraint firstItem="1ni-GF-azD" firstAttribute="top" secondItem="yG3-AG-hGO" secondAttribute="bottom" constant="30" id="2dC-gy-pRP"/>
@@ -176,10 +181,15 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="BtT-zT-kyA" firstAttribute="width" relation="greaterThanOrEqual" secondItem="d0X-r8-ncc" secondAttribute="width" id="BxY-20-FnZ"/>
+                    <constraint firstItem="BtT-zT-kyA" firstAttribute="centerY" secondItem="d0X-r8-ncc" secondAttribute="centerY" id="Eoy-X0-nuT"/>
+                    <constraint firstItem="BtT-zT-kyA" firstAttribute="centerX" secondItem="d0X-r8-ncc" secondAttribute="centerX" id="Hv2-gB-bDx"/>
+                    <constraint firstItem="BtT-zT-kyA" firstAttribute="height" relation="greaterThanOrEqual" secondItem="d0X-r8-ncc" secondAttribute="height" id="OGN-ac-yZz"/>
                     <constraint firstItem="EN1-ee-YOu" firstAttribute="width" secondItem="d0X-r8-ncc" secondAttribute="width" id="ORB-WD-Iup"/>
                     <constraint firstItem="EN1-ee-YOu" firstAttribute="height" secondItem="d0X-r8-ncc" secondAttribute="height" id="Sf5-XZ-XSj"/>
                     <constraint firstItem="BCQ-pt-I4i" firstAttribute="leading" secondItem="d0X-r8-ncc" secondAttribute="leading" id="TXk-Nk-Mld"/>
                     <constraint firstItem="BCQ-pt-I4i" firstAttribute="top" secondItem="d0X-r8-ncc" secondAttribute="top" id="Wwv-ai-NTn"/>
+                    <constraint firstItem="BtT-zT-kyA" firstAttribute="width" secondItem="d0X-r8-ncc" secondAttribute="width" placeholder="YES" id="deK-R0-fJR"/>
                     <constraint firstAttribute="trailing" secondItem="BCQ-pt-I4i" secondAttribute="trailing" id="rxc-Fy-R6Y"/>
                     <constraint firstAttribute="bottom" secondItem="BCQ-pt-I4i" secondAttribute="bottom" id="yC6-1C-eve"/>
                 </constraints>
@@ -202,6 +212,7 @@
         </viewController>
     </objects>
     <resources>
+        <image name="Login-Background" width="16" height="16"/>
         <image name="Login-Password" width="20" height="20"/>
         <image name="Login-User" width="20" height="20"/>
     </resources>

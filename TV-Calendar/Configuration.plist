@@ -6,6 +6,8 @@
 	<string>http://yifanslab.cn/TVCalendarAPI/index.php/Api/</string>
 	<key>Paths</key>
 	<dict>
+		<key>TipShowList</key>
+		<string>discover/</string>
 		<key>TopShowList</key>
 		<string>top24</string>
 		<key>SearchShowByName</key>

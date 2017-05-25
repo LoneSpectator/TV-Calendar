@@ -60,13 +60,10 @@
 
 - (void)fetchTipShowListWithSuccess:(void (^)())success
                             failure:(void (^)(NSError *))failure {
-#warning 待实现
-    //*/
-    [self fetchTopShowListWithSuccess:success failure:failure];
-    /*/
     ShowList __weak *weakSelf = self;
     [[NetworkManager defaultManager] GET:@"TipShowList"
-                              parameters:@{}
+                              parameters:@{@"u_id": [NSString stringWithFormat:@"%ld", (long)currentUser.ID],
+                                           @"u_token": currentUser.token}
                                  success:^(NSDictionary *data) {
                                      weakSelf.list = [[NSMutableArray alloc] init];
                                      for (NSDictionary *showData in data) {
@@ -86,7 +83,6 @@
                                          failure(error);
                                      }
                                  }];
-    //*/
 }
 
 - (void)fetchAllShowListFirstPageWithTag:(NSString *)tag
