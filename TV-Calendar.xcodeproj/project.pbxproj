@@ -13,6 +13,9 @@
 		5C29CF301EA9046E0085125C /* ShowDetailsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C29CF2F1EA9046E0085125C /* ShowDetailsTVC.xib */; };
 		5C423CDC1EB4E9BC0087877E /* ShowListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C423CDB1EB4E9BC0087877E /* ShowListVC.xib */; };
 		5C44246C1EB09D8C00226D6B /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */; };
+		5C494AD31ED69DC90095DC0D /* PgySDK in Resources */ = {isa = PBXBuildFile; fileRef = 5C494AD21ED69DC90095DC0D /* PgySDK */; };
+		5C494AD51ED69E390095DC0D /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C494AD41ED69E390095DC0D /* PgySDK.framework */; };
+		5C494AD71ED69E460095DC0D /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C494AD61ED69E460095DC0D /* PgyUpdate.framework */; };
 		5C5DDE461CFC6D4F00D4C3A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */; };
 		5C64FEC31CFB0061009CFDB4 /* FavouriteShowsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */; };
 		5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C64FEC41CFB0077009CFDB4 /* FavouriteShowsTVC.xib */; };
@@ -125,6 +128,9 @@
 		5C423CDB1EB4E9BC0087877E /* ShowListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowListVC.xib; sourceTree = "<group>"; };
 		5C44246A1EB09D8C00226D6B /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		5C44246B1EB09D8C00226D6B /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		5C494AD21ED69DC90095DC0D /* PgySDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PgySDK; sourceTree = "<group>"; };
+		5C494AD41ED69E390095DC0D /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PgySDK.framework; path = "TV-Calendar/External/PgySDK/PgySDK.framework"; sourceTree = "<group>"; };
+		5C494AD61ED69E460095DC0D /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PgyUpdate.framework; path = "TV-Calendar/External/PgySDK/PgyUpdate.framework"; sourceTree = "<group>"; };
 		5C5DDE451CFC6D4F00D4C3A0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "TV-Calendar/Images.xcassets"; sourceTree = "<group>"; };
 		5C64FEC11CFB0061009CFDB4 /* FavouriteShowsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteShowsTVC.h; sourceTree = "<group>"; };
 		5C64FEC21CFB0061009CFDB4 /* FavouriteShowsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteShowsTVC.m; sourceTree = "<group>"; };
@@ -312,6 +318,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C494AD71ED69E460095DC0D /* PgyUpdate.framework in Frameworks */,
+				5C494AD51ED69E390095DC0D /* PgySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +482,7 @@
 		5CBE545D1AD553EB00BF565B /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5C494AD21ED69DC90095DC0D /* PgySDK */,
 				5C4424691EB09D8C00226D6B /* HMSegmentedControl */,
 				5C687DA11CC4CB22005BD4FC /* UIKit+AFNetworking */,
 				5CC5FA1E1CB5F68B00E39CB7 /* AFNetworking */,
@@ -727,6 +736,8 @@
 		5CF300C01B5B3FBB00F3E65E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C494AD61ED69E460095DC0D /* PgyUpdate.framework */,
+				5C494AD41ED69E390095DC0D /* PgySDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -830,6 +841,7 @@
 				5C15CF751CF8216900B84C53 /* ShowTVC.xib in Resources */,
 				5CA457451EAF86FD005ABD89 /* ShowDetailsTVEpCell.xib in Resources */,
 				5CBE54431AD5535800BF565B /* Main.storyboard in Resources */,
+				5C494AD31ED69DC90095DC0D /* PgySDK in Resources */,
 				5C64FEC51CFB0077009CFDB4 /* FavouriteShowsTVC.xib in Resources */,
 				5C1B831C1CDC231C001D6D8D /* LoginVC.xib in Resources */,
 				5CBE54481AD5535800BF565B /* LaunchScreen.xib in Resources */,
@@ -1083,7 +1095,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TV-Calendar/External/PgySDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
 				INFOPLIST_FILE = "TV-Calendar/Info.plist";
@@ -1103,7 +1118,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TV-Calendar/External/PgySDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "TV-Calendar/TV-Calendar-Prefix.h";
 				INFOPLIST_FILE = "TV-Calendar/Info.plist";

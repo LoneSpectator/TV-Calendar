@@ -14,6 +14,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // 全局设置
+    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:PGY_APPKEY];
+    [[PgyManager sharedPgyManager] startManagerWithAppId:PGY_APPKEY];
+    
     [User loginWithCache];
     
     return YES;
